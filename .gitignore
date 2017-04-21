@@ -7,6 +7,12 @@
 *.userosscache
 *.sln.docstates
 
+#Making it Simplistic
+*.csproj
+*.config
+*.StyleCop
+*.Cache
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
