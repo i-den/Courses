@@ -10,7 +10,7 @@ public class Program
         int maxSeq = int.MinValue;
         int startIndex = 0;
 
-        GetMaxSeqandIndex(inputArray, ref maxSeq, ref startIndex);
+        GetMaxSeqAndIndex(inputArray, ref maxSeq, ref startIndex);
 
         PrintSeqArray(inputArray, maxSeq, startIndex);
     }
