@@ -5,7 +5,6 @@ public class Program
     public static void Main()
     {
         var matchSum = int.Parse(Console.ReadLine());
-        var newLineCounter = 0;
 
         for (int firstIndex = 1; firstIndex <= 4; firstIndex++)
         {
@@ -19,9 +18,8 @@ public class Program
                     var wrapper = (firstIndex + secondIndex + thirdIndex) >= matchSum ? "O" : "X";
 
                     Console.Write($"{wrapper}{firstNuc}{secNuc}{thirdNuc}{wrapper} ");
-                    newLineCounter++;
 
-                    if (newLineCounter % 4 == 0)
+                    if (thirdIndex % 4 == 0)
                     {
                         Console.WriteLine();
                     }
