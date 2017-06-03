@@ -1,4 +1,4 @@
-# SoftwareUniversity
+# SoftwareUniversity <img src="http://softuniada.softuni.bg/wp-content/uploads/2015/01/SoftUni-Logo-Flat_square-blue-300x235.png"></img>
 <strong>
   <a href="https://github.com/i-den/SoftwareUniversity/tree/master/c%23/ProgrammingFundamentals/OlderContent">
   Older Content folder
