@@ -1,9 +1,13 @@
 # SoftwareUniversity
 <strong>
   <a href="https://github.com/i-den/SoftwareUniversity/tree/master/c%23/ProgrammingFundamentals/OlderContent">
-  Older Content
+  Older Content folder
   </a>
- is for older versions of the Programming Fundamentals course.
+ is for 
+  <a href="https://softuni.bg/courses/programming-fundamentals">
+  older versions
+  </a>
+ of the Programming Fundamentals course.
 </strong> <br>
 The current one is for the course 
 <a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">
