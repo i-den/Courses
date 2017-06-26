@@ -23,17 +23,26 @@ namespace MentorGroup
                 var tokens = input.Split(new[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
 
                 var name = tokens.First();
+
                 var dates = tokens
                     .Skip(1)
                     .Select(x => DateTime.ParseExact(x, "dd/MM/yyyy", CultureInfo.InvariantCulture))
                     .ToList();
 
-                studentsList.Add(new Student
+                if (studentsList.Any(s => s.Name == name))
                 {
-                    Name = name,
-                    Comments = new List<string>(),
-                    DatesAttended = dates
-                });
+                    var currStudent = studentsList.First(s => s.Name == name);
+                    currStudent.DatesAttended.AddRange(dates);
+                }
+                else
+                {
+                    studentsList.Add(new Student
+                    {
+                        Name = name,
+                        Comments = new List<string>(),
+                        DatesAttended = dates
+                    });
+                }
             }
 
             while (true)
