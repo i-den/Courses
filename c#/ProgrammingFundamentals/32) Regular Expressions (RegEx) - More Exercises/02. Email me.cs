@@ -10,11 +10,9 @@ public class Program
         var matches = Regex.Matches(email, @"(?<left>.*?)@(?<right>.*)");
 
         var left = GetSideSum("left", matches);
-
         var right = GetSideSum("right", matches);
 
         Console.WriteLine(right <= left ? "Call her!" : "She is not the one.");
-
     }
 
     public static int GetSideSum(string side, MatchCollection matches)
