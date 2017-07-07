@@ -1,28 +1,25 @@
 ﻿using System;
 
-namespace _12.Speed_Info
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main(string[] args)
-        {
-            var sp = double.Parse(Console.ReadLine());
+        var sp = double.Parse(Console.ReadLine());
 
-            if (sp <= 10)
-                Console.WriteLine("slow");
+        if (sp <= 10)
+            Console.WriteLine("slow");
 
-            else if (sp > 10 && sp <= 50)
-                Console.WriteLine("average");
-            
-            else if (sp > 50 && sp <= 150)
-                Console.WriteLine("fast");
-           
-            else if (sp > 150 && sp <= 1000)
-                Console.WriteLine("ultra fast");
-           
-            else
-                Console.WriteLine("extremely fast");
-           
-        }
+        else if (sp > 10 && sp <= 50)
+            Console.WriteLine("average");
+
+        else if (sp > 50 && sp <= 150)
+            Console.WriteLine("fast");
+
+        else if (sp > 150 && sp <= 1000)
+            Console.WriteLine("ultra fast");
+
+        else
+            Console.WriteLine("extremely fast");
+
     }
 }

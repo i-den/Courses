@@ -1,14 +1,11 @@
 ﻿using System;
 
-namespace _01.Excellent_Result
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main()
-        {
-            double grade = double.Parse(Console.ReadLine());
-            if (grade >= 5.50)
-                Console.WriteLine("Excellent!");
-        }
+        double grade = double.Parse(Console.ReadLine());
+        if (grade >= 5.50)
+            Console.WriteLine("Excellent!");
     }
 }

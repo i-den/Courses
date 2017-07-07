@@ -1,20 +1,17 @@
 ﻿using System;
 
-namespace _11.Equal_Words
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main()
-        {
-            var a = Console.ReadLine();
-            var b = Console.ReadLine();
+        var a = Console.ReadLine();
+        var b = Console.ReadLine();
 
-            if (a.ToLower() == b.ToLower())
-                Console.WriteLine("yes");
+        if (a.ToLower() == b.ToLower())
+            Console.WriteLine("yes");
 
-            else
-                Console.WriteLine("no");
+        else
+            Console.WriteLine("no");
 
-        }
     }
 }
