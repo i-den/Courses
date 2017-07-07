@@ -1,95 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace _08.Trade_Comissions
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main(string[] args)
+        var city = Console.ReadLine().ToLower();
+        var sales = double.Parse(Console.ReadLine());
+
+        var comm = 0.0;
+
+        if (city == "sofia")
         {
-            var city = Console.ReadLine().ToLower();
-            var sales = double.Parse(Console.ReadLine());
+            if (sales >= 0 && sales <= 500)
+            {
+                comm = sales * 0.05;
+            }
+            if (sales > 500 && sales <= 1000)
+            {
+                comm = sales * 0.07;
+            }
+            if (sales > 1000 && sales <= 10000)
+            {
+                comm = sales * 0.08;
+            }
+            if (sales > 10000)
+            {
+                comm = sales * 0.12;
+            }
+            Console.WriteLine(comm);
+        }
+        else
+        {
+            Console.WriteLine("error");
+        }
 
-            var comm = 0.0;
+        if (city == "varna")
+        {
+            if (sales >= 0 && sales <= 500)
+            {
+                comm = sales * 0.045;
+            }
+            if (sales > 500 && sales <= 1000)
+            {
+                comm = sales * 0.075;
+            }
+            if (sales > 1000 && sales <= 10000)
+            {
+                comm = sales * 0.1;
+            }
+            if (sales > 10000)
+            {
+                comm = sales * 0.13;
+            }
+            Console.WriteLine(comm);
+        }
+        else
+        {
+            Console.WriteLine("error");
+        }
 
-            if (city == "sofia")
+        if (city == "plovdiv")
+        {
+            if (sales >= 0 && sales <= 500)
             {
-                if (sales >= 0 && sales <= 500)
-                {
-                    comm = sales * 0.05;
-                }
-                if (sales > 500 && sales <= 1000)
-                {
-                    comm = sales * 0.07;
-                }
-                if (sales > 1000 && sales <= 10000)
-                {
-                    comm = sales * 0.08;
-                }
-                if (sales > 10000)
-                {
-                    comm = sales * 0.12;
-                }
-                Console.WriteLine( comm );
+                comm = sales * 0.055;
             }
-            else
+            if (sales > 500 && sales <= 1000)
             {
-                Console.WriteLine("error");
+                comm = sales * 0.08;
             }
-
-            if (city == "varna")
+            if (sales > 1000 && sales <= 10000)
             {
-                if (sales >= 0 && sales <= 500)
-                {
-                    comm = sales * 0.045;
-                }
-                if (sales > 500 && sales <= 1000)
-                {
-                    comm = sales * 0.075;
-                }
-                if (sales > 1000 && sales <= 10000)
-                {
-                    comm = sales * 0.1;
-                }
-                if (sales > 10000)
-                {
-                    comm = sales * 0.13;
-                }
-                Console.WriteLine( comm );
+                comm = sales * 0.12;
             }
-            else
+            if (sales > 10000)
             {
-                Console.WriteLine("error");
+                comm = sales * 0.145;
             }
-
-            if (city == "plovdiv")
-            {
-                if (sales >= 0 && sales <= 500)
-                {
-                    comm = sales * 0.055;
-                }
-                if (sales > 500 && sales <= 1000)
-                {
-                    comm = sales * 0.08;
-                }
-                if (sales > 1000 && sales <= 10000)
-                {
-                    comm = sales * 0.12;
-                }
-                if (sales > 10000)
-                {
-                    comm = sales * 0.145;
-                }
-                Console.WriteLine( comm );
-            }
-            else
-            {
-                Console.WriteLine("error");
-            }
-            
+            Console.WriteLine(comm);
+        }
+        else
+        {
+            Console.WriteLine("error");
         }
     }
 }
