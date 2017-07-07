@@ -1,12 +1,9 @@
 ﻿using System;
 
-namespace _02.Inches_to_Centimeters
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main()
-        {
-            Console.WriteLine(double.Parse(Console.ReadLine())*2.54);
-        }
+        Console.WriteLine(double.Parse(Console.ReadLine()) * 2.54);
     }
 }

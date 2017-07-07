@@ -1,14 +1,11 @@
 ﻿using System;
 
-namespace _10.Radians_to_Degrees
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main()
-        {
-            double rad = double.Parse(Console.ReadLine());
-            double deg = (rad * 180) / Math.PI;
-            Console.WriteLine(Math.Round(deg));
-        }
+        double rad = double.Parse(Console.ReadLine());
+        double deg = (rad * 180) / Math.PI;
+        Console.WriteLine(Math.Round(deg));
     }
 }
