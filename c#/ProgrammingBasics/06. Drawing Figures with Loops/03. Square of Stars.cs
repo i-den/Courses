@@ -1,21 +1,18 @@
 ﻿using System;
 
-namespace _03.Square_of_Stars
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main()
+        var n = int.Parse(Console.ReadLine());
+
+        for (int row = 0; row < n; row++)
         {
-            var n = int.Parse(Console.ReadLine());
+            Console.Write("$");
 
-            for (int rows = 1; rows <= n; rows++)
-            {
-                for (int col = 1; col <= n; col++)
-                    Console.Write("*");
-
-                Console.WriteLine();
-            }
-
+            for (int col = 0; col < row; col++)
+                Console.Write(" $");
+            Console.WriteLine();
         }
     }
 }

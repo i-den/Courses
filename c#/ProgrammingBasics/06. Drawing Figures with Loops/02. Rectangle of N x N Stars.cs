@@ -1,21 +1,17 @@
 ﻿using System;
 
-namespace _02.Rectangle_of_N_x_N_Stars
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main()
+        var n = int.Parse(Console.ReadLine());
+
+        for (int rows = 1; rows <= n; rows++)
         {
-            var n = int.Parse(Console.ReadLine());
+            for (int col = 1; col <= n; col++)
+                Console.Write("*");
 
-            for (int rows = 1; rows <= n; rows++)
-            {
-                for (int col = 1; col <= n; col++)
-                    Console.Write("*");
-
-                Console.WriteLine();
-            }
-
+            Console.WriteLine();
         }
     }
 }
