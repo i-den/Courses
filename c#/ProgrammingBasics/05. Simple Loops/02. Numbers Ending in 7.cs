@@ -1,14 +1,11 @@
 ﻿using System;
 
-namespace _02.Numbers_Ending_in_7
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main()
-        {
-            for (int i = 1; i < 1000; i++)
-                if (i % 10 == 7)
-                    Console.WriteLine(i);
-        }
+        for (int i = 1; i < 1000; i++)
+            if (i % 10 == 7)
+                Console.WriteLine(i);
     }
 }

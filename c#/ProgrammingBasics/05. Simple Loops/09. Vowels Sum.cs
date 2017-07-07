@@ -1,44 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace _09.Vowels_Sum
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main(string[] args)
+        var text = Console.ReadLine();
+        var sum = 0;
+
+        for (int i = 0; i < text.Length; i++)
         {
-            var text = Console.ReadLine();
-
-            var sum = 0;
-
-            for (int i = 0; i < text.Length; i++)
+            var currletter = text[i];
+            switch (currletter)
             {
-                var currletter = text[i];
-                switch (currletter)
-                {
-                    case 'a':
-                        sum += 1;
-                        break;
-                    case 'e':
-                        sum += 2;
-                        break;
-                    case 'i':
-                        sum += 3;
-                        break;
-                    case 'o':
-                        sum += 4;
-                        break;
-                    case 'u':
-                        sum += 5;
-                        break;
-                }
+                case 'a':
+                    sum += 1;
+                    break;
+                case 'e':
+                    sum += 2;
+                    break;
+                case 'i':
+                    sum += 3;
+                    break;
+                case 'o':
+                    sum += 4;
+                    break;
+                case 'u':
+                    sum += 5;
+                    break;
             }
-
-            Console.WriteLine(sum);
-
         }
+
+        Console.WriteLine(sum);
     }
 }

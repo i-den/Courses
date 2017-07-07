@@ -1,20 +1,17 @@
 ﻿using System;
 
-namespace _03.Latin_Letters
+class Program
 {
-    class Program
+    public static void Main()
     {
-        static void Main()
+        var n = int.Parse(Console.ReadLine());
+        var sum = 0;
+
+        for (var i = 1; i <= n; i++)
         {
-            var n = int.Parse(Console.ReadLine());
-
-            var sum = 0;
-
-            for (var i = 1; i <= n; i++)
-            {
-                 sum += int.Parse(Console.ReadLine());
-            }
-            Console.WriteLine(sum);
+            sum += int.Parse(Console.ReadLine());
         }
+
+        Console.WriteLine(sum);
     }
 }
