@@ -12,6 +12,7 @@ class Program
             try
             {
                 n = int.Parse(Console.ReadLine());
+                
                 if (n % 2 == 0)
                 {
                     Console.WriteLine(n);
@@ -21,10 +22,7 @@ class Program
             catch
             {
                 Console.WriteLine("Invalid number!");
-
-
             }
-
         }
     }
 }
