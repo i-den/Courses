@@ -4,6 +4,7 @@
 ## Courses taken in Softuni - https://softuni.bg/
 
 <a href="https://github.com/i-den/SoftwareUniversity/tree/master/01)%20Programming%20Basics">01) Programming Basics</a> - C#
+- loops, conditional statements
 
 
 <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals">02) Programming Fundamentals</a> - C#
