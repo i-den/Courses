@@ -1,4 +1,4 @@
-# <img src="http://softuniada.softuni.bg/wp-content/uploads/2015/01/SoftUni-Logo-Flat_square-blue-300x235.png" height="120" width="150"> <span style="text-align: center">Software University Courses</span>
+# <img src="http://softuniada.softuni.bg/wp-content/uploads/2015/01/SoftUni-Logo-Flat_square-blue-300x235.png" height="120" width="150"> Software University Courses
 <strong>
 
 ## Courses taken in Softuni - https://softuni.bg/
