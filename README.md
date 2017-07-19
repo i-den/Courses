@@ -10,4 +10,4 @@
 - data types (string, int, float), data structures (arrays, lists, dictionaries), classes
 
 <a href="https://github.com/i-den/SoftwareUniversity/tree/master/03)%20Software%20Technologies">03) Software Technologies</a> - HTML, CSS, PHP, JavaScript, Java, C#
-
+- captain planet
