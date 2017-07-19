@@ -3,4 +3,4 @@
 
 Courses taken in Softuni - https://softuni.bg/
 
-[01) Programming Basics](https://github.com/i-den/SoftwareUniversity/tree/master/01)ProgrammingBasics)
+[link text itself]: http://www.reddit.com
