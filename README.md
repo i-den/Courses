@@ -2,5 +2,6 @@
 <strong>
 
 ## Courses taken in Softuni - https://softuni.bg/
-
+<p>
 <a href="https://github.com/i-den/SoftwareUniversity/tree/master/01)%20Programming%20Basics">01) Programming Basics</a> - C#
+</p>
