@@ -5,9 +5,9 @@
 
 <a href="https://github.com/i-den/SoftwareUniversity/tree/master/01)%20Programming%20Basics">01) Programming Basics</a> - C#
 
-<p>
+
 <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals">02) Programming Fundamentals</a> - C#
-</p>
-<p>
+
+
 <a href="https://github.com/i-den/SoftwareUniversity/tree/master/03)%20Software%20Technologies">03) Software Technologies</a> - HTML, CSS, PHP, JavaScript, Java, C#
-</p>
+
