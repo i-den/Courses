@@ -4,8 +4,6 @@
 
 ## Courses taken while in SoftUni
 
-## 2017 - Current
-
 ### Repository
 
 | Courses | Languages | About | Year |
