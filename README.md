@@ -4,7 +4,7 @@
 
 ## Courses taken while in SoftUni
 
-### Repository
+### Repository Information
 
 | Courses | Languages | About | Year |
 |---------|:---------:|:-----:|-----:|
