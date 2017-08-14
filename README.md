@@ -1,6 +1,9 @@
 <img src="https://softuni.bg/Content/images/about-page/softuni.png" align="right" />
 
 # Software University Courses
+#
+#
+#
 
 | Courses | Languages | About |
 |---------|:---------:|:-----:|
