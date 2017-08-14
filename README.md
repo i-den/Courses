@@ -1,4 +1,4 @@
-[![N|Solid](http://innovationstarterbox.bg/wp-content/uploads/2016/05/Softuni_logo_trasparent.png)](https://nodesource.com/products/nsolid)
+[![N|Solid](http://innovationstarterbox.bg/wp-content/uploads/2016/05/Softuni_logo_trasparent.png)](https://softuni.bg/)
 
 # Software University Courses
 
