@@ -2,8 +2,8 @@
 
 # [Software University](https://softuni.bg/ "Visit SoftUni")
 #
-#
-#
+# Courses taken while in SoftUni
+# 2017 - 
 
 | Courses | Languages | About | Year |
 |---------|:---------:|:-----:|-----:|
