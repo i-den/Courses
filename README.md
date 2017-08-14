@@ -1,2 +1,2 @@
-# Software University Courses
+ Software University Courses
 ---
