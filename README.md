@@ -1,3 +1,4 @@
+<img src="https://softuni.bg/Content/images/about-page/softuni.png" align="right" />
 [![N|Solid](http://innovationstarterbox.bg/wp-content/uploads/2016/05/Softuni_logo_trasparent.png)](https://softuni.bg/ "Visit Softuni")
 
 # Software University Courses
