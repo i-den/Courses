@@ -4,7 +4,7 @@
 
 ## Courses taken while in SoftUni
 
-## 2017 - 
+## 2017 - Current
 
 ### Repository
 
