@@ -1,3 +1,4 @@
 # Software University Courses
 
-| Courses | Languages | About
+| Courses | Languages | About |
+|  :---:  |  :---:    | :--:|
