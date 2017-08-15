@@ -14,9 +14,9 @@
  ```
 > ### *Arrays*
  ```C#
- var myArray = new int[num];
- var mySecondArray = new { 1, 2, 3 };
- var myThirdArray = Console.ReadLine().Split().ToArray();
+ var newIntArray = new int[num];
+ var anotherNewIntArray = new[] { 1, 2, 3 };
+ var consoleReadArray = Console.ReadLine().Split().ToArray();
  ```
 > ### *Methods*
  ```C#
@@ -37,7 +37,8 @@
  ```
 > ### *Dictionaries (Associative Arrays)*
  ```C#
-
+ var studentGradeList = new Dictionary<string, int>();
+ var myArray = 
  ```
 <p align="center">
 <a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">Course Page</a> <br />
