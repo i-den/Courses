@@ -3,10 +3,14 @@
 <br />
 
  ## *The second course introducing different data structures and objects*
->  ### *Console, using C# and Windows*
+>  ### *Primitive Data Types*
  ```C#
- Console.WriteLine();
- Console.ReadLine();
+ int a = 1;
+ double b = 1.5;
+ char c = 'a';
+ string d = "Name";
+ bool e = true;
+ 
  ```
 > ### *Simple math operators*
  ```C#
