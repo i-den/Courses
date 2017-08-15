@@ -80,15 +80,15 @@ foreach (var currentStudent in studentGradeList)
     var cats = new Cat[]
     {
     new Cat
-    {
+     {
         Name = "Andre",
         Age = 2
-    },
+     },
     new Cat
-    {
+     {
         Name = "Jina",
         Age = 3
-    }
+     }
     };
 
     foreach (var currentCat in cats)
