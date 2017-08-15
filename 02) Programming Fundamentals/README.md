@@ -73,6 +73,10 @@ foreach (var currentStudent in studentGradeList)
     Console.WriteLine();
 }
  ```
+ > ### *Dictionaries (Associative Arrays)*
+ ```C#
+ 
+  ```
 <p align="center">
 <a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">Course Page</a> <br />
 <a href="https://judge.softuni.bg/Contests#!/List/ByCategory/32/Progr-Fundamentals-Exercises">Judge</a>
