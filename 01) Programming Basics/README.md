@@ -13,6 +13,7 @@
  var a = 3;
  var b = 4;
  var c = a + b;
+ 
  Console.WriteLine(c);
  ```
 > ### *3. Simple Conditional Statements*
@@ -26,6 +27,7 @@
  else(true)
  {
  }
+ 
  switch()
  {
  case true:
@@ -39,6 +41,7 @@
  for (int i = 0; i < num; i++) 
  {
  }
+ 
  while (true)
  {
  }
