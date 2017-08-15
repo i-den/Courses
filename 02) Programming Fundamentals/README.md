@@ -35,15 +35,9 @@
   return firstNumber * secondNumber;
  }
  ```
-> ### *Simple Loops*
+> ### *Dictionaries (Associative Arrays)*
  ```C#
- for (int i = 0; i < num; i++) 
- {
- }
- 
- while (true)
- {
- }
+
  ```
 <p align="center">
 <a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">Course Page</a> <br />
