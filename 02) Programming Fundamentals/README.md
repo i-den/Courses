@@ -18,25 +18,12 @@
  var mySecondArray = new { 1, 2, 3 };
  var myThirdArray = Console.ReadLine().Split().ToArray();
  ```
-> ### *Simple Conditional Statements*
+> ### *Methods*
  ```C#
- if(false)
- {
- }
- else if(false)
- {
- }
- else(true)
- {
- }
+ var a = 3;
+ var b = 4;
+ Calculate(a, b); //
  
- switch()
- {
- case true:
- break;
- default:
- break;
- }
  ```
 > ### *Simple Loops*
  ```C#
