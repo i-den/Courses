@@ -1,8 +1,8 @@
-<h1 align="center"><em>Programming Basics Bulgaria - January 2017</em></h1>
+<h1 align="center"><em>Programming Fundamentals - May 2017</em></h1>
  
 <br />
 
- ## *The introductory course to programming dealing mostly with:*
+ ## *The second course introducing different data structures and objects*
 >  ### *Console, using C# and Windows*
  ```C#
  Console.WriteLine();
