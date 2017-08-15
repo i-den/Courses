@@ -26,6 +26,24 @@
 
  #### 24. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/24)%20Objects%20and%20Classes%20-%20Exercises">Objects and Classes - Exercises</a>
 
+ #### 29. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/29)%20Strings%20and%20Text%20Processing%20-%20Exercises">Strings and Text Processing - Exercises</a>
+
+ #### 31. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/31)%20Regular%20Expressions%20(RegEx)%20-%20Exercises">Regular Expressions (RegEx) - Exercises</a>
+
+ #### 32. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/32)%20Regular%20Expressions%20(RegEx)%20-%20More%20Exercises">Regular Expressions (RegEx) - More Exercises</a>
+
+ #### 33. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/33)%20Exam%20Preparation%20I">Exam Preparation I</a>
+
+ #### 34. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/34)%20Exam%20Preparation%20II">Exam Preparation II</a>
+
+ #### 35. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/35)%20Exam%20Preparation%20III">Exam Preparation III</a>
+
+ #### 36. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/36)%20Exam%20Preparation%20IV">Exam Preparation IV</a>
+
+ #### 36. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/36)%20Exam%20Preparation%20IV">Exam Preparation IV</a>
+
+ #### 37. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/37)%20Exam">Exam</a>
+
 
 
 
