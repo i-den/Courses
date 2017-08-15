@@ -142,7 +142,9 @@ class Cat
             .Where(m => m != string.Empty)
             .ToArray();
         
-        Console.WriteLine(matches.Any() ? string.Join(string.Empty, matches) : "Empty result");
+        Console.WriteLine(matches.Any() 
+         ? string.Join(string.Empty, matches) 
+         : "Empty result");
   ```
   
 <p align="center">
