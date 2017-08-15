@@ -16,9 +16,15 @@
 > ```
 > 3. Simple Conditional Statements
 > ```C#
-> if()
-> else if()
-> else()
+> if(false)
+> {
+> }
+> else if(false)
+> {
+> }
+> else(true)
+> {
+> }
 > switch()
 > {
 > case :
