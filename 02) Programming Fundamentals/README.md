@@ -9,3 +9,5 @@
  #### 6. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/06)%20C%20Sharp%20Conditional%20Statements%20and%20Loops%20-%20Exercises">C Sharp Conditional Statements and Loops - Exercises	</a>
  
  #### 7. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/07)%20C%20Sharp%20Basics%20-%20More%20Exercises">C Sharp Basics - More Exercises</a>
+
+ #### 7. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/11)%20Data%20Types%20and%20Variables%20-%20Exercises">Data Types and Variables - Exercises</a>
