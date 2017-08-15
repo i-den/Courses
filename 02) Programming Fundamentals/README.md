@@ -109,6 +109,21 @@ class Cat
     }
 }
   ```
+> ### *Lambda Functions*
+ ```C#
+         var towns = new List<string>
+        {
+            "Sofia",
+            "Plovdiv",
+            "Varna",
+            "Bourgas"
+        };
+
+        foreach (var currentTown in towns.OrderBy(t => t))
+        {
+            Console.WriteLine(currentTown);
+        }
+  ```
 <p align="center">
 <a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">Course Page</a> <br />
 <a href="https://judge.softuni.bg/Contests#!/List/ByCategory/32/Progr-Fundamentals-Exercises">Judge</a>
