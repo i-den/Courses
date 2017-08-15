@@ -15,3 +15,13 @@
 > Console.WriteLine(c);
 > ```
 > 3. Simple Conditional Statements
+> ```C#
+> if()
+> else if()
+> else()
+> switch()
+> {
+> case :
+> break;
+> }
+> ```
