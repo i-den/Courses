@@ -111,7 +111,7 @@ class Cat
   ```
 > ### *Lambda Functions*
  ```C#
-         var towns = new List<string>
+var towns = new List<string>
         {
             "Sofia",
             "Plovdiv",
@@ -119,10 +119,10 @@ class Cat
             "Bourgas"
         };
 
-        foreach (var currentTown in towns.OrderBy(t => t))
-        {
-            Console.WriteLine(currentTown);
-        }
+foreach (var currentTown in towns.OrderBy(t => t))
+{
+    Console.WriteLine(currentTown);
+}
   ```
 > ### *Text Processing and Regular Expressions (RegEx)*
  ```C#
