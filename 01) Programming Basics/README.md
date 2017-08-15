@@ -2,12 +2,12 @@
  
 <br />
 
- ## *The introductory course to programming, dealing mostly with:*
-  ### *1. Console, using C# and Windows*
-> ```C#
-> Console.WriteLine();
-> Console.ReadLine();
-> ```
+> ## *The introductory course to programming, dealing mostly with:*
+>  ### *1. Console, using C# and Windows*
+ ```C#
+ Console.WriteLine();
+ Console.ReadLine();
+ ```
 > ### *2. Simple math operators*
 > ```C#
 > var a = 3;
