@@ -1,8 +1,6 @@
-# <img src="http://softuniada.softuni.bg/wp-content/uploads/2015/01/SoftUni-Logo-Flat_square-blue-300x235.png" height="60" width="75"> Software University C# Courses
-<strong>
-  Older Content folder is for older versions of the Programming Fundamentals course.
-</strong> <br>
-The current one is for the course 
-<a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">
-Programming Fundamentals - май 2017
-</a>
+# <a href="https://softuni.bg/trainings/1560/programming-basics-bulgaria-january-2017">Programming Basics Bulgaria - January 2017</a>
+
+## <a href="https://judge.softuni.bg/Contests#!/List/ByCategory/37/Programming-Basics-Exercises">Judge Link</a>
+
+ #### 4. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/04)%20C%20Sharp%20Intro%20and%20Basic%20Syntax%20-%20Exercises">C Sharp Intro and Basic Syntax - Exercises</a>
+
