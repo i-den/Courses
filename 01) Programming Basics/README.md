@@ -3,12 +3,12 @@
 <br />
 
  ## *The introductory course to programming, dealing mostly with:*
->  ### *1. Console, using C# and Windows*
+>  ### *Console, using C# and Windows*
  ```C#
  Console.WriteLine();
  Console.ReadLine();
  ```
-> ### *2. Simple math operators*
+> ### *Simple math operators*
  ```C#
  var a = 3;
  var b = 4;
@@ -16,7 +16,7 @@
  
  Console.WriteLine(c);
  ```
-> ### *3. Simple Conditional Statements*
+> ### *Simple Conditional Statements*
  ```C#
  if(false)
  {
@@ -36,7 +36,7 @@
  break;
  }
  ```
-> ### *4. Simple Loops*
+> ### *Simple Loops*
  ```C#
  for (int i = 0; i < num; i++) 
  {
