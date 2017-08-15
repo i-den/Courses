@@ -19,3 +19,19 @@
  #### 17. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/17)%20Arrays%20and%20Methods%20-%20More%20Exercises">Arrays and Methods - More Exercises</a>
  
  #### 19. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/19)%20Lists%20-%20Exercises">Lists - Exercises</a>
+
+ #### 21. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/21)%20Dictionaries%2C%20Lambda%20Expressions%20and%20LINQ%20-%20Exercises">Dictionaries, Lambda Expressions and LINQ - Exercises</a>
+
+ #### 22. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/22)%20Dictionaries%20and%20Lists%20-%20More%20Exercises">Dictionaries and Lists - More Exercises</a>
+
+ #### 24. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/24)%20Objects%20and%20Classes%20-%20Exercises">Objects and Classes - Exercises</a>
+
+
+
+
+
+
+
+
+
+
