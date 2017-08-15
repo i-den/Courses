@@ -13,3 +13,9 @@
  #### 11. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/11)%20Data%20Types%20and%20Variables%20-%20Exercises">Data Types and Variables - Exercises</a>
 
  #### 12. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/12)%20Data%20Types%20and%20Variables%20-%20More%20Exercises">Data Types and Variables - More Exercises</a>
+
+ #### 16. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/16)%20Arrays%20-%20Exercises">Arrays - Exercises</a>
+ 
+ #### 17. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/17)%20Arrays%20and%20Methods%20-%20More%20Exercises">Arrays and Methods - More Exercises</a>
+ 
+ #### 19. <a href="https://github.com/i-den/SoftwareUniversity/tree/master/02)%20Programming%20Fundamentals/19)%20Lists%20-%20Exercises">Lists - Exercises</a>
