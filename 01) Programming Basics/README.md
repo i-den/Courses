@@ -1,4 +1,4 @@
-<h1 align="center">Programming Basics Bulgaria - January 2017</h1>
+<h1 align="center"><em>Programming Basics Bulgaria - January 2017</em></h1>
  
 <br />
 
