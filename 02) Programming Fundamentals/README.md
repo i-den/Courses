@@ -12,13 +12,11 @@
  bool e = true;
  
  ```
-> ### *Simple math operators*
+> ### *Arrays*
  ```C#
- var a = 3;
- var b = 4;
- var c = a + b;
- 
- Console.WriteLine(c);
+ var myArray = new int[num];
+ var mySecondArray = new { 1, 2, 3 };
+ var myThirdArray = Console.ReadLine().Split().ToArray();
  ```
 > ### *Simple Conditional Statements*
  ```C#
