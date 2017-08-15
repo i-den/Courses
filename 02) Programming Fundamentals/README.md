@@ -47,6 +47,6 @@
  }
  ```
 <p align="center">
-<a href="https://softuni.bg/trainings/1560/programming-basics-bulgaria-january-2017">Course Page</a> <br />
-<a href="https://judge.softuni.bg/Contests#!/List/ByCategory/37/Programming-Basics-Exercises">Judge</a>
+<a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">Course Page</a> <br />
+<a href="https://judge.softuni.bg/Contests#!/List/ByCategory/32/Progr-Fundamentals-Exercises">Judge</a>
 <p>
