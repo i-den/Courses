@@ -1,4 +1,8 @@
-## Programming Basics Bulgaria - January 2017 <br />
+## Programming Basics Bulgaria - January 2017
+
+<br />
+ 
+<br />
 
 > The introductory course to programming, dealing mostly with:
 > 1. Console, using C# and Windows
