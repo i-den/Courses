@@ -16,7 +16,9 @@
  ```C#
  var myArray = new int[num];
  var mySecondArray = new { 1, 2, 3 };
- var myThirdArray = Console.ReadLine().Split().ToArray();
+ var myThirdArray = Console.ReadLine()
+           .Split()
+           .ToArray();
  ```
 > ### *Simple Conditional Statements*
  ```C#
