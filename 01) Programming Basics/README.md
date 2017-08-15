@@ -2,7 +2,7 @@
  
 <br />
 
- ## *The introductory course to programming, dealing mostly with:*
+ ## *The introductory course to programming dealing mostly with:*
 >  ### *Console, using C# and Windows*
  ```C#
  Console.WriteLine();
