@@ -21,9 +21,19 @@
 > ### *Methods*
  ```C#
  var a = 3;
- var b = 4;
- Calculate(a, b); //
- 
+ var b = 4D;
+ Sum(a, b); 
+ var c = Multiply(a, b);
+
+ private void Sum(int firstNumber, double secondNumber)
+ {
+  Console.WriteLine(firstNumber + secondNumber);
+ }
+
+ private double Multiply(int firstNumber, double secondNumber)
+ {
+  return firstNumber * secondNumber;
+ }
  ```
 > ### *Simple Loops*
  ```C#
