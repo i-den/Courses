@@ -31,3 +31,12 @@
 > break;
 > }
 > ```
+> 4. Simple Loops
+> ```C#
+> for (int i = 0; i < num; i++) 
+> {
+> }
+> while (true)
+> {
+> }
+> ```
