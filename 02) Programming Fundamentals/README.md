@@ -73,9 +73,41 @@ foreach (var currentStudent in studentGradeList)
     Console.WriteLine();
 }
  ```
- > ### *Dictionaries (Associative Arrays)*
+ > ### *Basic Objects and Classes*
  ```C#
- 
+ static void Main()
+{
+    var cats = new Cat[]
+    {
+    new Cat
+    {
+        Name = "Andre",
+        Age = 2
+    },
+    new Cat
+    {
+        Name = "Jina",
+        Age = 3
+    }
+    };
+
+    foreach (var currentCat in cats)
+    {
+        currentCat.Meow();
+    }
+}
+
+class Cat
+{
+    public string Name { get; set; }
+
+    public int Age { get; set; }
+
+    public void Meow()
+    {
+        Console.WriteLine($"{this.Name} aged {this.Age} years says meow");
+    }
+}
   ```
 <p align="center">
 <a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">Course Page</a> <br />
