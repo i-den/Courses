@@ -3,9 +3,9 @@
 
 > The introductory course to programming, dealing mostly with:
 > 1. Console, using C# and Windows
-```C#
-Console.WriteLine();
-Console.ReadLine();
-```
+> ```C#
+> Console.WriteLine();
+> Console.ReadLine();
+> ```
 > 2. Simple math operators
 > 3. Simple Conditional Statements
