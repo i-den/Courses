@@ -28,7 +28,9 @@
  }
  switch()
  {
- case :
+ case true:
+ break;
+ default:
  break;
  }
  ```
