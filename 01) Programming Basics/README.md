@@ -1,6 +1,4 @@
 ## Programming Basics Bulgaria - January 2017
-
-<br />
  
 <br />
 
@@ -44,6 +42,6 @@
 > }
 > ```
 <p align="center">
-<a href="https://softuni.bg/trainings/1560/programming-basics-bulgaria-january-2017">Programming Basics - Bulgaria - January 2017</a> <br />
+<a href="https://softuni.bg/trainings/1560/programming-basics-bulgaria-january-2017">Course Page</a> <br />
 <a href="https://judge.softuni.bg/Contests#!/List/ByCategory/37/Programming-Basics-Exercises">Judge</a>
 <p>
