@@ -37,8 +37,42 @@
  ```
 > ### *Dictionaries (Associative Arrays)*
  ```C#
- var studentGradeList = new Dictionary<string, int>();
- var myArray = 
+var studentGradeList = new Dictionary<string, List<double>>();
+        var students = new[] { "Ivan", "Georgi", "Teodor", "Ivan", "Georgi", "Maria", "Anna" };
+        var randomNumberGenerator = new Random();
+
+        for (int i = 0; i < students.Length; i++)
+        {
+            var currentStudent = students[i];
+
+            if (!studentGradeList.ContainsKey(currentStudent))
+            {
+                studentGradeList[currentStudent] = new List<double>();
+
+                for (int j = 0; j < 3; j++)
+                {
+                    var currentGrade = randomNumberGenerator.Next(2, 7);
+
+                    studentGradeList[currentStudent].Add(currentGrade);
+                }
+            }
+        }
+
+        foreach (var currentStudent in studentGradeList)
+        {
+            var currentStudentName = currentStudent.Key;
+            var currentStudentGrades = currentStudent.Value;
+
+            Console.Write($"Student {currentStudentName}'s grades are:");
+
+            foreach (var currentGrade in currentStudentGrades)
+            {
+                Console.Write($" {currentGrade}");
+            }
+
+            Console.WriteLine();
+        }
+    }
  ```
 <p align="center">
 <a href="https://softuni.bg/trainings/1619/programming-fundamentals-may-2017">Course Page</a> <br />
