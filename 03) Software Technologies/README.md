@@ -66,6 +66,9 @@ public class IndexLetters {
     }
 }
 ```
+
+<hr />
+
 ## *MVC Basic CRUD Blog System with:*
 > ### 1. *PHP, Symfony*
 >
