@@ -9,3 +9,11 @@
 ### 01. *Programming Basics*
 
 <hr />
+
+### 02. *Programming Fundamentals*
+
+<hr />
+
+### 03. *Software Technologies*
+
+<hr />
