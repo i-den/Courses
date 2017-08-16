@@ -109,22 +109,7 @@ class Cat
     }
 }
   ```
-> ### *Lambda Functions*
- ```C#
-var towns = new List<string>
-        {
-            "Sofia",
-            "Plovdiv",
-            "Varna",
-            "Bourgas"
-        };
-
-foreach (var currentTown in towns.OrderBy(t => t))
-{
-    Console.WriteLine(currentTown);
-}
-  ```
-> ### *Text Processing and Regular Expressions (RegEx)*
+> ### *Lambda Functions, Text Processing and Regular Expressions (RegEx)*
  ```C#
 var startAndEndMatches =
      Regex.Match(Console.ReadLine(),
