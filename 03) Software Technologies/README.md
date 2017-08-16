@@ -67,13 +67,13 @@ public class IndexLetters {
 }
 ```
 >  ## *MVC Basic CRUD Blog System with:*
->  ### *PHP, Symfony*
->
->  ### *JavaScript, Express*
->
->  ### *Java, Spring*
->
->  ### *c#, .NET MVC*
+1.  ### *PHP, Symfony*
+
+2.  ### *JavaScript, Express*
+
+3.  ### *Java, Spring*
+
+4.  ### *c#, .NET MVC*
 
 <p align="center">
 <a href="https://softuni.bg/trainings/1621/software-technologies-july-2017">Course Page</a> <br />
