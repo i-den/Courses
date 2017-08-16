@@ -1,1 +1,1 @@
-# Software University Repo
+<p align="center">Software University</p>
