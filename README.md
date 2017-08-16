@@ -1,1 +1,1 @@
-<p align="center"><h1>Software University</h1></p>
+<h1 align="center">Software University</h1>
