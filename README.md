@@ -26,3 +26,5 @@
 > *Period: July - September, 2017*
 
 <hr />
+
+<p align="right">2017 - </p>
