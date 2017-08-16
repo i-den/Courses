@@ -8,9 +8,13 @@
 > *Language: c#*
 >
 > *Period: January - March, 2017*
+
 <hr />
 
 ### 02. *Programming Fundamentals*
+> *Language: c#*
+>
+> *Period: May - July, 2017*
 
 <hr />
 
