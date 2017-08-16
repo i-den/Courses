@@ -144,7 +144,7 @@ var matches = Regex.Matches(inputText, regexPattern)
 
 Console.WriteLine(matches.Any()
  ? string.Join(string.Empty, matches) 
-         : "Empty result");
+ : "Empty result");
   ```
   
 <p align="center">
