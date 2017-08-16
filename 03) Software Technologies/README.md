@@ -31,7 +31,7 @@ if(isset($_GET['lines'])){
 }
 ?>
  ```
- >  ### *PHP*
+ >  ### *JavaScript*
  ```JavaScript
  function solve(args) {
     let text = args.join(",");
