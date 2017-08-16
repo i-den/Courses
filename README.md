@@ -5,3 +5,5 @@
 ### *Courses taken while studying in SoftUni Bulgaria*
 
 <hr />
+
+01. Programming Basics <span align="right">January - March 2017</span>
