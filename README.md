@@ -6,4 +6,4 @@
 
 <hr />
 
-01. Programming Basics <span align="right">January - March 2017</span>
+### 01. Programming Basics 
