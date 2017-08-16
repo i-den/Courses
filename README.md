@@ -19,7 +19,7 @@
 <hr />
 
 ### 03. *Software Technologies*
-> *Language: PHP, JavaScript, Java, c#*
+> *Languages: PHP, JavaScript, Java, c#*
 >
 > *+ HTML, CSS*
 >
