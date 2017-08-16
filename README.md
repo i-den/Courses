@@ -27,4 +27,4 @@
 
 <hr />
 
-<p align="right">2017 - </p>
+<p align="right">Jan, 2017 - </p>
