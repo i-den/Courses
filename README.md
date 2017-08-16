@@ -2,9 +2,7 @@
 
 <br />
 
-### *Courses taken while studying in SoftUni Bulgaria*
-
-<hr />
+## *Courses taken while studying in SoftUni Bulgaria*
 
 ### 01. *Programming Basics*
 
