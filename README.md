@@ -19,5 +19,8 @@
 <hr />
 
 ### 03. *Software Technologies*
+> *Language: PHP, JavaScript, Java, c#*
+>
+> *Period: July - September, 2017*
 
 <hr />
