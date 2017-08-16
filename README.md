@@ -6,9 +6,6 @@
 
 ### 01. *Programming Basics*
 > *Language: c#*
-
-<br />
-
 > *Period: January - March, 2017*
 <hr />
 
