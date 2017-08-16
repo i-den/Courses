@@ -6,4 +6,4 @@
 
 <hr />
 
-### 01. Programming Basics 
+### 01. *Programming Basics*
