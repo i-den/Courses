@@ -28,4 +28,4 @@
 <hr />
 
 <p align="right"><a href="https://softuni.bg/users/profile/show/denchev07">Profile: Denchev07</a></p>
-<p align="right">Jan, 2017 - </p>
+<p align="right">Jan, 2017 - Current</p>
