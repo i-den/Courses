@@ -21,7 +21,7 @@
 ### 03. *Software Technologies*
 > *Language: PHP, JavaScript, Java, c#*
 >
-> *Introducing HTML, CSS*
+> *+HTML, CSS*
 >
 > *Period: July - September, 2017*
 
