@@ -31,7 +31,7 @@ if(isset($_GET['lines'])){
 }
 ?>
  ```
- >  ### *JavaScript*
+>  ### *JavaScript*
  ```JavaScript
  function solve(args) {
     let text = args.join(",");
@@ -49,6 +49,21 @@ if(isset($_GET['lines'])){
     console.log(result.join(', '))
 }
  ```
+>  ### *Java*
+```Java
+import java.util.*;
+
+public class IndexLetters {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        char[] letters = scan.nextLine().toLowerCase().toCharArray();
+        for (char letter : letters) {
+            System.out.printf("%s -> %d\n", letter,
+                    Character.valueOf(letter) - Character.valueOf('a'));
+        }
+    }
+}
+```
 
 <p align="center">
 <a href="https://softuni.bg/trainings/1621/software-technologies-july-2017">Course Page</a> <br />
