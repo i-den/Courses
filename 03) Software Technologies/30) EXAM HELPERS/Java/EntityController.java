@@ -17,7 +17,7 @@ import java.util.List;
 @Controller
 public class EntityController {
 	
-	private final EntityRepository entityRepository;
+    private final EntityRepository entityRepository;
 	
     @Autowired
     public EntityController(EntityRepository entityRepository) {
