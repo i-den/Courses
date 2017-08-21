@@ -91,9 +91,9 @@ public class EntityController {
         return "redirect:/";
     }
 
-	//
-	// GET: READ/5
-	@GetMapping("/edit/{id}")
+    //
+    // GET: READ/5
+    @GetMapping("/edit/{id}")
     public String read(Model model, @PathVariable int id) {
 		
         Entity entity = entityRepository.findOne(id);
@@ -108,9 +108,9 @@ public class EntityController {
         return "base-layout";
     }
 	
-	//
-	// GET: EDIT/5
-	@GetMapping("/edit/{id}")
+    //
+    // GET: EDIT/5
+    @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable int id) {
         
 		Entity entity = entityRepository.findOne(id);
