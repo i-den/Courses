@@ -11,7 +11,7 @@ namespace Project.Models
         public int Id { get; set; }
 
         [Required]
-		[StringLength(50)]
+	[StringLength(50)]
         [AllowHtml]
         public string String { get; set; }
 
