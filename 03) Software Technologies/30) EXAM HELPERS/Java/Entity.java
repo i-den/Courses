@@ -25,7 +25,7 @@ public class Entity {
 
     @Column(nullable = false)
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
