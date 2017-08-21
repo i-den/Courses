@@ -44,7 +44,7 @@ namespace Project.Controllers
             {
                 using (var database = new EntityDbContext())
                 {
-					if (database.Entities.Any(e => e.Property == entity.Property))
+		    if (database.Entities.Any(e => e.Property == entity.Property))
                     {
                         return View();
                     }
@@ -94,7 +94,7 @@ namespace Project.Controllers
             {
                 var entity = database.Entities.Find(id);
 				
-				// var entities = database.Entities.ToList();
+		// var entities = database.Entities.ToList();
                 // var entity = entities.FirstOrDefault(e => e.Id == id);
 
                 if (entity == null)
@@ -122,22 +122,22 @@ namespace Project.Controllers
             {
                 using (var database = new EntityDbContext())
                 {	
-					var entity = database.Entities.Find(id);
+		   var entity = database.Entities.Find(id);
 
-					if (entity == null)
-					{
-						return HttpNotFound();
-					}
+		   if (entity == null)
+		   {
+		      return HttpNotFound();
+		   }
 
-					entity = entityViewModel;
+		   entity = entityViewModel;
 
-					database.SaveChanges();
+		   database.SaveChanges();
 
-					return RedirectToAction("Index");
+		   return RedirectToAction("Index");
                 }
             }
 			
-			return View(entityViewModel);
+	return View(entityViewModel);
         }
 		
 	//
@@ -155,7 +155,7 @@ namespace Project.Controllers
             {
                 var entity = database.Entities.Find(id);
 				
-				// var entities = database.Entities.ToList();
+		// var entities = database.Entities.ToList();
                 // var entity = entities.FirstOrDefault(e => e.Id == id);
 
                 if (entity == null)
@@ -183,7 +183,7 @@ namespace Project.Controllers
             {
                 var entity = database.Entities.Find(id);
 				
-				// var entities = database.Entities.ToList();
+		// var entities = database.Entities.ToList();
                 // var entity = entities.FirstOrDefault(e => e.Id == id);
 
                 if (entity == null)
@@ -197,5 +197,5 @@ namespace Project.Controllers
                 return RedirectToAction("Index");
             }
         }
-	}
+   }
 }
