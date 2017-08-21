@@ -10,8 +10,8 @@ namespace Project.Controllers
     [ValidateInput(false)]
     public class EntityController : Controller
     {
-		//
-		// GET: INDEX
+	//
+	// GET: INDEX
         [HttpGet]
         [Route("")]
         public ActionResult Index()
@@ -24,18 +24,18 @@ namespace Project.Controllers
             }
         }
 		
-		//
-		// GET: CREATE
-		[HttpGet]
+	//
+	// GET: CREATE
+	[HttpGet]
         [Route("create")]
         public ActionResult Create()
         {
             return View();
         }
 		
-		//
-		// POST: CREATE
-		[HttpPost]
+	//
+	// POST: CREATE
+	[HttpPost]
         [Route("create")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Entity entity)
@@ -59,9 +59,9 @@ namespace Project.Controllers
             return RedirectToAction("Index");
         }
 		
-		//
-		// GET: READ/5
-		[HttpGet]
+	//
+	// GET: READ/5
+	[HttpGet]
         [Route("read/{id}")]
         public ActionResult Edit(int? id)
         {
@@ -84,9 +84,9 @@ namespace Project.Controllers
             }
         }
 		
-		//
-		// GET: EDIT/5
-		[HttpGet]
+	//
+	// GET: EDIT/5
+	[HttpGet]
         [Route("edit/{id}")]
         public ActionResult Edit(int id)
         {
@@ -106,9 +106,9 @@ namespace Project.Controllers
             }
         }
 		
-		//
-		// POST: EDIT/5
-		[HttpPost]
+	//
+	// POST: EDIT/5
+	[HttpPost]
         [Route("edit/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult EditConfirm(int id, Entity entityViewModel)
@@ -140,9 +140,9 @@ namespace Project.Controllers
 			return View(entityViewModel);
         }
 		
-		//
-		// GET: DELETE/5
-		[HttpGet]
+	//
+	// GET: DELETE/5
+	[HttpGet]
         [Route("delete/{id}")]
         public ActionResult Delete(int? id)
         {
@@ -167,9 +167,9 @@ namespace Project.Controllers
             }
         }
 		
-		//
-		// POST: DELETE/5
-		[HttpPost]
+	//
+	// POST: DELETE/5
+	[HttpPost]
         [Route("delete/{id}")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirm(int? id, Entity entityViewModel)
