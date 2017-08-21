@@ -18,9 +18,9 @@ namespace Project.Controllers
         {
             using (var database = new EntityDbContext())
             {
-                var tasks = database.Entities.ToList();
+                var entities = database.Entities.ToList();
 
-                return View(tasks);
+                return View(entities);
             }
         }
 		
