@@ -9,8 +9,8 @@ public class Entity {
     }
 
     public Entity(String stringProperty, int intProperty) {
-		this.stringProperty = stringProperty;
-		this.intProperty = intProperty;
+	this.stringProperty = stringProperty;
+	this.intProperty = intProperty;
     }
 
     @Id
