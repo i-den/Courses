@@ -82,9 +82,9 @@ public class EntityController {
 			entityBindingModel.getIntProperty());
 		
         //Entity entity = new Entity();
-		//
+	//
         //entity.setStringProperty(entityBindingModel.getStringProperty());
-		//entity.setIntProperty(entityBindingModel.getIntProperty());
+	//entity.setIntProperty(entityBindingModel.getIntProperty());
 
         entityRepository.saveAndFlush(entity);
 
@@ -113,7 +113,7 @@ public class EntityController {
     @GetMapping("/edit/{id}")
     public String edit(Model model, @PathVariable int id) {
         
-		Entity entity = entityRepository.findOne(id);
+	Entity entity = entityRepository.findOne(id);
 
         if (entity == null) {
             return "redirect:/";
@@ -132,7 +132,7 @@ public class EntityController {
 		
         if (entityBindingModel.getStringProperty().equals("")) {
 			
-			model.addAttribute("view", "entity/edit");
+            model.addAttribute("view", "entity/edit");
 
             return "base-layout";
 			
@@ -151,7 +151,7 @@ public class EntityController {
         Entity entity = entityRepository.findOne(id);
 
         if (entity != null) {
-			entity.setStringProperty(entityBindingModel.getStringProperty());
+            entity.setStringProperty(entityBindingModel.getStringProperty());
             entity.setIntProperty(entityBindingModel.getIntProperty());
 
             entityRepository.saveAndFlush(entity);
@@ -197,7 +197,7 @@ public class EntityController {
         }
 
         entityRepository.delete(entity);
-		//entityRepository.flush();
+	//entityRepository.flush();
 
         return "redirect:/";
     }	
