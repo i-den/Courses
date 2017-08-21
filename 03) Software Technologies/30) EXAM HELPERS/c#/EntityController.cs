@@ -72,8 +72,10 @@ namespace Project.Controllers
 
             using (var database = new EntityDbContext())
             {
-                var entities = database.Entities.ToList();
-                var entity = entities.FirstOrDefault(e => e.Id == id);
+                var entity = database.Entities.Find(id);
+				
+		// var entities = database.Entities.ToList();
+                // var entity = entities.FirstOrDefault(e => e.Id == id);
 
                 if (entity == null)
                 {
