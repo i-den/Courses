@@ -15,7 +15,7 @@ public class Entity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
 
     @Column(nullable = false)
     private String stringProperty;
@@ -29,7 +29,7 @@ public class Entity {
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     @Column(nullable = false)
