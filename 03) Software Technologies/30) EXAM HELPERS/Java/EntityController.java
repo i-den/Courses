@@ -24,8 +24,8 @@ public class EntityController {
         this.entityRepository = entityRepository;
     }
 	
-	//
-	// GET: INDEX
+    //
+    // GET: INDEX
     @GetMapping("/")
     public String index(Model model) {
 		
