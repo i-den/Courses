@@ -19,19 +19,19 @@ public class EntityController {
 	
 	private final EntityRepository entityRepository;
 	
-	@Autowired
+    @Autowired
     public EntityController(EntityRepository entityRepository) {
         this.entityRepository = entityRepository;
     }
 	
 	//
 	// GET: INDEX
-	@GetMapping("/")
+    @GetMapping("/")
     public String index(Model model) {
 		
-        List<Task> entities = entityRepository.findAll();
+        List<Entity> entities = entityRepository.findAll();
 
-        List<Task> statusEntities = filterList(entities, "Property");
+        List<Entity> statusEntities = filterList(entities, "Property");
 		
         //entities.sort(new Comparator<Entity>() {
         //    @Override
@@ -56,9 +56,9 @@ public class EntityController {
         return currentEntitiesToReturn;
     }	
 	
-	//
-	// GET: CREATE
-	@GetMapping("/create")
+    //
+    // GET: CREATE
+    @GetMapping("/create")
     public String create(Model model) {
 		
         model.addAttribute("view", "entity/create");
@@ -66,9 +66,9 @@ public class EntityController {
         return "base-layout";
     }
 	
-	//
-	// POST: CREATE
-	@PostMapping("/create")
+    //
+    // POST: CREATE
+    @PostMapping("/create")
     public String createProcess(Model model, EntityBindingModel entityBindingModel) {
 		
         if (entityBindingModel.getStringProperty().equals("")) {
@@ -125,9 +125,9 @@ public class EntityController {
         return "base-layout";
     }
 	
-	//
-	// POST: EDIT/5
-	@PostMapping("/edit/{id}")
+    //
+    // POST: EDIT/5
+    @PostMapping("/edit/{id}")
     public String editProcess(Model model, @PathVariable int id, EntityBindingModel entityBindingModel) {
 		
         if (entityBindingModel.getStringProperty().equals("")) {
@@ -160,9 +160,9 @@ public class EntityController {
         return "redirect:/";
     }
 	
-	//
-	// GET: DELETE/5
-	@GetMapping("/delete/{id}")
+    //
+    // GET: DELETE/5
+    @GetMapping("/delete/{id}")
     public String delete(Model model, @PathVariable int id) {
 		
         if (!entityRepository.exists(id)) {
@@ -181,9 +181,9 @@ public class EntityController {
         return "base-layout";
     }
 	
-	//
-	// POST: DELETE/5
-	@PostMapping("/delete/{id}")
+    //
+    // POST: DELETE/5
+    @PostMapping("/delete/{id}")
     public String deleteProcess(@PathVariable int id) {
 		
         if (!entityRepository.exists(id)) {
