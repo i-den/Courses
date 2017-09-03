@@ -5,6 +5,19 @@ namespace ShoppingList.Models
 {
     public class Product
     {
-        //TODO: Implement me ...
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        public int Priority { get; set; }
+
+        [Required]
+        [AllowHtml]
+        public string Name { get; set; }
+
+        [Required]
+        public int Quantity { get; set; }
+        
+        public string Status { get; set; }
     }
 }

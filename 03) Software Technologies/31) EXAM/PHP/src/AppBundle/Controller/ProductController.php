@@ -17,7 +17,13 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        //TODO: Implement me ...
+        $productRepository = $this->getDoctrine()->getRepository(Product::class);
+
+        $products = $productRepository->findAll();
+
+        return $this->render(':product:index.html.twig', [
+            'products' => $products
+        ]);
 	}
 
     /**
@@ -27,7 +33,22 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        //TODO: Implement me ...
+        $product = new Product();
+
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($product);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render(':product:create.html.twig', [
+            'form' => $form->createView()
+        ]);
 	}
 
     /**
@@ -39,6 +60,28 @@ class ProductController extends Controller
      */
     public function edit($id, Request $request)
     {
-        //TODO: Implement me ...
+        $productRepository = $this->getDoctrine()->getRepository(Product::class);
+
+        $product = $productRepository->find($id);
+
+        if ($product == null) {
+            return $this->redirect("/");
+        }
+
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->merge($product);
+            $entityManager->flush();
+
+            return $this->redirect("/");
+        }
+
+        return $this->render(":product:edit.html.twig", [
+            "product" => $product,
+            "form" => $form->createView()
+        ]);
     }
 }

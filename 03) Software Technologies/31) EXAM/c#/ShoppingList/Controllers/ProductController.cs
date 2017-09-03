@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using ShoppingList.Models;
+using System.Net;
 
 namespace ShoppingList.Controllers
 {
@@ -11,14 +12,19 @@ namespace ShoppingList.Controllers
         [Route("")]
         public ActionResult Index()
         {
-            //TODO: Implement me ...
+            using (var database = new ShoppingListDbContext())
+            {
+                var products = database.Products.ToList();
+
+                return View(products);
+            }
         }
 
         [HttpGet]
         [Route("create")]
         public ActionResult Create()
         {
-            //TODO: Implement me ...
+            return View();
         }
 
         [HttpPost]
@@ -26,14 +32,36 @@ namespace ShoppingList.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Product product)
         {
-            //TODO: Implement me ...
+            if (ModelState.IsValid)
+            {
+                using (var database = new ShoppingListDbContext())
+                {
+                    product.Status = "not bought";
+                    database.Products.Add(product);
+                    database.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         [Route("edit/{id}")]
         public ActionResult Edit(int? id)
         {
-            //TODO: Implement me ...
+            using (var database = new ShoppingListDbContext())
+            {
+                var product = database.Products.Find(id);
+
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+
+                return View(product);
+            }
         }
 
         [HttpPost]
@@ -41,7 +69,33 @@ namespace ShoppingList.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditConfirm(int? id, Product productModel)
         {
-            //TODO: Implement me ...
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (ModelState.IsValid)
+            {
+                using (var database = new ShoppingListDbContext())
+                {
+                    var product = database.Products.Find(id);
+
+                    if (product == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    product.Priority = productModel.Priority;
+                    product.Name = productModel.Name;
+                    product.Status = productModel.Status;
+                    product.Quantity = productModel.Quantity;
+
+                    database.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(productModel);
         }
     }
 }
