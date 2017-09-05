@@ -28,7 +28,7 @@
 <hr />
 
 ### 04. *PHP Web Development Basicss*
-> *Languages: PHP*
+> *Language: PHP*
 >
 > *Period: September - November, 2017*
 
