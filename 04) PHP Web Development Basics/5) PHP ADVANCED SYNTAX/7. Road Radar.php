@@ -5,7 +5,8 @@ $inputArea = trim(fgets(STDIN));
 
 echo roadRadarCheck($inputSpeed, $inputArea);
 
-function roadRadarCheck($speed, $area) {
+function roadRadarCheck($speed, $area)
+{
     $areaLimits = array(
         'motorway' => 130,
         'interstate' => 90,
