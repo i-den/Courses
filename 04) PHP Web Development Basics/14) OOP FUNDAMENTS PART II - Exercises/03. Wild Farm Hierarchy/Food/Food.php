@@ -9,12 +9,12 @@ abstract class Food
     /** @var  int */
     protected $quantity;
 
-    protected function __construct(int $quantity)
+    public function __construct(int $quantity)
     {
         $this->setQuantity($quantity);
     }
 
-    protected function getQuantity(): int
+    public function getQuantity(): int
     {
         return $this->quantity;
     }

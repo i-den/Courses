@@ -4,7 +4,7 @@
 namespace Food;
 
 
-class Meat
+class Meat extends Food
 {
 
 }

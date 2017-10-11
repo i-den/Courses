@@ -40,9 +40,12 @@ abstract class AnimalAbstract implements AnimalInterface
         return $this;
     }
 
-    protected function getType()
+    public function getType(): string
     {
-        return $this->type;
+        return substr(
+            static::class,
+            strrpos(static::class, '\\') + 1
+        );
     }
 
     protected function setType($type): AnimalAbstract
@@ -62,15 +65,27 @@ abstract class AnimalAbstract implements AnimalInterface
         return $this;
     }
 
-    protected function getFoodEaten()
+    /**
+     * @return Food[]
+     */
+    protected function getFoodEaten(): array
     {
         return $this->foodEaten;
     }
 
-    protected function setFoodEaten($foodEaten): AnimalAbstract
+    protected function getTotalAmountOfFoodEaten(): int
     {
-        $this->foodEaten = $foodEaten;
-        return $this;
+        $totalFood = 0;
+
+        foreach ($this->getFoodEaten() as $currentFood) {
+            $totalFood += $currentFood->getQuantity();
+        }
+
+        return $totalFood;
     }
 
+    public function eat(Food $food): void
+    {
+        $this->foodEaten[] = $food;
+    }
 }
