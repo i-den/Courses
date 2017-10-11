@@ -30,11 +30,14 @@ class StarSystem implements StarSystemInterface
         return $this->name;
     }
 
-    private function setName(string $name): StarSystemInterface
+    public function setName(string $name): StarSystemInterface
     {
         $this->name = $name;
         return $this;
     }
 
-
+    public function getRequiredFuelToJumpTo(string $starSystemName)
+    {
+        return $this->neighbours[$starSystemName];
+    }
 }

@@ -6,7 +6,7 @@ namespace Models\Enhancements;
 
 use Models\Ships\ShipAbstract;
 
-class ExtendedFuelCells implements EnhancementsInterface
+class ExtendedFuelCells extends EnhancementsAbstract
 {
     const ENH_EXT_FUEL_CELLS = 200;
 

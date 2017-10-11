@@ -16,6 +16,7 @@ require_once '../Models/Projectiles/PenetrationShell.php';
 require_once '../Models/Projectiles/ShieldReaver.php';
 
 require_once '../Models/Enhancements/EnhancementsInterface.php';
+require_once '../Models/Enhancements/EnhancementsAbstract.php';
 require_once '../Models/Enhancements/ExtendedFuelCells.php';
 require_once '../Models/Enhancements/KineticBarrier.php';
 require_once '../Models/Enhancements/ThanixCannon.php';
@@ -28,6 +29,7 @@ require_once '../Models/Ships/Dreadnought.php';
 
 
 use Game\StarSystems\StarSystem;
+use Models\Enhancements\KineticBarrier;
 use Models\Enhancements\ThanixCannon;
 use Models\Ships\Dreadnought;
 use Models\Ships\Frigate;
@@ -40,7 +42,7 @@ class Game implements GameInterface
 
     public function start()
     {
-        $this->galaxy = new Galaxy();
+        $this->galaxy = new Galaxy('Galaxy-One');
         $this->galaxy->addStarSystem($this->galaxy::STS_ART_TAU, new StarSystem($this->galaxy::STS_ART_TAU));
         $this->galaxy->addStarSystem($this->galaxy::STS_SER_NEB, new StarSystem($this->galaxy::STS_SER_NEB));
         $this->galaxy->addStarSystem($this->galaxy::STS_HAD_GAM, new StarSystem($this->galaxy::STS_HAD_GAM));
@@ -65,26 +67,37 @@ class Game implements GameInterface
         $frigate = new Frigate(
             'Frigate',
             'Normandy',
-            $this->galaxy->getStarSystem($this->galaxy::STS_SER_NEB)
+            $this->galaxy->getStarSystem($this->galaxy::STS_SER_NEB),
+            $this->getGalaxy()
         );
 
         $cruiser = new Cruiser(
             'Cruiser',
             'Koshnica',
-            $this->galaxy->getStarSystem($this->galaxy::STS_SER_NEB)
+            $this->galaxy->getStarSystem($this->galaxy::STS_SER_NEB),
+            $this->getGalaxy()
         );
 
         $dreadnought = new Dreadnought(
             'Dreadnought',
             'Torba',
-            $this->galaxy->getStarSystem($this->galaxy::STS_SER_NEB)
+            $this->galaxy->getStarSystem($this->galaxy::STS_SER_NEB),
+            $this->getGalaxy()
         );
 
-        echo 'Debug';
+        echo 'Serious debugging going on:' . PHP_EOL;
 
-        $frigate->attack($cruiser);
-        $cruiser->attack($dreadnought);
-        $dreadnought->attack($frigate);
+        try {
+            $frigate->plotJump($this->galaxy::STS_HAD_GAM);
+        } catch (\Exception $exception) {
+            echo $exception->getMessage();
+        }
+
+    }
+
+    public function getGalaxy(): GalaxyInterface
+    {
+        return $this->galaxy;
     }
 }
 

@@ -4,6 +4,7 @@
 namespace Models\Ships;
 
 
+use Game\GalaxyInterface;
 use Game\StarSystems\StarSystemInterface;
 use Models\Enhancements\EnhancementsInterface;
 use Models\Projectiles\ProjectileInterface;
@@ -12,7 +13,10 @@ abstract class ShipAbstract implements ShipInterface
 {
     protected $type;
     protected $name;
+    /** @var  StarSystemInterface */
     protected $starSystem;
+    /** @var  GalaxyInterface */
+    protected $galaxy;
 
     protected $health;
     protected $damage;
@@ -27,11 +31,29 @@ abstract class ShipAbstract implements ShipInterface
     /** @var EnhancementsInterface[] */
     protected $enhancements = array();
 
-    protected function __construct(string $type, string $name, StarSystemInterface $starSystem)
+    protected function __construct(string $type, string $name, StarSystemInterface $starSystem, GalaxyInterface $galaxy)
     {
         $this->setName($name)
             ->setType($type)
-            ->setStarSystem($starSystem);
+            ->setStarSystem($starSystem)
+            ->setGalaxy($galaxy);
+    }
+
+    public function __toString()
+    {
+        $enhancements = empty($this->enhancements)
+            ? 'N/A'
+            : implode(', ', $this->enhancements);
+
+        $shipOutput = '--' . $this->getName() . ' - ' . $this->getType() . PHP_EOL;
+        $shipOutput .= '-Location: ' . $this->getStarSystem()->getName() . PHP_EOL;
+        $shipOutput .= '-Health: ' . $this->getHealth() . PHP_EOL;
+        $shipOutput .= '-Shields: ' . $this->getShields() . PHP_EOL;
+        $shipOutput .= '-Damage: ' . $this->getDamage() . PHP_EOL;
+        $shipOutput .= '-Fuel: ' . $this->getFuel() . PHP_EOL;
+        $shipOutput .= '-Enhancements: ' . $enhancements . PHP_EOL;
+
+        return $shipOutput;
     }
 
     public function addEnhancement(EnhancementsInterface $enhancement)
@@ -42,7 +64,37 @@ abstract class ShipAbstract implements ShipInterface
 
     public function attack(ShipAbstract $ship)
     {
+        if (!$this->isAlive() || !$ship->isAlive()) {
+            throw new \Exception('Ship is destroyed' . PHP_EOL);
+        } else if ($this->getStarSystem() !== $ship->getStarSystem()) {
+            throw new \Exception('No such ship in star system' . PHP_EOL);
+        }
+
         $this->getProjectile()->hit($this->getDamage(), $ship);
+
+        if (!$ship->isAlive()) {
+            echo $ship->getName() . ' has been destroyed' . PHP_EOL;
+        } else {
+            echo $this->getName() . ' attacked ' . $ship->getName() . PHP_EOL;
+        }
+    }
+
+    public function plotJump(string $starSystemName)
+    {
+        if ($this->getStarSystem()->getName() === $starSystemName) {
+            throw new \Exception('Ship is already in ' . $starSystemName . PHP_EOL);
+        } else if (!$this->getStarSystem()->isNeighbour($starSystemName)) {
+            throw new \Exception($starSystemName . ' is not in the neighbourhood' . PHP_EOL);
+        }
+
+        $requiredFuelForTheJump = $this->getStarSystem()->getRequiredFuelToJumpTo($starSystemName);
+        if (!($this->getFuel() >= $requiredFuelForTheJump)) {
+            throw new \Exception('Not enough fuel for the jump to ' . $starSystemName . PHP_EOL);
+        }
+
+        $this->setFuel($this->getFuel() - $requiredFuelForTheJump);
+        echo $this->getName() . ' jumped from ' . $this->getStarSystem()->getName() . ' to ' . $starSystemName;
+        $this->setStarSystem($this->galaxy->getStarSystem($starSystemName));
     }
 
     public function reduceHealth(int $damage)
@@ -60,6 +112,11 @@ abstract class ShipAbstract implements ShipInterface
         if ($this->getShields() < 0) {
             $this->setShields(0);
         }
+    }
+
+    protected function isAlive(): bool
+    {
+        return $this->isAlive;
     }
 
     public function getName()
@@ -151,6 +208,12 @@ abstract class ShipAbstract implements ShipInterface
     public function setProjectile(ProjectileInterface $projectile): ShipAbstract
     {
         $this->projectile = $projectile;
+        return $this;
+    }
+
+    public function setGalaxy(GalaxyInterface $galaxy): ShipAbstract
+    {
+        $this->galaxy = $galaxy;
         return $this;
     }
 }

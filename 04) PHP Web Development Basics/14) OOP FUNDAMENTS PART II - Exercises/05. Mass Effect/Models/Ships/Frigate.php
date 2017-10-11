@@ -4,6 +4,7 @@
 namespace Models\Ships;
 
 
+use Game\GalaxyInterface;
 use Game\StarSystems\StarSystemInterface;
 use Models\Projectiles\ShieldReaver;
 
@@ -14,7 +15,7 @@ class Frigate extends ShipAbstract
     const SHIP_FRIG_DMG = 30;
     const SHIP_FRIG_FUEL = 220;
 
-    public function __construct($type, $name, StarSystemInterface $starSystem)
+    public function __construct($type, $name, StarSystemInterface $starSystem, GalaxyInterface $galaxy)
     {
         $defaultProjectile = new ShieldReaver();
         $this->setHealth(self::SHIP_FRIG_HP)
@@ -22,11 +23,6 @@ class Frigate extends ShipAbstract
             ->setDamage(self::SHIP_FRIG_DMG)
             ->setFuel(self::SHIP_FRIG_FUEL)
             ->setProjectile($defaultProjectile);
-        parent::__construct($type, $name, $starSystem);
-    }
-
-    public function respondToAttack()
-    {
-
+        parent::__construct($type, $name, $starSystem, $galaxy);
     }
 }

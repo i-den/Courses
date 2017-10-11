@@ -6,7 +6,7 @@ namespace Models\Enhancements;
 
 use Models\Ships\ShipAbstract;
 
-class KineticBarrier implements EnhancementsInterface
+class KineticBarrier extends EnhancementsAbstract
 {
     const ENH_KINETIC_SHIELDS = 100;
 

@@ -17,9 +17,15 @@ class Galaxy implements GalaxyInterface
     const SER_HAD_FUEL = 360;
     const HAD_KEP_FUEL = 145;
 
+    private $name;
 
     /** @var  StarSystemInterface[] */
     private $starSystems = array();
+
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
 
     public function getStarSystem(string $name): StarSystemInterface
     {

@@ -6,7 +6,7 @@ namespace Models\Enhancements;
 
 use Models\Ships\ShipAbstract;
 
-class ThanixCannon implements EnhancementsInterface
+class ThanixCannon extends EnhancementsAbstract
 {
     const ENH_THANIX_DMG = 50;
 
