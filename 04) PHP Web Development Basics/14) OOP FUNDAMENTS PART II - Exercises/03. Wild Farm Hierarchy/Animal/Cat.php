@@ -14,7 +14,6 @@ class Cat extends FelineAbstract
     {
         $this->setBreed($breed);
         parent::__construct($name, $type, $weight, $livingRegion);
-
     }
 
     public function __toString()

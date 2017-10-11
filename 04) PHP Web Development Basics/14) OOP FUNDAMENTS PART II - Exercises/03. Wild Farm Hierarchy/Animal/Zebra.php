@@ -18,7 +18,7 @@ class Zebra extends MammalAbstract
     public function eat(Food $food): void
     {
         if (!in_array($food->getType(), self::ALLOWED_FOOD)) {
-            throw new \Exception($this->getType() . ' are not eating that type of food!' . PHP_EOL);
+            throw new \Exception($this->getType() . 's are not eating that type of food!' . PHP_EOL);
         }
 
         parent::eat($food);
