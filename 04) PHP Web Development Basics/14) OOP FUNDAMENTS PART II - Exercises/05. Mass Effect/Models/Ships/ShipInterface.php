@@ -4,8 +4,6 @@
 namespace Models\Ships;
 
 
-use Game\StarSystems\StarSystem;
-use Game\StarSystems\StarSystemInterface;
 use Models\Enhancements\EnhancementsInterface;
 
 interface ShipInterface
@@ -21,4 +19,7 @@ interface ShipInterface
     public function plotJump(string $starSystemName);
 
     public function __toString();
+
+    public function getName();
+
 }

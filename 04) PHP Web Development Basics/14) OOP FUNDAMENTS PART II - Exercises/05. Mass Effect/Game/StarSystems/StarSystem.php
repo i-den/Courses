@@ -4,10 +4,14 @@
 namespace Game\StarSystems;
 
 
+use Models\Ships\ShipInterface;
+
 class StarSystem implements StarSystemInterface
 {
     private $name;
     private $neighbours = array();
+    /** @var  ShipInterface[] */
+    private $ships;
 
     public function __construct(string $name)
     {
@@ -39,5 +43,19 @@ class StarSystem implements StarSystemInterface
     public function getRequiredFuelToJumpTo(string $starSystemName)
     {
         return $this->neighbours[$starSystemName];
+    }
+
+    public function addShip(ShipInterface $ship)
+    {
+        $this->ships[] = $ship;
+    }
+
+    public function removeShip(ShipInterface $ship)
+    {
+        $filteredShips = array_filter($this->ships, function (ShipInterface $currentShip) use ($ship) {
+            return $currentShip->getName() !== $ship->getName();
+        });
+
+        $this->ships = $filteredShips;
     }
 }

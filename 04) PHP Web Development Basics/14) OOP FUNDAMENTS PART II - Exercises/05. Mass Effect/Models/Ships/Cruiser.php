@@ -18,7 +18,7 @@ class Cruiser extends ShipAbstract
 
     private $projectilesFired = 0;
 
-    public function __construct($type, $name, StarSystemInterface $starSystem, GalaxyInterface $galaxy)
+    public function __construct($type, $name, StarSystemInterface $starSystem, GalaxyInterface $galaxy, array $enhancements = null)
     {
         $defaultProjectile = new PenetrationShell();
         $this->setHealth    (self::SHIP_CRU_HP)
@@ -26,7 +26,7 @@ class Cruiser extends ShipAbstract
             ->setDamage     (self::SHIP_CRU_DMG)
             ->setFuel       (self::SHIP_CRU_FUEL)
             ->setProjectile ($defaultProjectile);
-        parent::__construct ($type, $name, $starSystem, $galaxy);
+        parent::__construct ($type, $name, $starSystem, $galaxy, $enhancements);
     }
 
     public function __toString()

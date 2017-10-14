@@ -6,6 +6,7 @@ namespace Models\Ships;
 
 use Game\GalaxyInterface;
 use Game\StarSystems\StarSystemInterface;
+use Models\Enhancements\EnhancementsAbstract;
 use Models\Enhancements\EnhancementsInterface;
 use Models\Projectiles\ProjectileInterface;
 
@@ -31,12 +32,35 @@ abstract class ShipAbstract implements ShipInterface
     /** @var EnhancementsInterface[] */
     protected $enhancements = array();
 
-    protected function __construct(string $type, string $name, StarSystemInterface $starSystem, GalaxyInterface $galaxy)
+    /**
+     * ShipAbstract constructor.
+     * @param string $type
+     * @param string $name
+     * @param StarSystemInterface $starSystem
+     * @param GalaxyInterface $galaxy
+     * @param EnhancementsAbstract[] $enhancements
+     */
+    protected function __construct(
+        string $type,
+        string $name,
+        StarSystemInterface $starSystem,
+        GalaxyInterface $galaxy,
+        array $enhancements = null
+    )
     {
         $this->setName($name)
             ->setType($type)
             ->setStarSystem($starSystem)
             ->setGalaxy($galaxy);
+
+        if (isset($enhancements)) {
+            foreach ($enhancements as $enhancement) {
+                $enhClassName = 'Models\\Enhancements\\' . $enhancement;
+                $enhancement = new $enhClassName();
+                $this->addEnhancement($enhancement);
+            }
+        }
+
     }
 
     public function __toString()

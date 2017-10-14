@@ -22,6 +22,8 @@ class Galaxy implements GalaxyInterface
     /** @var  StarSystemInterface[] */
     private $starSystems = array();
 
+    private $shipNames = array();
+
     public function __construct(string $name)
     {
         $this->name = $name;
@@ -35,5 +37,21 @@ class Galaxy implements GalaxyInterface
     public function addStarSystem(string $name, StarSystemInterface $starSystem)
     {
         $this->starSystems[$name] = $starSystem;
+    }
+
+    public function addStarShip(string $starShipName)
+    {
+        $this->shipNames[] = $starShipName;
+    }
+
+    public function hasStarShip(string $starShipName)
+    {
+        foreach ($this->shipNames as $shipName) {
+            if ($shipName === $starShipName) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

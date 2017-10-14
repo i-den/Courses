@@ -15,7 +15,13 @@ class Frigate extends ShipAbstract
     const SHIP_FRIG_DMG = 30;
     const SHIP_FRIG_FUEL = 220;
 
-    public function __construct($type, $name, StarSystemInterface $starSystem, GalaxyInterface $galaxy)
+    public function __construct(
+        string $type,
+        string $name,
+        StarSystemInterface $starSystem,
+        GalaxyInterface $galaxy,
+        array $enhancements = null
+    )
     {
         $defaultProjectile = new ShieldReaver();
         $this->setHealth(self::SHIP_FRIG_HP)
@@ -23,6 +29,6 @@ class Frigate extends ShipAbstract
             ->setDamage(self::SHIP_FRIG_DMG)
             ->setFuel(self::SHIP_FRIG_FUEL)
             ->setProjectile($defaultProjectile);
-        parent::__construct($type, $name, $starSystem, $galaxy);
+        parent::__construct($type, $name, $starSystem, $galaxy, $enhancements);
     }
 }
