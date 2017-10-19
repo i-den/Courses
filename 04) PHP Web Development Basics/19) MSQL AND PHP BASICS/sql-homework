@@ -1,0 +1,66 @@
+-- 1. Create database php-course
+CREATE DATABASE `php-course` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+-- Create table students
+CREATE TABLE `php-course`.`students` (
+  `student_id`               INT             NOT NULL AUTO_INCREMENT,
+  `first_name`               VARCHAR(50)     NOT NULL,
+  `last_name`                VARCHAR(50)     NOT NULL,
+  `student_number`           VARCHAR(255)    NOT NULL,
+  `phone`                    VARCHAR(255)    NULL,
+  `home_address`             VARCHAR(255)    NULL,
+  `date_of_record`           DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_of_last_data_change` DATETIME        NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `is_active`                ENUM ('Y', 'N') NOT NULL DEFAULT 'Y',
+  `motivation_letter`        TEXT            NULL,
+  `notes`                    TEXT            NULL,
+  PRIMARY KEY (`student_id`),
+  UNIQUE INDEX `student_number` (`student_number`)
+);
+
+-- 2. Add Records
+-- First and Second Students
+INSERT INTO `php-course`.`students`
+(first_name, last_name, student_number, phone, home_address, motivation_letter, notes)
+VALUES (
+  'Petyr',
+  'Petrov',
+  '12345',
+  '087 087 0877',
+  'Pesho House',
+  'Mnogo Iskam Da sa zapisha',
+  'Mnogo e typ toa Pesho'
+),
+(
+  'Ivan',
+  'Ivanov',
+  '23456',
+  '088 888 8888',
+  'Ivan House',
+  'Mnogo Ne Iskam Da sa zapisha',
+  'Mnogo e umen toa Ivan'
+);
+
+-- Third, Fourth, Fifth Students
+INSERT INTO `php-course`.`students`
+(first_name, last_name, student_number)
+VALUES
+  ('Gosho', 'Goshov', '34567'),
+  ('Toncho', 'Tonchev', '45678'),
+  ('Stamat', 'Stamatov', '56789');
+
+-- Change Records
+UPDATE `php-course`.`students`
+SET `phone` = '089 898 8989'
+WHERE `student_id` = 2;
+
+UPDATE `php-course`.`students`
+SET `phone` = '999 999 9999'
+WHERE `phone` IS NULL;
+
+-- Delete Records
+DELETE FROM `php-course`.`students`
+WHERE `student_id` = 1;
+
+DELETE FROM `php-course`.`students`
+WHERE `home_address` IS NULL;
