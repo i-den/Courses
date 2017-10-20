@@ -1,4 +1,16 @@
 <?php
+/**
+ * @author Denchev07
+ *
+ * #shtampovano
+ *
+ * Dobre doshli uvajaemi horica 4eteshti taz prostotiq
+ * dano se zabavlqvate s moita zadachka
+ * molq ne me ubivaite
+ * :/
+ * pozdrav de:
+ * @youtube https://www.youtube.com/watch?v=FM4CQqjrZSg
+ */
 
 
 namespace Core;
@@ -37,7 +49,33 @@ class CallCenter implements ICallCenter
             case 3:
                 $this->handleFourthProblem($input);
                 break;
-
+            case 4:
+                try {
+                    $this->handleFifthProblem($input);
+                } catch (\Exception $e) {
+                    echo $e->getMessage();
+                }
+                break;
+            case 5:
+                try {
+                    $this->handleSexProblem($input);
+                } catch (\Exception $e) {
+                    echo $e->getMessage();
+                }
+                break;
+            case 6:
+                try {
+                    $this->handleSeventhProblem($input);
+                } catch (\Exception $e) {
+                    echo $e->getMessage();
+                }
+                break;
+            case 7:
+                try {
+                    $this->handleEightProblem($input);
+                } catch (\Exception $e) {
+                    echo $e->getMessage();
+                }
         }
     }
 
@@ -206,20 +244,178 @@ class CallCenter implements ICallCenter
         }
     }
 
+    /*
+     * @депрекейтид - Някой ден ще е без 1000 query-та..
+     * -- Оправено, нали?, не и горните задачки де :/
+     */
+    private function handleFifthProblem($input)
+    {
+        $input = preg_split('/(\s|,\s)/', $input);
+        $country_info = $input[1];
+        $customer_name = $input[2];
+        $customer_family = $input[3];
+        $country_code = $this->getCountryCode($country_info);
+
+        if ($country_code == null) {
+            throw new \Exception('Country doesn\'t exist.');
+        } else if ($this->customerExists($customer_name)) {
+            throw new \Exception('Customer already exists');
+        }
+
+        $insertQuery = $this->getDatabase()->prepare(
+            "INSERT INTO customer (customer_name, customer_family, country_code)
+                      VALUES (:customer_name, :customer_family, :country_code)"
+        );
+
+        $insertQuery->bindParam('customer_name', $customer_name);
+        $insertQuery->bindParam('customer_family', $customer_family);
+        $insertQuery->bindParam('country_code', $country_code);
+
+        $insertQuery->execute();
+        echo 'Вие наръгахте човек със следните детайли в базичката: (демек не ми се принтат хилядата ла*на от предишните' . PHP_EOL;
+        echo 'Първо име: ' . $customer_name . PHP_EOL;
+        echo 'Име след първото име: ' . $customer_family . PHP_EOL;
+        echo 'за повече инфо ви трябва premium версията на тая задачка' . PHP_EOL;
+        echo '2 бона, колкото 1 курс в SoftUni след няколко години когато SoftUni Man, а.к.а Наков е разпрострял presence-а си до луната и курсовете се водят там' . PHP_EOL;
+        echo 'Disclaimer: обичам ва, но хейт ми тролл :(' . PHP_EOL;
+    }
+
+    private function handleSexProblem($input)
+    {
+        $input = preg_split('/(\s|,\s)/', $input);
+        $customer_name = $input[1];
+        $family_name = $input[2];
+
+        $existsQuery = $this->getDatabase()->prepare(
+            "SELECT *
+                      FROM customer
+                      WHERE customer_name = :customer_name
+                      AND customer_family = :family_name"
+        );
+
+        $existsQuery->bindParam('customer_name', $customer_name);
+        $existsQuery->bindParam('family_name', $family_name);
+        $existsQuery->execute();
+        if ($existsQuery->rowCount() > 0) {
+            $existsQuery = null;
+            $deleteQuery = $this->getDatabase()->prepare(
+                "DELETE
+                            FROM customer
+                            WHERE customer_name = :customer_name"
+            );
+            $deleteQuery->bindParam('customer_name', $customer_name);
+            $deleteQuery->execute();
+            echo 'Вие омартвихте ' . $customer_name . ' ' . $family_name . PHP_EOL;
+        }
+    }
+
+    private function handleSeventhProblem($input)
+    {
+        preg_match('/(?<=\s)[A-Z][a-z]*(?=\?)/', $input, $matches);
+        $country_name = $matches[0];
+
+        $listQuery = $this->getDatabase()->prepare(
+            "SELECT customer_name, customer_family
+                       FROM customer
+                       JOIN countries
+                       ON customer.country_code = countries.country_code
+                       WHERE countries.country_name = :country_name;"
+        );
+        $listQuery->bindParam('country_name', $country_name);
+
+        if ($listQuery->execute()) {
+            echo 'Customers in ' . $country_name . ':' . PHP_EOL;
+            while ($row = $listQuery->fetch(\PDO::FETCH_ASSOC)) {
+                echo $row['customer_name'] . ' ' . $row['customer_family'] . PHP_EOL;
+            }
+        }
+
+        if ($listQuery->rowCount() == 0) {
+            throw new \Exception('Епа, объркал си нещо някъде.. или няма такива животни тука..' . PHP_EOL);
+        }
+    }
+
+    private function handleEightProblem($input)
+    {
+        preg_match('/(?<=\s)[A-Z][a-z]*(?=\?)/', $input, $matches);
+        $continent_name = $matches[0];
+
+        $listingQuery = $this->getDatabase()->prepare(
+            "SELECT customer_name, customer_family
+                       FROM customer
+                       JOIN countries
+                       ON customer.country_code = countries.country_code
+                       JOIN continents
+                       ON countries.continent_code = continents.continent_code
+                       WHERE continents.continent_name = :continent_name;"
+        );
+        $listingQuery->bindParam('continent_name', $continent_name);
+        if ($listingQuery->execute()) {
+            echo 'Customers in ' . $continent_name . ':' . PHP_EOL;
+            while ($row = $listingQuery->fetch(\PDO::FETCH_ASSOC)) {
+                echo $row['customer_name'] . ' ' . $row['customer_family'] . PHP_EOL;
+            }
+        }
+
+        if ($listingQuery->rowCount() == 0) {
+            throw new \Exception('Бре, или няма такива или нещо си объркал' . PHP_EOL);
+        }
+    }
+
     private function loadProblems()
     {
         $this->problems = array(
             'задачка 7 - Call Center App',
             'задачка 7.1 - Add Currency and Continent',
             'задачка 7.2 - Customers in the Mountain',
-            'задачка 7.3 - Special Ski Equipment'
+            'задачка 7.3 - Special Ski Equipment',
+            'задачка 9 - Add Customer Functionality',
+            'задачка 10 - Delete Customer Functionality',
+            'задачка 11 - Customers in Specific Country 3=)',
+            'видя му се края.. 12 - Customers in Specific Continent 3==)'
         );
         $this->problemQuotes = array(
             'Цъкнете ми една рак.. [ country_name | country_code | iso_code | \'Bye\' ]: ' . PHP_EOL,
             'Подай ми [ country_code | iso_code ]' . PHP_EOL,
             'Моля един [ country_code | iso_code ]' . PHP_EOL,
-            'Ти си, давай [ country_code | iso_code ]' . PHP_EOL
+            'Ти си, давай [ country_code | iso_code ]' . PHP_EOL,
+            'Тука искам Customer [ country_name | country_code | iso_code ], customer_name, customer_family' . PHP_EOL,
+            'Тука ша даваш кого искаш да Обиеш сас смарт, демек след кат натиснеш Enter тоя ще умре:' . PHP_EOL . ' Remove, [ customer_name ], [ customer_family ]' . PHP_EOL,
+            'Аре е аре е, пиши: Customers in [ country_name ]?' . PHP_EOL,
+            'За последно, тука пиши: Customers in continent [ continent_name ]?' . PHP_EOL
         );
+    }
+
+    private function customerExists(string $customer_name): bool
+    {
+        $existsQuery = $this->getDatabase()->prepare(
+            "SELECT customer_name
+                      FROM customer
+                      WHERE customer_name = :customer_name"
+        );
+        $existsQuery->bindParam('customer_name', $customer_name);
+        $existsQuery->execute();
+        return ($existsQuery->rowCount() > 0);
+    }
+
+    private function getCountryCode(string $country_info)
+    {
+        $existsQuery = $this->getDatabase()->prepare(
+            "SELECT country_code
+                      FROM countries
+                      WHERE country_name = :country_info
+                            OR iso_code = :country_info
+                            OR country_code = :country_info;"
+        );
+        $existsQuery->bindParam('country_info', $country_info);
+        $existsQuery->execute();
+
+        if ($existsQuery->rowCount() == 0) {
+            return null;
+        }
+
+        $row = $existsQuery->fetch(\PDO::FETCH_ASSOC);
+        return $row['country_code'];
     }
 
     /**
