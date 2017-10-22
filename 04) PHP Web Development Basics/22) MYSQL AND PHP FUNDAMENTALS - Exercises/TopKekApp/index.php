@@ -3,15 +3,14 @@
  * @author Denchev07
  * https://softuni.bg/users/profile/show/denchev07
  *
- * @GitHub i-den
+ * GitHub i-den
  * https://github.com/i-den/SoftwareUniversity
  *
- * @app TopKekApp
+ * TopKekApp
  * Best HR Software for stupid p*tki
  *
- * @info idenchev07@gmail.com
- * pi6ete mi i shte uredim
- * po 1-2 memeta
+ * idenchev07@gmail.com
+ * pi6ete mi za memeta
  */
 
 /**
