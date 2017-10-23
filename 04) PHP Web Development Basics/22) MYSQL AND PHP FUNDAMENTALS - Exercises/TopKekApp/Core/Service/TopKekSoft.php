@@ -4,7 +4,9 @@
 namespace Core\Service;
 
 use Core\Adapter\TotallyDoctrine;
+use Core\Service\Commands\FourthCommand;
 use Core\Service\Commands\SecondCommand;
+use Core\Service\Commands\ThirdCommand;
 
 class TopKekSoft
 {
@@ -33,14 +35,27 @@ class TopKekSoft
         $this->announceUslovie($zadachkaNumber);
 
         $zadachka = null;
+        $options = null;
 
         switch ($zadachkaNumber) {
             case 2:
                 $zadachka = new SecondCommand($this->getDatabase());
+                break;
+            case 3:
+                $zadachka = new ThirdCommand($this->getDatabase());
+                $options = array('Email');
+                break;
+            case 4:
+                $zadachka = new ThirdCommand($this->getDatabase());
+                $options = array('Phone');
+                break;
+            case 5:
+                $zadachka = new FourthCommand($this->getDatabase());
+                break;
         }
 
         try {
-            $zadachka->execute();
+            $zadachka->execute($options);
         } catch (\Exception $exception) {
             exit($exception->getMessage());
         }
@@ -53,12 +68,13 @@ class TopKekSoft
             'Задачка 2: HR Application Insert Employee' . PHP_EOL,
             'Задачка 3: Insert Email' . PHP_EOL,
             'Задачка 4: Insert Phones 3=)' . PHP_EOL,
-            'Задачка 5: Get Emails of Employee' . PHP_EOL,
-            'Задачка 6: Get Emails and Phones' . PHP_EOL
+            'Задачка 5: Get Employee Information' . PHP_EOL,
         );
         $this->usloviq = array(
             '[ first_name ], [ middle_name ], [ last_name ], [ department ], [ position ], [  passport_id ]' . PHP_EOL,
-
+            '[ employee_id ]? [ first_name ], [ middle_name ], [ last_name ], emails, [ email_info ]+' . PHP_EOL,
+            '[ employee_id ]? [ first_name ], [ middle_name ], [ last_name ], phones, [ phone_info ]+' . PHP_EOL,
+            'Info, [ first_name ], [ last_name ]' . PHP_EOL
         );
     }
 
@@ -79,7 +95,7 @@ class TopKekSoft
         while (true) {
             $zadachka = intval(trim(fgets(STDIN)));
 
-            if ($zadachka > 1 && $zadachka <= 6) {
+            if ($zadachka > 1 && $zadachka <= 5) {
                 return $zadachka;
             }
 

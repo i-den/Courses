@@ -9,8 +9,6 @@
  * TopKekApp
  * Best HR Software for stupid p*tki
  *
- * idenchev07@gmail.com
- * pi6ete mi za memeta
  */
 
 /**
