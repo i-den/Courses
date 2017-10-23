@@ -18,10 +18,10 @@ use Models\Phone;
  */
 class TotallyDoctrine extends \PDO
 {
-    const HOST = '127.0.0.1';
-    const DB_NAME = 'geography';
-    const USER = 'root';
-    const PASS = 'pass123';
+    const HOST      = '127.0.0.1';
+    const DB_NAME   = 'geography';
+    const USER      = 'root';
+    const PASS      = 'pass123';
 
     /**
      * TotallyDoctrine constructor.
