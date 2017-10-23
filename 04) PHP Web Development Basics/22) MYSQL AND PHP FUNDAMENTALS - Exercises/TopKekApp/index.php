@@ -17,7 +17,6 @@
  */
 declare(strict_types=1);
 
-
 use Core\Adapter\TotallyDoctrine;
 use Core\Service\TopKekSoft;
 
