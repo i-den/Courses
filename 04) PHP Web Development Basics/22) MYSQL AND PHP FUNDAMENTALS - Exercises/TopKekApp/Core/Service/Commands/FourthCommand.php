@@ -10,7 +10,7 @@ use Core\Adapter\TotallyDoctrine;
  * Class FourthCommand
  *
  * Responsible for outputting information
- * about and Employee on the Console
+ * about an Employee on the Console
  *
  * @package Core\Service\Commands
  */
@@ -31,8 +31,8 @@ class FourthCommand extends Command
      */
     public function execute(array $options = null)
     {
-        $input = explode(', ', trim(fgets(STDIN)));
-        $employeeIds = null;
+        $input          = explode(', ', trim(fgets(STDIN)));
+        $employeeIds    = null;
 
         // Checks if WildCard is used
         switch (count($input)) {
