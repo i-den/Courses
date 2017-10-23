@@ -105,19 +105,19 @@ class ThirdCommand extends Command
             $lastName,
             $middleName
         );
-
+        
+        // No Employees found in the table - throw Exception
         if (count($employeeIds) == 0) {
-            // No Employees found in the table - throw Exception
             throw new \Exception(
                 'No employees with the name ' . $firstName . ' ' . $middleName . ' ' . $lastName . ' found!' . PHP_EOL
             );
 
-        } else if (count($employeeIds) == 1) {
-            // If only 1 Employee is present - try to insert it's Email or Phone information
+         // If only 1 Employee is present - try to insert it's Email or Phone information    
+        } else if (count($employeeIds) == 1) {           
             $this->insertData($firstName, $lastName, intval($employeeIds[0]), $employeeData, $option);
-
-        } else {
-            // If multiple Employees found - list each's employee_id
+            
+        // If multiple Employees found - list each's employee_id
+        } else {            
             exit('Employees with this name: ' . implode(', ', $employeeIds) . PHP_EOL);
         }
     }
