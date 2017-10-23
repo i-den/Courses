@@ -13,7 +13,7 @@
 
 /**
  * Kogato iskash da si
- * Java ili C#
+ * Java ili C# ama si PHP
  */
 declare(strict_types=1);
 

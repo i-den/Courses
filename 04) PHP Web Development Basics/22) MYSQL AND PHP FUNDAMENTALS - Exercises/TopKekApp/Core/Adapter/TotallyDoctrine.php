@@ -8,6 +8,14 @@ use Models\Email;
 use Models\Employee;
 use Models\Phone;
 
+/**
+ * Class TotallyDoctrine
+ *
+ * Holds all the interaction with
+ * the database and extends \PDO
+ *
+ * @package Core\Adapter
+ */
 class TotallyDoctrine extends \PDO
 {
     const HOST = '127.0.0.1';
@@ -33,16 +41,16 @@ class TotallyDoctrine extends \PDO
 
     /**
      * Inserts an Employee instance
-     * in the database
+     * in the employees table
      *
-     * @param Employee $employee
+     * @param   Employee $employee
      */
     public function insertEmployee(Employee $employee)
     {
         $insertEmployeeStatement = $this->prepare(
             "INSERT INTO `employees` 
-                             (`first_name`, `middle_name`, `last_name`, `department`, `position`, `passport_id`)
-                      VALUES (?, ?, ?, ?, ?, ?)"
+                             (`first_name`, `middle_name`, `last_name`, `department`, `position`, `passport_id`, `country_code`)
+                      VALUES (?, ?, ?, ?, ?, ?, ?)"
         );
 
         $insertEmployeeStatement->execute(array(
@@ -51,21 +59,22 @@ class TotallyDoctrine extends \PDO
             $employee->getLastName(),
             $employee->getDepartment(),
             $employee->getPosition(),
-            $employee->getPassportId()
+            $employee->getPassportId(),
+            $employee->getCountryCode()
         ));
     }
 
     /**
-     * Checks if the Database already
-     * has an Employee entry with
-     * the given parameters
+     * Looks up if an Employee instance with an
+     * unique first_name, middle_name, last_name AND (passport_id OR employee_id)
+     * exists in the employees table
      *
-     * @param string $firstName
-     * @param string $middleName
-     * @param string $lastName
-     * @param string $id
-     * @param int $passIdOrId
-     * @return bool
+     * @param string    $firstName
+     * @param string    $middleName
+     * @param string    $lastName
+     * @param string    $id
+     * @param int       $passIdOrId     1 for search by passport_id, 2 for employee_id
+     * @return          bool
      */
     public function employeeExists(
         string $firstName,
@@ -73,13 +82,15 @@ class TotallyDoctrine extends \PDO
         string $lastName,
         string $id,
         int $passIdOrId
-    ): bool
+    ):  bool
     {
         $employeeExistsQuery = null;
 
-        if ($passIdOrId == 1) {
-            $employeeExistsQuery = $this->prepare(
-                "SELECT
+        switch ($passIdOrId) {
+            // Searching by Employee's property $passportId
+            case 1:
+                $employeeExistsQuery = $this->prepare(
+                    "SELECT
                         `first_name`,
                         `middle_name`,
                         `last_name`,
@@ -90,10 +101,12 @@ class TotallyDoctrine extends \PDO
                             AND `last_name` = ?
                             AND `passport_id` = ?
                       LIMIT 0, 1;"
-            );
-        } else {
-            $employeeExistsQuery = $this->prepare(
-                "SELECT
+                );
+                break;
+            // Searching by the table's primary key employee_id
+            case 2:
+                $employeeExistsQuery = $this->prepare(
+                    "SELECT
                         `first_name`,
                         `middle_name`,
                         `last_name`,
@@ -104,9 +117,9 @@ class TotallyDoctrine extends \PDO
                             AND `last_name` = ?
                             AND `employee_id` = ?
                       LIMIT 0, 1;"
-            );
+                );
+                break;
         }
-
 
         $employeeExistsQuery->execute(array(
             $firstName, $middleName, $lastName, $id
@@ -116,108 +129,187 @@ class TotallyDoctrine extends \PDO
     }
 
     /**
-     * Checks if the email table
-     * contains an email
-     * with the same address
+     * Looks up the employee_(phone OR emails) table
+     * already contains an instance with the same
+     * phone_number OR email_address
      *
-     * @param string $emailOrPhone
-     * @param  string $option
+     * @param string $emAddrOrPhNum - the phone_number OR email_address
+     * @param  string $emailOrPhone
+     * Phone or Email to point the search
      * @return bool
      */
-    public function dataExists(string $emailOrPhone, string $option): bool
+    public function dataExists(string $emAddrOrPhNum, string $emailOrPhone): bool
     {
         $dataExistsQuery = null;
 
-        if ($option == 'Email') {
-            $dataExistsQuery = $this->prepare(
-                "SELECT `email_address`
-                          FROM `employee_emails`
-                          WHERE `email_address` = ?
-                          LIMIT 0, 1"
-            );
-        } else {
-            $dataExistsQuery = $this->prepare(
-                "SELECT `phone_number`
-                          FROM `employee_phones`
-                          WHERE `phone_number` = ?
-                          LIMIT 0, 1;"
-            );
+        switch ($emailOrPhone) {
+            case 'Phone':
+                $dataExistsQuery = $this->prepare(
+                    "SELECT `phone_number`
+                              FROM `employee_phones`
+                              WHERE `phone_number` = ?
+                              LIMIT 0, 1;"
+                );
+                break;
+            case 'Email':
+                $dataExistsQuery = $this->prepare(
+                    "SELECT `email_address`
+                              FROM `employee_emails`
+                              WHERE `email_address` = ?
+                              LIMIT 0, 1"
+                );
+                break;
         }
 
-
         $dataExistsQuery->execute(array(
-            $emailOrPhone
+            $emAddrOrPhNum
         ));
 
         return ($dataExistsQuery->rowCount() > 0);
     }
 
+    /**
+     * Inserts the provided parameters for
+     * Email Address or Phone Number
+     * in the corresponding table
+     *
+     * @param string $employeeId
+     * @param string $emailAddOrPhoneNum
+     * @param string $emailOrPhoneType
+     * @param string $emailOrPhone
+     */
     public function insertEmployeeData(
         string $employeeId,
         string $emailAddOrPhoneNum,
-        string $dataType,
-        string $option
+        string $emailOrPhoneType,
+        string $emailOrPhone
     )
     {
         $insertDataQuery = null;
-        if ($option == 'Email') {
-            $insertDataQuery = $this->prepare(
-                "INSERT INTO `employee_emails`
-                            (`employee_id`, `email_address`, `email_type`)
-                          VALUES (?, ?, ?)"
-            );
-        } else {
-            $insertDataQuery = $this->prepare(
-                "INSERT INTO `employee_phones`
-                            (`employee_id`, `phone_number`, `phone_type`)
-                          VALUES (?, ?, ?)"
-            );
+
+        switch ($emailOrPhone) {
+            // Email Insert Query
+            case 'Email':
+                $insertDataQuery = $this->prepare(
+                    "INSERT INTO `employee_emails`
+                                    (`employee_id`, `email_address`, `email_type`)
+                              VALUES (?, ?, ?)"
+                );
+                break;
+            // Phone Insert Query
+            case 'Phone':
+                $insertDataQuery = $this->prepare(
+                    "INSERT INTO `employee_phones`
+                                    (`employee_id`, `phone_number`, `phone_type`)
+                              VALUES (?, ?, ?)"
+                );
+                break;
         }
 
         $insertDataQuery->execute(array(
-            $employeeId, $emailAddOrPhoneNum, $dataType
+            $employeeId, $emailAddOrPhoneNum, $emailOrPhoneType
         ));
     }
 
-    public function findEmployeesByName($firstName, $lastName, $middleName = null)
+    /**
+     * Searches the database for Employees
+     * matching exactly by their name properties
+     * or by WildCard for any of them
+     *
+     * @param   string          $firstName
+     * @param   int             $fullOrWildCard
+     * @param   string|null     $lastName
+     * @param   string|null     $middleName
+     * @return  array
+     */
+    public function findEmployeesByName(
+        string  $firstName,
+        int     $fullOrWildCard,
+        string  $lastName    = null,
+        string  $middleName  = null
+    )
     {
-        $employeeIds = array();
-        $fetchEmployeeIds = null;
-        $options = null;
-        if (isset($middleName)) {
-            $fetchEmployeeIds = $this->prepare(
-                "SELECT `employee_id`
-                      FROM `employees`
-                      WHERE `first_name` = ?
-                      AND `middle_name` = ?
-                      AND `last_name` = ?"
-            );
-            $options = array($firstName, $middleName, $lastName);
-        } else {
-            $fetchEmployeeIds = $this->prepare(
-                "SELECT `employee_id`
-                      FROM `employees`
-                      WHERE `first_name` = ?
-                      AND `last_name` = ?"
-            );
-            $options = array($firstName, $lastName);
-        }
+        // employee_id[] to return
+        $employeeIds        = array();
 
-        if ($fetchEmployeeIds->execute($options)) {
-            while ($row = $fetchEmployeeIds->fetch(\PDO::FETCH_ASSOC)) {
-                $employeeIds[] = $row['employee_id'];
-            }
+        $fetchEmployeeIds   = null;
+        $options            = null;
+
+        switch ($fullOrWildCard) {
+            // Search by full names match
+            case 1:
+                if (isset($middleName)) {
+                    // Searches by all three names - first_name, middle_name, last_name
+                    $fetchEmployeeIds = $this->prepare(
+                        "SELECT `employee_id`
+                                 FROM `employees`
+                                 WHERE `first_name` = ?
+                                 AND `middle_name` = ?
+                                 AND `last_name` = ?"
+                    );
+
+                    $options = array($firstName, $middleName, $lastName);
+
+                } else {
+                    // Searches only by first_name, last_name
+                    $fetchEmployeeIds = $this->prepare(
+                        "SELECT `employee_id`
+                                 FROM `employees`
+                                 WHERE `first_name` = ?
+                                 AND `last_name` = ?"
+                    );
+
+                    $options = array($firstName, $lastName);
+
+                }
+
+                // Fill the employee_id[]
+                if ($fetchEmployeeIds->execute($options)) {
+                    while ($row = $fetchEmployeeIds->fetch(\PDO::FETCH_ASSOC)) {
+                        $employeeIds[] = $row['employee_id'];
+                    }
+                }
+                break;
+
+            // Searches by a WildCard matching ANY of the three names - first_name, middle_name, last_name
+            case 2:
+                $fetchEmployeeIds = $this->prepare(
+                    "SELECT `employee_id`
+                             FROM employees
+                             WHERE `first_name` LIKE :input
+                             OR `middle_name` LIKE :input
+                             OR `last_name` LIKE :input"
+                );
+
+                $wildCard = $firstName . '%';
+                $fetchEmployeeIds->bindParam('input', $wildCard);
+
+                if ($fetchEmployeeIds->execute()) {
+                    while ($row = $fetchEmployeeIds->fetch(\PDO::FETCH_ASSOC)) {
+                        $employeeIds[] = $row['employee_id'];
+                    }
+                }
+
+                break;
         }
 
         return $employeeIds;
     }
 
+    /**
+     * Searches for an Employee from the database
+     * by it's employee_id and returns an instance
+     *
+     * @param   int         $id
+     * @return  Employee
+     */
     public function fetchEmployeeById(int $id): Employee
     {
         $employee = null;
+
         $fetchEmployeeQuery = $this->prepare(
             "SELECT 
-                        `first_name`, `middle_name`, `last_name`, `department`, `position`, `passport_id`
+                        `first_name`, `middle_name`, `last_name`, `department`, `position`, `passport_id`, `country_code`
                       FROM `employees`
                       WHERE `employee_id` = ?"
         );
@@ -230,10 +322,12 @@ class TotallyDoctrine extends \PDO
                 $employeeInfo['last_name'],
                 $employeeInfo['department'],
                 $employeeInfo['position'],
-                $employeeInfo['passport_id']
+                $employeeInfo['passport_id'],
+                $employeeInfo['country_code']
             );
         }
 
+        // Search for the Employee's Email Addresses in the database
         $employeeEmails = $this->fetchEmailsByEmpId($id);
 
         if (!empty($employeeEmails)) {
@@ -242,6 +336,7 @@ class TotallyDoctrine extends \PDO
             }
         }
 
+        // Search for the Employee's Phone Numbers in the database
         $employeePhones = $this->fetchPhonesByEmpId($id);
 
         if (!empty($employeePhones)) {
@@ -254,8 +349,11 @@ class TotallyDoctrine extends \PDO
     }
 
     /**
-     * @param int $id
-     * @return Email[]
+     * Searches for an Employee's Emails
+     * by their employee_id
+     *
+     * @param   int       $id
+     * @return  Email[]
      */
     public function fetchEmailsByEmpId(int $id): array
     {
@@ -281,8 +379,8 @@ class TotallyDoctrine extends \PDO
     }
 
     /**
-     * @param int $id
-     * @return Phone[]
+     * @param   int         $id
+     * @return  Phone[]
      */
     public function fetchPhonesByEmpId(int $id): array
     {
@@ -304,5 +402,33 @@ class TotallyDoctrine extends \PDO
         }
 
         return $phones;
+    }
+
+    /**
+     * Searches for a Country in the database by
+     * it's country_name OR country_code OR iso_code
+     *
+     * @param   string      $country
+     * @return  string
+     */
+    public function findCountry(string $country): string
+    {
+        $CountryCode = null;
+        $findCoutnryQuery = $this->prepare(
+            "SELECT `country_code`
+                      FROM `countries`
+                      WHERE `country_name` = :info
+                            OR `country_code` = :info
+                            OR `iso_code` = :info;"
+        );
+
+        $findCoutnryQuery->bindParam('info', $country);
+
+        if ($findCoutnryQuery->execute()) {
+            $row = $findCoutnryQuery->fetch(\PDO::FETCH_ASSOC);
+            $CountryCode = $row['country_code'];
+        }
+
+        return $CountryCode;
     }
 }

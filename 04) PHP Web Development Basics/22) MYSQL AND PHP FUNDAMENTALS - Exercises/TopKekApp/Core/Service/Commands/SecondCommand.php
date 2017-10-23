@@ -7,20 +7,34 @@ namespace Core\Service\Commands;
 use Core\Adapter\TotallyDoctrine;
 use Models\Employee;
 
+/**
+ * Class SecondCommand
+ *
+ * Responsible for Inserting
+ * Employees in the Database
+ *
+ * @package Core\Service\Commands
+ */
 class SecondCommand extends Command
 {
-    const GIVE_PASS_ID = 1;
 
     public function __construct(TotallyDoctrine $database)
     {
         parent::__construct($database);
     }
 
+    /**
+     * Takes input and tries to Insert
+     * an Employee instance in the Database
+     *
+     * @param array|null $options
+     * @throws \Exception
+     */
     public function execute(array $options = null)
     {
         $employeeInfo = explode(', ', trim(fgets(STDIN)));
 
-        if (count($employeeInfo) !== 6) {
+        if (count($employeeInfo) < 6 ) {
             throw new \Exception('Error: Please, check your input syntax.');
         }
 
@@ -30,22 +44,35 @@ class SecondCommand extends Command
         $department = $employeeInfo[3];
         $position = $employeeInfo[4];
         $passId = explode(' ', $employeeInfo[5])[1];
+        $country = null;
         $database = $this->getDatabase();
+
+        // Check if there is a Valid Country to be Inserted
+        if (count($employeeInfo) == 7) {
+            $country = $database->findCountry($employeeInfo[6]);
+            if ($country == null) {
+                throw new \Exception('No such country found - ' . $employeeInfo[6] . PHP_EOL);
+            }
+        }
+
+
         $employee = new Employee(
             $firstName,
             $middleName,
             $lastName,
             $department,
             $position,
-            $passId
+            $passId,
+            $country
         );
 
+        // If an Employee with unique combination of names and passport_id exists throw an Exception
         if ($database->employeeExists(
             $firstName,
             $middleName,
             $lastName,
             $passId,
-            self::GIVE_PASS_ID
+            parent::SEARCH_PASS_ID
         )
         ) {
             throw new \Exception(

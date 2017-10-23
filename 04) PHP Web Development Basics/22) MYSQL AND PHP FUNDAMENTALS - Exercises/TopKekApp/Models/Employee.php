@@ -2,7 +2,14 @@
 
 namespace Models;
 
-
+/**
+ * Class Employee
+ *
+ * Employee class containing information
+ * for each Employee in the Database
+ *
+ * @package Models
+ */
 class Employee
 {
     private $firstName;
@@ -11,6 +18,8 @@ class Employee
     private $department;
     private $position;
     private $passportId;
+    private $countryCode = null;
+
     /**
      * @var Email[]
      */
@@ -26,7 +35,8 @@ class Employee
         string $lastName,
         string $department,
         string $position,
-        string $passportId
+        string $passportId,
+        string $countryCode = null
     )
     {
         $this->setFirstName($firstName)
@@ -34,29 +44,41 @@ class Employee
             ->setLastName($lastName)
             ->setDepartment($department)
             ->setPosition($position)
-            ->setPassportId($passportId);
+            ->setPassportId($passportId)
+            ->setCountryCode($countryCode);
     }
 
     public function __toString()
     {
-        $employeeOutput  = 'First Name: ' . $this->getFirstName() . PHP_EOL;
+        $employeeOutput = 'First Name: ' . $this->getFirstName() . PHP_EOL;
         $employeeOutput .= 'Middle Name: ' . $this->getMiddleName() . PHP_EOL;
         $employeeOutput .= 'Last Name: ' . $this->getLastName() . PHP_EOL;
+
+        // Checks if the Country Code is set and adds it to the string if it is
+        $countryCode = $this->getCountryCode();
+        if (isset($countryCode)) {
+            $employeeOutput .= 'Country: ' . $countryCode . PHP_EOL;
+        }
+
         $employeeOutput .= 'Department: ' . $this->getDepartment() . PHP_EOL;
         $employeeOutput .= 'Position: ' . $this->getPosition() . PHP_EOL;
         $employeeOutput .= 'Passport ID: ' . $this->getPassportId() . PHP_EOL;
 
+        /**
+         * Checks if any Emails are present
+         * and then lists any Work or Personal such
+         */
         if (!empty($this->getEmails())) {
             $employeeOutput .= 'Emails:' . PHP_EOL;
 
             /** @var Email[] $workEmails */
-            $workEmails = array_filter($this->getEmails(), function (Email $email){
-               return $email->getType() == 'Work';
+            $workEmails = array_filter($this->getEmails(), function (Email $email) {
+                return $email->getType() == '-Work';
             });
 
             /** @var Email[] $personalEmails */
             $personalEmails = array_filter($this->getEmails(), function (Email $email) {
-               return $email->getType() == 'Personal';
+                return $email->getType() == '-Personal';
             });
 
             if (!empty($workEmails)) {
@@ -67,7 +89,7 @@ class Employee
             }
 
             if (!empty($personalEmails)) {
-                $employeeOutput .= 'Personal:' . PHP_EOL;
+                $employeeOutput .= '-Personal:' . PHP_EOL;
                 foreach ($personalEmails as $personalEmail) {
                     $employeeOutput .= $personalEmail->getAddress() . PHP_EOL;
                 }
@@ -77,17 +99,21 @@ class Employee
             $employeeOutput .= 'No Emails' . PHP_EOL;
         }
 
+        /**
+         * Same function as the Emails,
+         * just adding the Phones instead
+         */
         if (!empty($this->getPhones())) {
             $employeeOutput .= 'Phones:' . PHP_EOL;
 
             /** @var Phone[] $workPhones */
-            $workPhones = array_filter($this->getPhones(), function(Phone $phone) {
-               return $phone->getType() == 'Work';
+            $workPhones = array_filter($this->getPhones(), function (Phone $phone) {
+                return $phone->getType() == 'Work';
             });
 
             /** @var Phone[] $personalPhones */
-            $personalPhones = array_filter($this->getPhones(), function(Phone $phone) {
-               return $phone->getType() == 'Personal';
+            $personalPhones = array_filter($this->getPhones(), function (Phone $phone) {
+                return $phone->getType() == 'Personal';
             });
 
             if (!empty($workPhones)) {
@@ -246,5 +272,23 @@ class Employee
     public function getPhones(): array
     {
         return $this->phones;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCountryCode()
+    {
+        return $this->countryCode;
+    }
+
+    /**
+     * @param mixed $countryCode
+     * @return Employee
+     */
+    public function setCountryCode($countryCode)
+    {
+        $this->countryCode = $countryCode;
+        return $this;
     }
 }
