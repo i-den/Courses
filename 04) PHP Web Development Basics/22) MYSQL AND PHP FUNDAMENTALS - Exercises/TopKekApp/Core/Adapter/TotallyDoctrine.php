@@ -77,11 +77,11 @@ class TotallyDoctrine extends \PDO
      * @return          bool
      */
     public function employeeExists(
-        string $firstName,
-        string $middleName,
-        string $lastName,
-        string $id,
-        int $passIdOrId
+        string  $firstName,
+        string  $middleName,
+        string  $lastName,
+        string  $id,
+        int     $passIdOrId
     ):  bool
     {
         $employeeExistsQuery = null;
@@ -133,9 +133,9 @@ class TotallyDoctrine extends \PDO
      * already contains an instance with the same
      * phone_number OR email_address
      *
-     * @param string $emAddrOrPhNum - the phone_number OR email_address
-     * @param  string $emailOrPhone
-     * Phone or Email to point the search
+     * @param   string  $emAddrOrPhNum  the phone_number OR email_address
+     * @param   string  $emailOrPhone   Phone or Email to point the search
+     * 
      * @return bool
      */
     public function dataExists(string $emAddrOrPhNum, string $emailOrPhone): bool
@@ -214,7 +214,7 @@ class TotallyDoctrine extends \PDO
     /**
      * Searches the database for Employees
      * matching exactly by their name properties
-     * or by WildCard for any of them
+     * or by WildCard for any of the same properties
      *
      * @param   string          $firstName
      * @param   int             $fullOrWildCard
@@ -225,8 +225,8 @@ class TotallyDoctrine extends \PDO
     public function findEmployeesByName(
         string  $firstName,
         int     $fullOrWildCard,
-        string  $lastName    = null,
-        string  $middleName  = null
+        string  $lastName       = null,
+        string  $middleName     = null
     )
     {
         // employee_id[] to return
