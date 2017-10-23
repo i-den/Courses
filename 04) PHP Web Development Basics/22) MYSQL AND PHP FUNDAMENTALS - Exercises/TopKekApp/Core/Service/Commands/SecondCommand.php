@@ -38,14 +38,14 @@ class SecondCommand extends Command
             throw new \Exception('Error: Please, check your input syntax.');
         }
 
-        $firstName = $employeeInfo[0];
+        $firstName  = $employeeInfo[0];
         $middleName = $employeeInfo[1];
-        $lastName = $employeeInfo[2];
+        $lastName   = $employeeInfo[2];
         $department = $employeeInfo[3];
-        $position = $employeeInfo[4];
-        $passId = explode(' ', $employeeInfo[5])[1];
-        $country = null;
-        $database = $this->getDatabase();
+        $position   = $employeeInfo[4];
+        $passId     = explode(' ', $employeeInfo[5])[1];
+        $country    = null;
+        $database   = $this->getDatabase();
 
         // Check if there is a Valid Country to be Inserted
         if (count($employeeInfo) == 7) {
