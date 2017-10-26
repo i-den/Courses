@@ -6,7 +6,7 @@
 use Core\Database\FakeDoctrine;
 use Service\Application;
 
-$database       = new FAkeDoctrine();
+$database       = new FakeDoctrine();
 $application    = new Application($database);
 
 $application->start();
