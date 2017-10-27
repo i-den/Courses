@@ -32,8 +32,8 @@ class Car
     }
 
     /**
-     * @param string $make
-     * @return Car
+     * @param   string  $make
+     * @return  Car
      */
     public function setMake(string $make): Car
     {
@@ -50,8 +50,8 @@ class Car
     }
 
     /**
-     * @param string $model
-     * @return Car
+     * @param   string  $model
+     * @return  Car
      */
     public function setModel(string $model): Car
     {
@@ -68,8 +68,8 @@ class Car
     }
 
     /**
-     * @param int $year
-     * @return Car
+     * @param   int     $year
+     * @return  Car
      */
     public function setYear(int $year): Car
     {

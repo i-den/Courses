@@ -30,8 +30,8 @@ class Customer
     }
 
     /**
-     * @param string $firstName
-     * @return Customer
+     * @param   string  $firstName
+     * @return  Customer
      */
     public function setFirstName(string $firstName): Customer
     {
@@ -48,8 +48,8 @@ class Customer
     }
 
     /**
-     * @param string $familyName
-     * @return Customer
+     * @param   string  $familyName
+     * @return  Customer
      */
     public function setFamilyName(string $familyName): Customer
     {
