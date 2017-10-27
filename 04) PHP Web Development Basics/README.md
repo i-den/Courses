@@ -5,5 +5,9 @@
  ## *First steps learning PHP*
 
 <p align="center">
+<img src="http://recepti.gotvach.bg/files/lib/600x350/bg-leshta.jpg" />
+ </p>
+
+<p align="center">
 <a href="https://softuni.bg/trainings/1746/php-web-developmentbasics-september-2017">Course Page</a> <br />
-<p>
+</p>
