@@ -24,6 +24,14 @@
                         <li><a href="./index.php?list=sales">All Full Sales</a> </li>
                         <li><a href="./index.php?list=cars">All Cars Sold</a> </li>
                         <li><a href="./index.php?list=customers">All Customers</a> </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Update<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="./index.php?update=sales">Sale</a></li>
+                                <li><a href="./index.php?update=cars">Car</a></li>
+                                <li><a href="./index.php?update=customers">Customer</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
