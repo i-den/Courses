@@ -10,11 +10,28 @@ use Core\Database\EloDisplay;
 use Core\Database\EloInsert;
 use Core\Database\EloUpdate;
 
+/**
+ * Class CarShop
+ *
+ * Friendly reminder from the Author:
+ * - This is my first time ever doing CRUD without any help
+ * and the code is sh*t as f*ck, I do acknowledge this
+ *
+ * Please, do not refer to this code as nothing but
+ * kinda working CRUD, hopefully I'll improve one day ;)
+ *
+ * @package App\Service
+ */
 class CarShop
 {
 
+    /**
+     * Entry point for the application
+     * this is mega leshta
+     */
     public function serve()
     {
+        // Load Headers
         include BASEDIR . '/App/Views/header.php';
 
         if (isset($_GET['list'])) {
@@ -57,8 +74,10 @@ class CarShop
 
         } else if (isset($_POST['submit-update'])) {
 
+            // Request to Update a Sale, Car or Customer
             switch ($_GET['update']) {
 
+                // Updating Sale
                 case 'Sales':
                 case 'sales':
 
@@ -66,10 +85,28 @@ class CarShop
 
                     break;
 
+                // Updating Car
+                case 'Cars':
+                case 'cars':
+
+                    $this->updateCar();
+
+                    break;
+
+                // Updating Customer
+                case 'Customers':
+                case 'customers':
+
+                    $this->updateCustomer();
+
+                    break;
+
             }
 
+            // Request to Update a Car, Sale or Customer
         } else if (isset($_GET['update'])) {
 
+            // Request sent to update a specific Car, Sale or Customer
             if (isset($_GET['id'])) {
 
                 $id = $_GET['id'];
@@ -86,10 +123,14 @@ class CarShop
                     case 'Cars':
                     case 'cars':
 
+                        $this->displayCarForUpdate($id);
+
                         break;
 
                     case 'Customers':
                     case 'customers':
+
+                        $this->displayCustomerForUpdate($id);
 
                         break;
 
@@ -97,7 +138,7 @@ class CarShop
 
             } else {
 
-                // Request to update a Sale, Car or Customer
+                // Request sent to list all Cars, Sales and Customers available for Update
                 switch ($_GET['update']) {
 
                     case 'Sales':
@@ -124,7 +165,12 @@ class CarShop
                 }
             }
 
+            // Search by Make request
+        } else if (isset($_GET['search'])) {
 
+            $this->displaySearch();
+
+            // Main page
         } else {
 
             // Form is Filled, trying to Insert Sale Info
@@ -141,9 +187,13 @@ class CarShop
 
         }
 
+        // Load footer
         include BASEDIR . '/App/Views/footer.php';
     }
 
+    /**
+     * Includes the View with all Sales listed from the Database
+     */
     private function displayAllSales()
     {
         $dbDisplay = new EloDisplay();
@@ -151,6 +201,9 @@ class CarShop
         $dbDisplay->displaySales();
     }
 
+    /**
+     * Includes the View with all Cars listed from the Database
+     */
     private function displayAllCars()
     {
         $dbDisplay = new EloDisplay();
@@ -158,6 +211,9 @@ class CarShop
         $dbDisplay->displayCars();
     }
 
+    /**
+     * Includes the View with all Customers listed from the Database
+     */
     private function displayAllCustomers()
     {
         $dbDisplay = new EloDisplay();
@@ -165,12 +221,19 @@ class CarShop
         $dbDisplay->displayCustomers();
     }
 
+    /**
+     * 404 View
+     */
     private function displayNotFound()
     {
         header('HTTP/1.1 404 Not Found');
         include BASEDIR . '/public_html/Errors/404.php';
     }
 
+    /**
+     * Main Method for Inserting a Sale into the Database
+     * - Customer, Car, Amount
+     */
     private function insertSale()
     {
         try {
@@ -202,6 +265,9 @@ class CarShop
         $saleId = $insertQuery->insertSale($car, $customer, $amount);
     }
 
+    /**
+     * Lists all Sales with their information that can be updated
+     */
     private function displaySalesForUpdate()
     {
         $dbDisplay = new EloDisplay();
@@ -209,6 +275,9 @@ class CarShop
         $dbDisplay->displaySalesForUpdate();
     }
 
+    /**
+     * Lists all Cars with their information that can be updated
+     */
     private function displayCarsForUpdate()
     {
         $dbDisplay = new EloDisplay();
@@ -216,6 +285,9 @@ class CarShop
         $dbDisplay->displayCarsForUpdate();
     }
 
+    /**
+     * Lists all Customers with their information that can be updated
+     */
     private function displayCustomersForUpdate()
     {
         $dbDisplay = new EloDisplay();
@@ -223,6 +295,11 @@ class CarShop
         $dbDisplay->displayCustomersForUpdate();
     }
 
+    /**
+     * Displays the requested Sale's details that will be updated
+     *
+     * @param int $id
+     */
     private function displaySaleForUpdate(int $id)
     {
         $dbUpdate = new EloDisplay();
@@ -243,6 +320,57 @@ class CarShop
 
     }
 
+    /**
+     * Displays the requested Car's details that will be updated
+     *
+     * @param int $id
+     */
+    private function displayCarForUpdate(int $id)
+    {
+        $dbUpdate = new EloDisplay();
+
+        try {
+
+            $dbUpdate->displayCarForUpdate($id);
+
+        } catch (\Exception $exception) {
+
+            $errorMessage = $exception->getMessage();
+
+            include BASEDIR . '/App/Views/error.php';
+
+            return;
+
+        }
+    }
+
+    /**
+     * Displays the requested Customer's details that will be updated
+     *
+     * @param int $id
+     */
+    private function displayCustomerForUpdate(int $id)
+    {
+        $dbUpdate = new EloDisplay();
+
+        try {
+
+            $dbUpdate->displayCustomerForUpdate($id);
+
+        } catch (\Exception $exception) {
+
+            $errorMessage = $exception->getMessage();
+
+            include BASEDIR . '/App/Views/error.php';
+
+            return;
+
+        }
+    }
+
+    /**
+     * Tries to update the Sale with the New Information
+     */
     private function updateSale()
     {
         $dbUpdate = new EloUpdate();
@@ -260,6 +388,67 @@ class CarShop
             return;
 
         }
+    }
 
+    /**
+     * Tries to update the Car with the New Information
+     */
+    private function updateCar()
+    {
+        $dbUpdate = new EloUpdate();
+
+        try {
+
+            $dbUpdate->updateCar();
+
+        } catch (\Exception $exception) {
+
+            $errorMessage = $exception->getMessage();
+
+            include BASEDIR . '/App/Views/error.php';
+
+            return;
+
+        }
+    }
+
+    /**
+     * Tries to update the Customer with the New Information
+     */
+    private function updateCustomer()
+    {
+        $dbUpdate = new EloUpdate();
+
+        try {
+
+            $dbUpdate->updateCustomer();
+
+        } catch (\Exception $exception) {
+
+            $errorMessage = $exception->getMessage();
+
+            include BASEDIR . '/App/Views/error.php';
+
+            return;
+
+        }
+    }
+
+    private function displaySearch()
+    {
+        $dbDisplay = new EloDisplay();
+
+        try {
+
+            $dbDisplay->displaySearch();
+
+        } catch (\Exception $exception) {
+
+            $errorMessage = $exception->getMessage();
+
+            include BASEDIR . '/App/Views/error.php';
+
+            return;
+        }
     }
 }

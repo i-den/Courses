@@ -21,4 +21,7 @@
         <?php endforeach ?>
         </tbody>
     </table>
+    <span>
+        Total: <?= number_format($totalAmount['sales_amount'], 2) ?>
+    </span>
 </div>
