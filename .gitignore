@@ -12,6 +12,8 @@
 *.config
 *.StyleCop
 *.Cache
+access_log
+error_log
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
