@@ -4,8 +4,7 @@
 use App\Service\CarShop;
 
 
-//define('BASEDIR', substr(__DIR__, 0, strrpos(__DIR__, '/')));
-define('BASEDIR', '/home/vankata/public_html/denchev.com');
+define('BASEDIR', substr(__DIR__, 0, strrpos(__DIR__, '/')));
 define('HOST', $_SERVER['HTTP_HOST']);
 
 /**
