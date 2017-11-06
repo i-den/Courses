@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Data\\" : "App/Data",
+      "Database\\" : "App/Database",
+      "Http\\" : "App/Http",
+      "Repository\\" : "App/Repository",
+      "Service\\" : "App/Service",
+      "Core\\" : "App/Core"
+    }
+  }
+}
