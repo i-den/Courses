@@ -1,5 +1,8 @@
 <?php
 
-require_once 'common.php';
+use Http\UserHttpHandler;
 
-$httpHandler->login($userService, $_POST);
+include_once 'common.php';
+
+$userHttpHandler = new UserHttpHandler($template, $dataBinder);
+$userHttpHandler->login($userService, $_POST);

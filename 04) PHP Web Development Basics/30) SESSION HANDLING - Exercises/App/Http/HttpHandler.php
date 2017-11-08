@@ -19,20 +19,21 @@ abstract class HttpHandler
      */
     protected $dataBinder;
 
-    public function __construct(TemplateInterface $template, DataBinderInterface $dataBinder)
+    public function __construct(TemplateInterface $template,
+                                DataBinderInterface $dataBinder)
     {
-        $this->template = $template;
-        $this->dataBinder = $dataBinder;
+        $this->template     = $template;
+        $this->dataBinder   = $dataBinder;
     }
 
-    public function render(string $templateName, $data = null)
+    protected function render(string $templateName, $data = null)
     {
         $this->template->render($templateName, $data);
     }
 
-    public function redirect(string $url)
+    protected function redirect(string $url)
     {
         header('Location: ' . $url);
-        exit;
+        exit();
     }
 }

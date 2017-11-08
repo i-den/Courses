@@ -3,15 +3,7 @@
 
 namespace Database;
 
-/**
- * Class Database
- *
- * Simple PDO Wrapper
- * encapsulates and divides the PDO logic
- * into three different classes
- *
- * @package Database
- */
+
 class Database implements DatabaseInterface
 {
     /**
@@ -22,6 +14,7 @@ class Database implements DatabaseInterface
     public function __construct(\PDO $database)
     {
         $this->database = $database;
+        $this->database->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
     public function prepare(string $queryString): PreparedStatementInterface
@@ -31,7 +24,7 @@ class Database implements DatabaseInterface
 
     public function getLastError(): array
     {
-        return $this->database->errorInfo();
+       return $this->database->errorInfo();
     }
 
     public function getLastInsertId(): string

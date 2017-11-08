@@ -1,11 +1,8 @@
 <?php
-/**
- * Prepisano by
- * @author Denchev07
- * https://github.com/i-den
- * https://softuni.bg/users/profile/show/denchev07
- */
+
+use Http\UserHttpHandler;
 
 require_once 'common.php';
 
-$httpHandler->index($userService);
+$userHttpHandler = new UserHttpHandler($template, $dataBinder);
+$userHttpHandler->index($userService);

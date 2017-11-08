@@ -1,5 +1,8 @@
 <?php
 
+use Http\UserHttpHandler;
+
 require_once 'common.php';
 
-$httpHandler->all($userService);
+$userHttpHandler = new UserHttpHandler($template, $dataBinder);
+$userHttpHandler->all($userService);

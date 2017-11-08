@@ -3,15 +3,7 @@
 
 namespace Database;
 
-/**
- * Class PreparedStatement
- *
- * PDOStatement wrapper that only executes queries
- * and returns another class that will take care
- * of fetching form the Database
- *
- * @package Database
- */
+
 class PreparedStatement implements PreparedStatementInterface
 {
     /**

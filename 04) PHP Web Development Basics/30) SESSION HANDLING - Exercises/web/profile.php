@@ -1,5 +1,8 @@
 <?php
 
+use Http\UserHttpHandler;
+
 require_once 'common.php';
 
-$httpHandler->profile($userService, $_POST);
+$userHttpHandler = new UserHttpHandler($template, $dataBinder);
+$userHttpHandler->profile($userService, $_POST);

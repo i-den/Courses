@@ -6,7 +6,6 @@ namespace Data;
 
 class UserDTO
 {
-
     private $id;
     private $username;
     private $password;
@@ -19,7 +18,7 @@ class UserDTO
                                   string $firstName,
                                   string $lastName,
                                   string $bornOn,
-                                  string $id = null): UserDTO
+                                  string $id = null)
     {
         return (new UserDTO())->setUsername($username)
             ->setPassword($password)

@@ -13,7 +13,7 @@ class ErrorDTO
         $this->errorInfo = $errorInfo;
     }
 
-    public function getErrorInfo()
+    public function getErrorInfo(): string
     {
         return $this->errorInfo;
     }

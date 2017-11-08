@@ -8,7 +8,7 @@ use Data\UserDTO;
 
 interface UserRepositoryInterface
 {
-    public function insert(UserDTO $user): bool;
+    public function insert(UserDTO $user);
 
     public function findOneById(int $id): ?UserDTO;
 
@@ -16,7 +16,7 @@ interface UserRepositoryInterface
 
     public function findAll(): \Generator;
 
-    public function update(UserDTO $user, int $id): bool;
+    public function update(UserDTO $user, int $id);
 
-    public function delete(int $id): bool;
+    public function delete(int $id);
 }

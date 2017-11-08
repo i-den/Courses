@@ -19,10 +19,16 @@ class UserRepository implements UserRepositoryInterface
         $this->database = $database;
     }
 
-    public function insert(UserDTO $user): bool
+    /**
+     * Inserts an UserDTO object in the Database
+     *
+     * @param UserDTO $user
+     * @return bool
+     */
+    public function insert(UserDTO $user)
     {
         $this->database->prepare(
-            "INSERT INTO `users` (`username`, `password`, `first_name`, `last_name`, `born_on`) VALUES (?, ?, ?, ?, ?)"
+            "INSERT INTO `users` (`username`, `password`, `first_name`, `last_name`, `born_on`) VALUES (?, ?, ?, ?, ?) "
         )->execute(array(
             $user->getUsername(),
             $user->getPassword(),
@@ -30,27 +36,39 @@ class UserRepository implements UserRepositoryInterface
             $user->getLastName(),
             $user->getBornOn()
         ));
-
-        return true;
     }
 
+    /**
+     * Returns an UserDTO object from the Database
+     * that matches the given id or null if none found
+     *
+     * @param int $id
+     * @return UserDTO|null
+     */
     public function findOneById(int $id): ?UserDTO
     {
         return $this->database->prepare(
-            "SELECT `id`, `username`, `password`, `first_name` AS `firstName`, `last_name` AS `lastName`, `born_on` AS `bornOn` FROM `users` WHERE `id` = ?"
+            "SELECT `id`,  `username`, `password`, `first_name` AS `firstName`, `last_name` AS `lastName`, `born_on` AS `bornOn` FROM `users` WHERE `id` = ?"
         )->execute(array(
             $id
         ))->fetch(UserDTO::class)
             ->current();
     }
 
+    /**
+     * Returns an UserDTO object from the Database
+     * that matches the given param $username
+     * or null if none found
+     *
+     * @param string $username
+     * @return UserDTO|null
+     */
     public function findOneByUsername(string $username): ?UserDTO
     {
         return $this->database->prepare(
             "SELECT `id`, `username`, `password`, `first_name` AS `firstName`, `last_name` AS `lastName`, `born_on` AS `bornOn` FROM `users` WHERE `username` = ?"
-        )->execute(array(
-            $username
-        ))->fetch(UserDTO::class)
+        )->execute(array($username))
+            ->fetch(UserDTO::class)
             ->current();
     }
 
@@ -62,30 +80,30 @@ class UserRepository implements UserRepositoryInterface
             ->fetch(UserDTO::class);
     }
 
-    public function update(UserDTO $user, int $id): bool
+    /**
+     * Updates an User profile
+     *
+     * @param UserDTO $user
+     * @param int $id
+     */
+    public function update(UserDTO $user, int $id)
     {
         $this->database->prepare(
             "UPDATE `users` SET `username` = ?, `password` = ?, `first_name` = ?, `last_name` = ?, `born_on` = ? WHERE `id` = ?"
         )->execute(array(
-            $user->getUsername(),
-            $user->getPassword(),
-            $user->getFirstName(),
-            $user->getLastName(),
-            $user->getBornOn(),
-            $id
-        ));
-
-        return true;
+                $user->getUsername(),
+                $user->getPassword(),
+                $user->getFirstName(),
+                $user->getLastName(),
+                $user->getBornOn(),
+                $id)
+        );
     }
 
-    public function delete(int $id): bool
+    public function delete(int $id)
     {
         $this->database->prepare(
             "DELETE FROM `users` WHERE `id` = ?"
-        )->execute(array(
-           $id
-        ));
-
-        return true;
+        )->execute(array($id));
     }
 }

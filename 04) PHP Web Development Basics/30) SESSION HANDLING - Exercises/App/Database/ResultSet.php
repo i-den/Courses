@@ -3,14 +3,7 @@
 
 namespace Database;
 
-/**
- * Class ResultSet
- *
- * Class taking care of just fetching (yielding)
- * objects from the database
- *
- * @package Database
- */
+
 class ResultSet implements ResultSetInterface
 {
     /**
@@ -25,9 +18,8 @@ class ResultSet implements ResultSetInterface
 
     public function fetch(string $className): \Generator
     {
-        while ($row = $this->preparedStatement->fetchObject($className)) {
-
-            yield $row;
+        while ($object = $this->preparedStatement->fetchObject($className)) {
+            yield $object;
         }
     }
 }
