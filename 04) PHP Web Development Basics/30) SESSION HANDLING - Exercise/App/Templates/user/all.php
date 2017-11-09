@@ -1,4 +1,5 @@
-<?php /** @var \Data\UserDTO[] $data */ ?>
+<?php /** @var \Data\UserDTO[] $data */
+/** @var \Data\PageDTO $pageInfo */ ?>
 
 <table>
     <thead>
@@ -10,7 +11,7 @@
     </tr>
     </thead>
     <tbody>
-    <?php foreach($data as $user): ?>
+    <?php foreach ($data as $user): ?>
         <tr>
             <td><?= $user->getId(); ?></td>
             <td><?= $user->getUsername(); ?></td>
@@ -22,3 +23,11 @@
 </table>
 
 <a href="profile.php">Profile</a>
+
+<?php foreach ($pageInfo->getPagesToPrint() as $page):
+    if ($page === $pageInfo->getCurrentPage()): ?>
+        <a href="all.php?page=<?= $page; ?>">[<?= $page; ?>]</a>
+    <?php else: ?>
+        <a href="all.php?page=<?= $page; ?>"><?= $page; ?></a>
+    <?php endif;
+endforeach; ?>

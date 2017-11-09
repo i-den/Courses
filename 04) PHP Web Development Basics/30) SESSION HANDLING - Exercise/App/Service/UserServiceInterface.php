@@ -4,6 +4,7 @@
 namespace Service;
 
 
+use Data\PageDTO;
 use Data\UserDTO;
 
 interface UserServiceInterface
@@ -15,9 +16,12 @@ interface UserServiceInterface
     public function isLogged(): bool;
 
     /**
-     * @return \Generator | UserDTO[]
+     * @param int $page
+     * @return UserDTO[]|\Generator
      */
-    public function viewAll(): \Generator;
+    public function viewAll(int $page): \Generator;
+
+    public function buildUserPageDTO(int $currentPage): PageDTO;
 
     public function editProfile(UserDTO $user);
 

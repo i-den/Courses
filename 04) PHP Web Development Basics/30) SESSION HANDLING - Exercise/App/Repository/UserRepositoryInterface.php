@@ -14,7 +14,9 @@ interface UserRepositoryInterface
 
     public function findOneByUsername(string $username): ?UserDTO;
 
-    public function findAll(): \Generator;
+    public function findAll(string $startPage, string $usersPerPage): \Generator;
+
+    public function getAmountOfUsers(): int;
 
     public function update(UserDTO $user, int $id);
 

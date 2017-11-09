@@ -26,9 +26,9 @@ abstract class HttpHandler
         $this->dataBinder   = $dataBinder;
     }
 
-    protected function render(string $templateName, $data = null)
+    protected function render(string $templateName, $data = null, $pageInfo = null)
     {
-        $this->template->render($templateName, $data);
+        $this->template->render($templateName, $data, $pageInfo);
     }
 
     protected function redirect(string $url)

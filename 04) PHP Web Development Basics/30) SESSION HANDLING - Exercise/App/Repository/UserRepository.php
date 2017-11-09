@@ -51,7 +51,7 @@ class UserRepository implements UserRepositoryInterface
             "SELECT `id`,  `username`, `password`, `first_name` AS `firstName`, `last_name` AS `lastName`, `born_on` AS `bornOn` FROM `users` WHERE `id` = ?"
         )->execute(array(
             $id
-        ))->fetch(UserDTO::class)
+        ))->fetchObject(UserDTO::class)
             ->current();
     }
 
@@ -68,17 +68,26 @@ class UserRepository implements UserRepositoryInterface
         return $this->database->prepare(
             "SELECT `id`, `username`, `password`, `first_name` AS `firstName`, `last_name` AS `lastName`, `born_on` AS `bornOn` FROM `users` WHERE `username` = ?"
         )->execute(array($username))
-            ->fetch(UserDTO::class)
+            ->fetchObject(UserDTO::class)
             ->current();
     }
 
-    public function findAll(): \Generator
+    public function findAll(string $startPage, string $usersPerPage): \Generator
     {
         return $this->database->prepare(
-            "SELECT `id`, `username`, `password`, `first_name` AS `firstName`, `last_name` AS `lastName`, `born_on` AS `bornOn` FROM `users`"
+            "SELECT `id`, `username`, `password`, `first_name` AS `firstName`, `last_name` AS `lastName`, `born_on` AS `bornOn`FROM  `users`  LIMIT $startPage, $usersPerPage"
         )->execute()
-            ->fetch(UserDTO::class);
+            ->fetchObject(UserDTO::class);
     }
+
+    public function getAmountOfUsers(): int
+    {
+        return $this->database->prepare(
+            "SELECT COUNT(`id`) AS `count` FROM `users`"
+        )->execute()
+            ->fetchRow('count');
+    }
+
 
     /**
      * Updates an User profile

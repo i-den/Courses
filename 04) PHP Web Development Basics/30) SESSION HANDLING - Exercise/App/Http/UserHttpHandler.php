@@ -5,11 +5,13 @@ namespace Http;
 
 
 use Data\ErrorDTO;
+use Data\PageDTO;
 use Data\UserDTO;
 use Service\UserServiceInterface;
 
 class UserHttpHandler extends HttpHandler
 {
+
     /**
      * Responsible for handling requests made to the index
      * - if the user is logged redirects to profile
@@ -111,11 +113,33 @@ class UserHttpHandler extends HttpHandler
      * if the current user is logged
      *
      * @param UserServiceInterface $userService
+     * @param array $requestData
      */
-    public function all(UserServiceInterface $userService)
+    public function all(UserServiceInterface $userService,
+                        array $requestData = [])
     {
+        if (!isset($requestData['page'])) {
+            $requestData['page'] = 1;
+        }
+
+        if (!filter_var($requestData['page'], FILTER_VALIDATE_INT)) {
+            $requestData['page'] = 1;
+        }
+
+        $requestData['page'] = intval($requestData['page']);
+
+        $pageDTO = $userService->buildUserPageDTO($requestData['page']);
+
+        if ($requestData['page'] > $pageDTO->getMaximumPages()) {
+            $requestData['page'] = 1;
+        }
+
         if ($userService->isLogged()) {
-            $this->render('user/all', $userService->viewAll());
+            $this->render(
+                'user/all',
+                $userService->viewAll($requestData['page']),
+                $pageDTO
+            );
         } else {
             $this->render(
                 'app/error',

@@ -39,6 +39,13 @@
 </form>
 
 
-<a href="all.php">view users</a>
+<a href="all.php?page=1">[View All Users]</a>
 
-<a href="logout.php">logout</a>
+
+<a href="new-email.php">[Add New Email Account]</a>
+
+
+<a href="all-emails.php?page=1">[My Emails]</a>
+
+
+<a href="logout.php">[Logout]</a>

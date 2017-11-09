@@ -16,10 +16,17 @@ class ResultSet implements ResultSetInterface
         $this->preparedStatement = $preparedStatement;
     }
 
-    public function fetch(string $className): \Generator
+    public function fetchObject(string $className): \Generator
     {
         while ($object = $this->preparedStatement->fetchObject($className)) {
             yield $object;
         }
+    }
+
+    public function fetchRow(string $key)
+    {
+        $row =  $this->preparedStatement->fetch(\PDO::FETCH_ASSOC);
+        $this->preparedStatement->closeCursor();
+        return $row[$key];
     }
 }

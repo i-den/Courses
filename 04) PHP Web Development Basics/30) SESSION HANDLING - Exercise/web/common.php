@@ -18,8 +18,5 @@ $dbInfo = parse_ini_file(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARA
 $pdo = new PDO($dbInfo['dsn'], $dbInfo['user'], $dbInfo['pass']);
 $database = new Database($pdo);
 
-$userRepository = new UserRepository($database);
-$userService = new UserService($userRepository);
-
 $template = new Template();
 $dataBinder = new DataBinder();

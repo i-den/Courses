@@ -5,11 +5,14 @@ namespace Service;
 
 
 
+use Data\PageDTO;
 use Data\UserDTO;
 use Repository\UserRepositoryInterface;
 
 class UserService implements UserServiceInterface
 {
+    const USERS_PER_PAGE = 3;
+
     /**
      * @var UserRepositoryInterface
      */
@@ -88,11 +91,22 @@ class UserService implements UserServiceInterface
     /**
      * Fetches all users from the database
      *
-     * @return \Generator | UserDTO[]
+     * @param int $page
+     * @param int $usersPerPage
+     * @return UserDTO[]|\Generator
      */
-    public function viewAll(): \Generator
+    public function viewAll(int $page): \Generator
     {
-        return $this->userRepository->findAll();
+        $startingUser = ($page - 1) * self::USERS_PER_PAGE;
+        return $this->userRepository->findAll($startingUser, self::USERS_PER_PAGE);
+    }
+
+    public function buildUserPageDTO(int $currentPage): PageDTO
+    {
+        $totalUsers = $this->userRepository->getAmountOfUsers();
+        $maximumPages = ceil($totalUsers / self::USERS_PER_PAGE);
+
+        return new PageDTO($currentPage, $maximumPages);
     }
 
     /**
