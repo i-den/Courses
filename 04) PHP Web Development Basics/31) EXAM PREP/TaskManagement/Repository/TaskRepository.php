@@ -207,7 +207,8 @@ class TaskRepository implements TaskRepositoryInterface
                 $task->getAuthor()->getId(),
                 $task->getCategory()->getId(),
                 $task->getStartedOn(),
-                $task->getDueDate()
+                $task->getDueDate(),
+                $id
             );
 
         return true;
@@ -217,7 +218,7 @@ class TaskRepository implements TaskRepositoryInterface
     {
         $query = "
             DELETE FROM
-              users
+              tasks
             WHERE
               id = ?
         ";
