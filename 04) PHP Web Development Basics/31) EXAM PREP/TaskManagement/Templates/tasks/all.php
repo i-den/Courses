@@ -25,7 +25,7 @@
     </tbody>
 </table>
 <?php if ($data->getHasPrevious()): ?>
-    <a href="dashboard.php?page=1">First</a> $$
+    <a href="dashboard.php?page=1">First</a> §§
     <a href="dashboard.php?page=<?= $data->getCurrentPage() - 1; ?>">Previous</a>
 <?php endif; ?>
 <?php for ($i = 1; $i <= $data->getAllPages(); $i++): ?>
@@ -36,7 +36,7 @@
     <?php endif; ?>
 <?php endfor; ?>
 <?php if ($data->getHasNext()): ?>
-    <a href="dashboard.php?page=<?= $data->getCurrentPage() + 1; ?>">Next</a> $$
+    <a href="dashboard.php?page=<?= $data->getCurrentPage() + 1; ?>">Next</a> §§
     <a href="dashboard.php?page=<?= $data->getAllPages(); ?>">Last</a>
 <?php endif; ?>
 
