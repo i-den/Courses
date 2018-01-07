@@ -92,5 +92,8 @@ function diagonalAttack(inputArr) {
  ```
 
 <p align="center">
-<a href="https://softuni.bg/trainings/1649/js-fundamentals-may-2017">Course Page</a> <br />
+	<img src="https://snipcartweb-10f3.kxcdn.com/media/9901/pretending-vanilla-javascript-knowledge.jpg" />
+</p>
+<p align="center">
+	<a href="https://softuni.bg/trainings/1649/js-fundamentals-may-2017">Course Page</a> <br />
 </p>
