@@ -334,7 +334,7 @@ function theElemelons() {
 }
  ```
 <p align="center">
-	<img src="https://i.pinimg.com/736x/f6/46/a6/f646a65a66900ac62ca8f635e5a52d23--app-development-javascript.jpg" />
+	<img src="https://camo.githubusercontent.com/72d4f0fa751acf6dce1dcc312dae2ae4a1125ffd/68747470733a2f2f692e70696e696d672e636f6d2f373336782f66362f34362f61362f66363436613635613636393030616336326361386636333565356135326432332d2d6170702d646576656c6f706d656e742d6a6176617363726970742e6a7067" />
 </p>
 <p align="center">
 	<a href="https://softuni.bg/trainings/1650/js-advanced-july-2017">Course Page</a> <br />
