@@ -12,13 +12,12 @@ function start() {
     createBtn.click(createContact);
     loadContacts();
 
-
     function loadContacts() {
         let loadReq = {
             url: baseUrl + ".json",
             method: "GET",
             success: fillPhoneBookUL,
-            error: (e) => console.log(e)
+            error: (err) => displayOutput(`Something bad happened - ${err}`, 'e')
         };
         $.ajax(loadReq);
     }
@@ -55,7 +54,7 @@ function start() {
     }
 
     function createContact() {
-        if (input.person.val() === '' && input.phone.val() === '')
+        if (input.person.val() === '' || input.phone.val() === '')
             return;
 
         let createReq = {
