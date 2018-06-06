@@ -1,0 +1,15 @@
+body {
+    background-color: #ccc;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+.auth {
+    font-style: italic;
+}
+
+.desc {
+    font-size: 24px;
+}
