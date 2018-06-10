@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+}
+
+header {
+    background: url("images/header.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin: 0;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    text-align: center;
+    padding: 90px;
+}
+
+.content {
+    width: 40%;
+    float: left;
+}
+
+.content article {
+    padding-left: 25%;
+    padding-right: 5%
+}
+
+aside {
+    margin-left: 67%;
+}
+
+aside img {
+    width: 80%;
+    padding-right: 15%;
+}
+
+button {
+    border: 1px solid red;
+    background-color: white;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    color: red;
+    padding: 5px 10px;
+}
+
+button:hover {
+    color: white;
+    background-color: red;
+    cursor: pointer;
+}
+

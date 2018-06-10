@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+.header {
+    background: url("images/car-future.jpg") no-repeat center;
+    height: 1080px;
+    background-size: cover;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 15px;
+}
+
+nav {
+    float: right;
+}
+
+.header h1 {
+    color: #A77C6D;
+    text-transform: uppercase;
+    padding-left: 50px;
+    padding-top: 50px;
+    font-size: 50px;
+    margin-top: 0;
+}
+
+nav ul li a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #A77C6D;
+}
+
+nav ul li a:hover {
+    color: #A77C6D;
+    cursor: pointer;
+}
+
+.content article img {
+    float: left;
+    width: 37%;
+    margin-right: 15px;
+}
+
+article {
+    height: 600px;
+    padding: 50px;
+}
+
+article > h2 {
+    text-transform: uppercase;
+    color: #A77C6D;
+}
+
+article p:first-of-type:first-letter {
+    text-transform: uppercase;
+    color: #A77C6D;
+}
+
+.content article p {
+    text-align: justify;
+    font-size: 24px;
+    margin: 0 5px;
+}
+
+footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
