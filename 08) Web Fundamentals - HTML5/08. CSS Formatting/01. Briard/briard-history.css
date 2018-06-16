@@ -1,0 +1,56 @@
+@import "https://fonts.googleapis.com/css?family=Lobster";
+
+body {
+    text-align: center;
+    width: 70%;
+    margin: auto;
+    font-size: 16px;
+}
+
+img {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+}
+
+article p {
+    font-size: 1.4rem;
+    line-height: 30px;
+    text-align: justify;
+    color: saddlebrown;
+}
+
+article p:first-letter {
+    font-family: Lobster, sans-serif;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+
+h1 {
+    font-family: Georgia, sans-serif;
+    text-transform: capitalize;
+    color: deepskyblue;
+    text-shadow: 3px 4px 4px #000;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    color: dodgerblue;
+    font-weight: 100;
+    font-size: 2rem;
+    letter-spacing: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: cornflowerblue;
+    font-size: 30px;
+}
+
+footer {
+    font-style: italic;
+    text-align: right;
+    font-size: 25px;
+}
+
+

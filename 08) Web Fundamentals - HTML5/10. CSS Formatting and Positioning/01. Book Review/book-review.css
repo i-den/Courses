@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,800");
+
+nav {
+    width: 90%;
+    padding: 15px;
+    background-color: #EFF4F7;
+    margin: 33px auto;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: gray;
+    margin: auto 15px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #567788 0%, #121f25 100%) no-repeat center center;
+    font-family: "Open Sans", "sans-serif";
+    font-size: 14px;
+    color: #333333;
+}
+
+.logo {
+    background-color: red;
+    width: 9%;
+    height: 125px;
+    position: relative;
+    left: 746px;
+    top: -129px;
+    z-index: -2;
+}
+
+.logo span {
+    color: #ffffff;
+    font-size: 75px;
+    position: relative;
+    top: 80px;
+    left: 31px;
+}
+
+main {
+    background: gray;
+    margin: auto;
+    width: 85%;
+}
+
+main > h2 {
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 0;
+    z-index: 1;
+}
+
+main > h1 {
+    text-transform: uppercase;
+    color: #6DFF88;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    font-size: 69px;
+    top: -88px;
+}
+
+main > article {
+    background-color: red;
+    width: 30%;
+    margin: 0 auto;
+    padding: 32px;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    position: relative;
+}
+
+.description::before, .description::after {
+    content: '"';
+    color: black;
+    font-size: 22px;
+}
+
+img {
+    width: 150px;
+    border-radius: 100%;
+}
+
+.donate {
+    border: 3px solid skyblue;
+    background: none;
+    text-transform: uppercase;
+    padding: 15px;
+}
+
+.donate a {
+    text-decoration: none;
+    color: white;
+}
+
+.donate:hover {
+    background: skyblue;
+}
+
+main > section {
+    background: white;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    top: -190px;
+    padding: 300px 30px 30px 30px;
+    text-align: left;
+}
+
+main > section h2 {
+    text-transform: capitalize;
+    color: green;
+    font-size: 35px;
+}
+
+main > section > p {
+    padding-right: 600px;
+}
+
+main > section button {
+    border: 3px solid skyblue;
+    background: none;
+    padding: 15px;
+}
+
+main > section button a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+main > section button:hover {
+    background: skyblue;
+    color: green;
+}
+

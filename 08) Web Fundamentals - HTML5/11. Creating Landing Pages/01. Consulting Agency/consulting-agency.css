@@ -1,0 +1,255 @@
+/* HEADER */
+/*============================================================*/
+
+header {
+    text-align: center;
+    height: 735px;
+    color: white;
+    background: url("images/Layer-759_02.jpg") no-repeat;
+}
+
+nav {
+    background-color: #bc9163;
+    width: 95%;
+    margin: auto;
+    top: 2%;
+    text-align: center;
+    opacity: 0.8;
+    position: relative;
+}
+
+li {
+    display: inline-block;
+    padding: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header > h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+header > p {
+    display: inline-block;
+    width: 23%;
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin-top: 20px;
+}
+
+header > button {
+    display: block;
+    margin: 1% auto;
+    background: none #101124;
+    border: 3px solid #101124;
+    border-radius: 8px;
+    padding: 15px;
+    width: 9%;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+header > button:hover, header > button:hover span {
+    background-color: #be9780;
+    border-color: #be9780;
+    color: black;
+}
+
+header > button > span {
+    color: #be9780;
+    font-weight: bold;
+}
+
+/* HEADER */
+/*============================================================*/
+
+/* MAIN TOP*/
+/*============================================================*/
+#services {
+    background: white;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 80px;
+    font-weight: bold;
+    margin: 1%;
+}
+
+.section-row article {
+    display: inline-block;
+    margin: 1% auto;
+    width: 25%;
+    padding: 15px;
+
+}
+
+.section-row article i {
+    display: block;
+    float: left;
+    font-size: 35px;
+    color: white;
+    background: black;
+    padding: 10px;
+    border-radius: 100%;
+}
+
+.section-row article h3, .section-row article p {
+    text-align: left;
+    padding-left: 75px;
+}
+
+.section-row article h3 {
+    font-weight: bold;
+}
+
+.section-row article p {
+    padding-top: 15px;
+    width: 350px;
+}
+
+/* MAIN TOP*/
+/*============================================================*/
+
+/* MAIN MID*/
+/*============================================================*/
+
+.middle {
+    background: url("images/steel-bg.jpg");
+    opacity: 0.9;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+
+.middle h3, .middle p {
+    margin: auto;
+    font-size: 35px;
+    top: 75px;
+    position: relative;
+}
+
+.middle h3 {
+    color: #bc9163;
+}
+
+.middle p {
+    color: black;
+
+}
+
+/* MAIN MID*/
+/*============================================================*/
+
+/* MAIN MID BOT*/
+/*============================================================*/
+
+.bottom-middle {
+    background: url("images/background-choose-us.jpg");
+    height: 350px;
+    text-align: center;
+    color: white;
+}
+
+.bottom-middle h2 {
+    font-size: 50px;
+    font-weight: bold;
+    position: relative;
+    top: 100px;
+}
+
+.bottom-middle article {
+    display: inline-block;
+    width: 15%;
+    margin: auto 50px;
+    border: 3px solid #cece00;
+    padding: 20px;
+    position: relative;
+    top: 140px;
+}
+
+.bottom-middle h3 {
+    font-weight: bold;
+    font-size: 25px;
+    margin: 10px;
+}
+
+.bottom-middle p {
+    text-align: left;
+}
+
+/* MAIN MID*/
+/*============================================================*/
+
+/* MAIN CEO*/
+/*============================================================*/
+.ceo {
+    background: url("images/consulting-woman.jpg") no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    height: 600px;
+}
+
+.ceo article {
+    background: rgba(228, 228, 228, 0.67);
+    float: right;
+    margin-right: 15px;
+    width: 35%;
+    height: 77%;
+    padding: 35px;
+    position: relative;
+    top: 45px;
+    right: 45px;
+}
+
+.ceo p {
+    margin: 35px 15px;
+    font-size: 23px;
+    text-align: center;
+}
+
+.ceo p:first-child::before, .ceo p:first-child::after {
+    content: "\"";
+}
+
+.ceo-name {
+    border: 1px solid black;
+    height: 300px;
+    background: black;
+    color: white;
+}
+
+.ceo-name h3 {
+    text-align: left;
+    margin: 15px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.ceo-name p {
+    position: relative;
+    top: -75px;
+    font-size: 15px;
+    text-align: right;
+}
+
+/* MAIN CEO*/
+/*============================================================*/
+
+/* MAIN LOGOS*/
+/*============================================================*/
+
+.logos {
+    text-align: center;
+}
+
+/* MAIN LOGOS*/
+/*============================================================*/
