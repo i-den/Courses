@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Scanner;
 
-public class DecToBinary {
+public class MatchingBrackets {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
