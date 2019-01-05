@@ -1,6 +1,13 @@
 import java.util.ArrayDeque;
 import java.util.Scanner;
 
+// Head
+// push, offerFirst
+// pop, remove, poll, pollFirst, removeFirst
+
+// Tail
+// add, offer, offerLast
+// pollLast, removeLast
 public class ReverseStrWithStack {
 
     public static void main(String[] args) {
