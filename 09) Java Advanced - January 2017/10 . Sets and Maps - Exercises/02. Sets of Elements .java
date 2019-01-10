@@ -12,7 +12,6 @@ public class SetsOfElements {
 
         LinkedHashSet<Integer> firstSet = new LinkedHashSet<>(firstTreeCnt);
         LinkedHashSet<Integer> secSet = new LinkedHashSet<>(secTreeCnt);
-        LinkedHashSet<Integer> setIntersect = new LinkedHashSet<>();
 
         for (int i = 0; i < firstTreeCnt; i++) {
             firstSet.add(scanner.nextInt());
@@ -22,13 +21,8 @@ public class SetsOfElements {
             secSet.add(scanner.nextInt());
         }
 
+        firstSet.retainAll(secSet);
         for (Integer currNum : firstSet) {
-            if (secSet.contains(currNum)) {
-                setIntersect.add(currNum);
-            }
-        }
-
-        for (Integer currNum : setIntersect) {
             System.out.print(currNum + " ");
         }
     }
