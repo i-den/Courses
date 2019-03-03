@@ -1,0 +1,25 @@
+Consumer<T> - Param -> Void
+(param) -> {}
+.accept();
+
+Supplier<T> - No Params -> Param
+() -> {var}
+.get();
+
+Predicate<T> - Param -> Boolean
+(param) -> true || false;
+.test();
+
+UnaryOperator<T> - String -> String; Int -> Int
+(param) -> param;
+.apply();
+
+BiFunction <T, U, R> - T & U -> R
+(x, y) -> x + y;
+
+
+BiConsumer<T, U> - T & U -> Void
+(x, y) -> sout(x + y)
+
+
+
