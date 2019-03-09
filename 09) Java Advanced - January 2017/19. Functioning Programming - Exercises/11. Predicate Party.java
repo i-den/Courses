@@ -47,6 +47,45 @@ public class PredicateParty {
     }
 }
 
+class PartyManager {
+    private static final String strToDouble = "Double";
+    private static final String strToRemove = "Remove";
+
+    private String command;
+
+    PartyManager(String command) {
+        this.setCommand(command);
+    }
+
+    List<String> filterList(List<String> listToFilter, PartyFilter partyFilter) {
+        List<String> listToReturn = new LinkedList<>();
+        switch (this.getCommand()) {
+            case strToDouble:
+                for (String currName : listToFilter) {
+                    listToReturn.add(currName);
+                    if (partyFilter.test(currName)) {
+                        listToReturn.add(currName);
+                    }
+                }
+                break;
+            default:
+                listToReturn = listToFilter.stream()
+                        .filter(currName -> !partyFilter.test(currName))
+                        .collect(Collectors.toCollection(LinkedList::new));
+                break;
+        }
+        return listToReturn;
+    }
+
+    private String getCommand() {
+        return command;
+    }
+
+    private void setCommand(String command) {
+        this.command = command;
+    }
+}
+
 class PartyFilter {
     private static final String strFilterOptStartsWith = "StartsWith";
     private static final String strFilterOptEndsWith = "EndsWith";
@@ -64,7 +103,7 @@ class PartyFilter {
         this.setSpecifier(specifier);
     }
 
-    Boolean filter(String name) {
+    Boolean test(String name) {
         Predicate<String> filterFn;
         switch (this.getFilterOption()) {
             case strFilterOptStartsWith:
@@ -94,44 +133,5 @@ class PartyFilter {
 
     private void setSpecifier(String specifier) {
         this.specifier = specifier;
-    }
-}
-
-class PartyManager {
-    private static final String strToDouble = "Double";
-    private static final String strToRemove = "Remove";
-
-    private String command;
-
-    PartyManager(String command) {
-        this.setCommand(command);
-    }
-
-    List<String> filterList(List<String> listToFilter, PartyFilter partyFilter) {
-        List<String> listToReturn = new LinkedList<>();
-        switch (this.getCommand()) {
-            case strToDouble:
-                for (String currName : listToFilter) {
-                    listToReturn.add(currName);
-                    if (partyFilter.filter(currName)) {
-                        listToReturn.add(currName);
-                    }
-                }
-                break;
-            default:
-                    listToReturn = listToFilter.stream()
-                            .filter(currName -> !partyFilter.filter(currName))
-                            .collect(Collectors.toCollection(LinkedList::new));
-                break;
-        }
-        return listToReturn;
-    }
-
-    private String getCommand() {
-        return command;
-    }
-
-    private void setCommand(String command) {
-        this.command = command;
     }
 }
