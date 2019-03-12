@@ -48,6 +48,24 @@
 
 <hr />
 
+### 07. *JavaScript Applications*
+> *Language: JavaScript*
+>
+> *Period: March - May, 2018*
+
+<hr />
+
+### 08. *Web Fundamentals - HTML5*
+> *HTML, CSS*
+>
+> *Period: May - June, 2018*
+
+<hr/>
+
+### 09. *Java Advanced - January 2017*
+> *Language: Java*
+>
+> *Period: January - February, 2019*
 
 <p align="right"><a href="https://softuni.bg/users/profile/show/denchev07">Profile: Denchev07</a></p>
 <p align="right">Jan, 2017 - Current</p>
