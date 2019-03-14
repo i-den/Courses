@@ -1,0 +1,51 @@
+Stacks and Queues
+
+Classes:
+ArrayDeque<T>
+
+=============================================================
+Stack LIFO
+// Head
+// push, >>offerFirst<<, >>addFirst<<
+// pop, remove, poll, >>pollFirst<<, >>removeFirst<<
+
+## Pushing
+# addFirst(T), if T is not null   (push)
+# offerFirst(T), returns true if the element T was added
+
+.addFirst(1);
+[0] |[1]|
+
+.offerFirst(2); // returns true
+[0] |[2]|
+[1] |[1]|
+
+.addFirst(3);
+[0] |[3]|
+[1] |[2]|
+[2] |[1]|
+
+
+## Popping
+# pollFirst(), null OR element T                    (poll)
+# removeFirst(), uses pollFirst(), throws if null   (pop, remove)
+
+.pollFirst() // 3
+[0] |[2]|
+[1] |[1]|
+
+.removeFirst(); // 2
+[0] |[1]|
+
+.removeFirst(); // 1
+emtpy
+
+.pollFirst(); // null
+.removeFirst(); // Exception - NoSuchElementException
+=============================================================
+
+// Tail
+// add, offer, offerLast
+// pollLast, removeLast
+
+=============================================================
