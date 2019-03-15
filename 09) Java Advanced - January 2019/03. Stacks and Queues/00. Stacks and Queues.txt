@@ -46,7 +46,41 @@ emtpy
 =============================================================
 Queue LIFO
 // Tail
-// add, offer, offerLast
+// add, offer, >>offerLast<<, >>addLast<<
 // pollLast, removeLast
 
+## Shifting
+# addLast(T), throws if T is null                          (add)
+# offerLast(T), uses addLast(), returns true or false      (offer)
+
+.addLast(1);
+[0] |[1]|
+
+.addLast(2);
+[0] |[1]|
+[1] |[2]|
+
+.addLast(3);
+[0] |[1]|
+[1] |[2]|
+[2] |[3]|
+
+## Unshifting
+# pollLast(), null or element T
+# removeLast(), element T, throws if null
+
+.pollLast(); // 3
+[0] |[1]|
+[1] |[2]|
+
+.removeLast(); // 2
+[0] |[1]|
+
+.pollLast(); // 1
+empty
+
+.pollLast(); // null
+empty
+
+.removeLast(); Exception
 =============================================================
