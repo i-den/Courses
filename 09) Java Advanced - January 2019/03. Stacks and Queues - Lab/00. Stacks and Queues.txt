@@ -3,6 +3,7 @@ Stacks and Queues
 Classes:
 ArrayDeque<T>
 https://docs.oracle.com/javase/8/docs/api/java/util/ArrayDeque.html
+Initial size 16 || 8
 
 =============================================================
 Stack LIFO
@@ -82,5 +83,5 @@ empty
 .pollLast(); // null
 empty
 
-.removeLast(); Exception
+.removeLast(); // Exception
 =============================================================
