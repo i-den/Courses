@@ -1,3 +1,8 @@
 # Stacks and Queues
 ArrayDeque<T>
 
+# Sets
+HashSet<E>, TreeSet<E>, LinkedHashSet<E>
+
+# Maps
+HashMap<K, V>, TreeMap<K, V>, LinkedHashMap<K, V>

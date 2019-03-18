@@ -1,0 +1,23 @@
+Sets and Maps
+
+Classes:
+HashSet<E>           https://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html
+TreeSet<E>           https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html
+LinkedHashSet<E>     https://docs.oracle.com/javase/8/docs/api/java/util/LinkedHashSet.html 
+
+HashMap<K, V>
+TreeMap<K, V>
+LinkedHashMap<K, V>
+
+=============================================================
+HashSet
+// random order
+
+TreeSet
+// ordered, can take comparator
+
+LinkedHashSet
+// order of their addition
+
+=============================================================
+
