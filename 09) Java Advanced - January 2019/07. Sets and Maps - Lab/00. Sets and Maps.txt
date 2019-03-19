@@ -21,3 +21,6 @@ LinkedHashSet
 
 =============================================================
 
+retainAll() // intersection
+
+Collections.addAll()
