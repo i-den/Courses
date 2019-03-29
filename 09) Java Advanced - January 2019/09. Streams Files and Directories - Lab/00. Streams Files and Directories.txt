@@ -2,16 +2,46 @@ Byte Streams
 FileInputStream
 FileOutputStream
 
+FileInputStream
+FileInputStream is meant for reading streams of raw bytes such as image data. For reading streams of characters, consider using FileReader.
+read() // int
+
+FileOutputStream
+FileOutputStream is meant for writing streams of raw bytes such as image data. For writing streams of characters, consider using FileWriter.
+write()
+--------------------------------------------------------------------------------------------
+
 Character Streams
 FileReader
 FileWriter
 
+FileReader(String fileName)
+FileReader(File file)
+read() // char || -1
+
+FileWriter
+write()
+append()
+--------------------------------------------------------------------------------------------
+
 Scanner
 PrintWriter
+--------------------------------------------------------------------------------------------
 
 Buffered Streams
 BufferedReader
 BufferedWriter
+
+BufferedReader(new FileReader())
+lines() // Stream<String> 
+read() // int || -1
+
+BufferedWriter
+BufferedWriter(new FileWriter())
+newLine() // writes a line separator
+write()
+
+--------------------------------------------------------------------------------------------
 
 Path
 Paths
