@@ -12,3 +12,8 @@ PrintWriter
 Buffered Streams
 BufferedReader
 BufferedWriter
+
+Path
+Paths
+Files
+

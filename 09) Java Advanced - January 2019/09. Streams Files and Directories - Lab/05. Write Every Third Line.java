@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class WriteEveryThirdLine {
 
-    private static final String INPUT_FILE = "C:\\Users\\iVan\\Downloads\\lab\\input.txt";
-    private static final String OUTPUT_FILE = "C:\\Users\\iVan\\Downloads\\lab\\output.txt";
+    private static final String INPUT_FILE = "enterHere";
+    private static final String OUTPUT_FILE = "enterHere";
 
     public static void main(String[] args) {
         try (
