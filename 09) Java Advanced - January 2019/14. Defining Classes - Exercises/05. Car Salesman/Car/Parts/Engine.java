@@ -1,9 +1,5 @@
 package Car.Parts;
 
-import Car.Car;
-
-import java.util.function.Function;
-
 public class Engine {
 
     private String model;
@@ -12,7 +8,7 @@ public class Engine {
 
     private int displacement;
 
-    private int efficiency;
+    private String efficiency;
 
     public Engine(String model, int power) {
         setModel(model);
@@ -24,7 +20,7 @@ public class Engine {
         setDisplacement(displacement);
     }
 
-    public Engine(String model, int power, int displacement, int efficiency) {
+    public Engine(String model, int power, int displacement, String efficiency) {
         this(model, power, displacement);
         setEfficiency(efficiency);
     }
@@ -55,11 +51,11 @@ public class Engine {
         this.displacement = displacement;
     }
 
-    public int getEfficiency() {
+    public String getEfficiency() {
         return efficiency;
     }
 
-    public void setEfficiency(int efficiency) {
+    public void setEfficiency(String efficiency) {
         this.efficiency = efficiency;
     }
 }

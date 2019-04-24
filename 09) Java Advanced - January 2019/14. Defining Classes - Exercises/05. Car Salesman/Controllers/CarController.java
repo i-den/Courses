@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class CarController {
 
-    Scanner scanner;
+    private Scanner scanner;
 
     private List<Car> cars;
 
@@ -38,12 +38,12 @@ public class CarController {
             String[] engineTokens = scanner.nextLine().split("\\s+");
             Engine engine = new Engine(engineTokens[0], Integer.parseInt(engineTokens[1]));
 
-            if (engineTokens.length == 3) {
-                engine.setDisplacement(Integer.parseInt(engineTokens[2]));
-            }
-
-            if (engineTokens.length == 4) {
-                engine.setEfficiency(Integer.parseInt(engineTokens[3]));
+            for (int j = 2; j < engineTokens.length; j++) {
+                if (isNumber(engineTokens[j])) {
+                    engine.setDisplacement(Integer.parseInt(engineTokens[j]));
+                } else {
+                    engine.setEfficiency(engineTokens[j]);
+                }
             }
 
             engines.add(engine);
@@ -54,14 +54,16 @@ public class CarController {
     public void createCarsFromInput() {
         for (int i = 0; i < carAmnt; i++) {
             String[] carTokens = scanner.nextLine().split("\\s+");
-            Car car = new Car(carTokens[0],findEngineByModel(carTokens[1]));
+            Car car = new Car(carTokens[0], findEngineByModel(carTokens[1]));
 
-            if (carTokens.length == 3) {
-                car.setWeight(Integer.parseInt(carTokens[2]));
-            }
-
-            if (carTokens.length == 4) {
-                car.setColor(carTokens[3]);
+            if (carTokens.length > 2) {
+                for (int j = 2; j < carTokens.length; j++) {
+                    if (isNumber(carTokens[j])) {
+                        car.setWeight(Integer.parseInt(carTokens[j]));
+                    } else {
+                        car.setColor(carTokens[j]);
+                    }
+                }
             }
 
             cars.add(car);
@@ -75,5 +77,9 @@ public class CarController {
             }
         }
         return null;
+    }
+
+    private boolean isNumber(String numToTest) {
+        return numToTest.matches("([+\\-])?[0-9]+(.[0-9]+)?");
     }
 }
