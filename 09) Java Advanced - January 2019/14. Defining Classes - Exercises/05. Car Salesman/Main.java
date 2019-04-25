@@ -12,6 +12,6 @@ public class Main {
         carController.getCarAmntFromInput();
         carController.createCarsFromInput();
 
-
+        carController.printCars();
     }
 }

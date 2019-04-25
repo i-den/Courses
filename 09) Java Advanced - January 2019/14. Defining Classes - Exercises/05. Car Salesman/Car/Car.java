@@ -4,6 +4,8 @@ import Car.Parts.Engine;
 
 public class Car {
 
+    private static final String NOT_DEF_PRINT_VAL = "n/a";
+
     private String model;
 
     private Engine engine;
@@ -11,7 +13,6 @@ public class Car {
     private int weight;
 
     private String color;
-
 
 
     public Car(String model, Engine engine) {
@@ -29,7 +30,16 @@ public class Car {
         setColor(color);
     }
 
-
+    @Override
+    public String toString() {
+        return String.format(
+                "%s:%n%s%nWeight: %s%nColor: %s",
+                getModel(),
+                getEngine().toString(),
+                getWeight() == 0 ? NOT_DEF_PRINT_VAL : getWeight(),
+                getColor() == null ? NOT_DEF_PRINT_VAL : getColor()
+        );
+    }
 
     public String getModel() {
         return model;

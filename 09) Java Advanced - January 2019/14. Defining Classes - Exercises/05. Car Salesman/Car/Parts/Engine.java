@@ -2,6 +2,8 @@ package Car.Parts;
 
 public class Engine {
 
+    private static final String NOT_DEF_PRINT_VAL = "n/a";
+
     private String model;
 
     private int power;
@@ -25,7 +27,16 @@ public class Engine {
         setEfficiency(efficiency);
     }
 
-
+    @Override
+    public String toString() {
+        return String.format(
+                "%s:%nPower: %s%nDisplacement: %s%nEfficiency: %s",
+                getModel(),
+                getPower(),
+                getDisplacement() == 0 ? NOT_DEF_PRINT_VAL : getDisplacement(),
+                getEfficiency() == null ? NOT_DEF_PRINT_VAL : getEfficiency()
+        );
+    }
 
     public String getModel() {
         return model;

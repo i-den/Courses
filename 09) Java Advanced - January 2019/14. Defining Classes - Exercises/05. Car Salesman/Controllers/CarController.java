@@ -50,7 +50,6 @@ public class CarController {
         }
     }
 
-
     public void createCarsFromInput() {
         for (int i = 0; i < carAmnt; i++) {
             String[] carTokens = scanner.nextLine().split("\\s+");
@@ -70,6 +69,12 @@ public class CarController {
         }
     }
 
+    public void printCars() {
+        for (Car car : cars) {
+            System.out.println(car);
+        }
+    }
+
     private Engine findEngineByModel(String model) {
         for (Engine engine : engines) {
             if (engine.getModel().equals(model)) {
@@ -82,4 +87,5 @@ public class CarController {
     private boolean isNumber(String numToTest) {
         return numToTest.matches("([+\\-])?[0-9]+(.[0-9]+)?");
     }
+
 }
