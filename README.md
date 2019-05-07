@@ -67,5 +67,14 @@
 >
 > *Period: January - February, 2019*
 
+<hr/>
+
+### 09. *Java Advanced - January 2019*
+> *Language: Java*
+>
+> *Period: March - April, 2019*
+
+<hr/>
+
 <p align="right"><a href="https://softuni.bg/users/profile/show/denchev07">Profile: Denchev07</a></p>
 <p align="right">Jan, 2017 - Current</p>
