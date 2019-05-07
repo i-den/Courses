@@ -2,13 +2,13 @@
  
 <br />
 
- ## *Java syntax*
+ ## *2nd instance of the course*
  
  <p align="center">
 <img src="https://skillprogramming.com/images/pictuers/girls_in_different_steams.png" />
  </p>
  
- > ### *2nd instance of the course*
+ > ### *Java syntax*
 
  ```Java
 import java.math.BigInteger;
