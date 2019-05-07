@@ -5,7 +5,7 @@
  ## *2nd instance of the course*
  
  <p align="center">
-<img src="https://pbs.twimg.com/media/DtO7YVnVYAAgEex.jpg" />
+<img src="https://camo.githubusercontent.com/d902ec7d428cdebcfad0299a0d2c4cf13641ec72/68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44744f3759566e56594141674565782e6a7067" />
  </p>
  
  > ### *Java syntax*
