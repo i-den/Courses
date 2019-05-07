@@ -5,7 +5,7 @@
  ## *2nd instance of the course*
  
  <p align="center">
-<img src="https://skillprogramming.com/images/pictuers/girls_in_different_steams.png" />
+<img src="https://pbs.twimg.com/media/DtO7YVnVYAAgEex.jpg" />
  </p>
  
  > ### *Java syntax*
