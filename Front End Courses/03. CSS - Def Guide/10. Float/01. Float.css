@@ -1,0 +1,22 @@
+/* replaced elements */
+img {
+    /* left || right || none */
+    float: none;
+
+    /* float with margins */
+    float: left;
+    margin: 25px;
+}
+
+/* non-replaced elements, declare width or it will lean towards 0 */
+h1 {
+    float: right;
+    width: 30%;
+}
+
+/* clearing */
+h2 {
+    /* left | right | both | none */
+    clear: top;
+}
+

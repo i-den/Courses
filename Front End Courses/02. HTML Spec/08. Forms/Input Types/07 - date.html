@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form action="/">
+    <label>
+        Date <input type="date">
+    </label>
+    <button>Submit</button>
+</form>
+
+<br>
+<br>
+
+<fieldset>
+    <legend>Destination</legend>
+    <p><label>Airport: <input type=text name=to list=airports></label></p>
+    <p><label>Departure time: <input type=datetime-local name=totime step=3600></label></p>
+</fieldset>
+<datalist id=airports>
+    <option value=ATL label="Atlanta">
+    <option value=MEM label="Memphis">
+    <option value=LHR label="London Heathrow">
+    <option value=LAX label="Los Angeles">
+    <option value=FRA label="Frankfurt">
+</datalist>
+</body>
+</html>

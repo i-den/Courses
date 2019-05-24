@@ -1,0 +1,11 @@
+.list {
+    list-style-type: disc;
+
+    list-style-position: outside;
+}
+
+.list-image {
+    list-style-image: url("https://site/img.png");
+    /* acts as a fallback should the image resolve fail */
+    list-style-type: disc;
+}

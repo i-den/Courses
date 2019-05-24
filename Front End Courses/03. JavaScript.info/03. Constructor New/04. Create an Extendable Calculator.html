@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Calculator() {
+        this.functionality = {
+            "+": function sum(firstNum, secNum) {
+                return firstNum + secNum;
+            },
+            "-": function diff(firstNum, secNum) {
+                return firstNum - secNum;
+            }
+        };
+        
+        this.addMethod = function defAddMethod(op, cb) {
+            this.functionality[op] = cb;
+        };
+
+        this.calculate = function defCalc(expr) {
+            let [firstNum, op, secNum] = expr.split(" ");
+
+            return this.functionality[op](+firstNum, +secNum);
+        }
+    }
+</script>
+</body>
+</html>

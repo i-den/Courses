@@ -1,0 +1,19 @@
+h2 {
+    /* 100 - 900 */
+    /* lighter - normal - bold - bolder*/
+    font-weight: normal;
+
+    /* xx-small - xx-large */
+    /* smaller - larger */
+    font-size: medium;
+
+    /* oblique - normal*/
+    font-style: italic;
+
+
+    font-stretch: normal;
+    /* defines how characters are paired together*/
+    font-kerning: normal;
+    font-variant: normal;
+    font-feature-settings: normal;
+}

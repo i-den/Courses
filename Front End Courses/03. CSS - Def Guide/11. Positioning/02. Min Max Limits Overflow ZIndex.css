@@ -1,0 +1,21 @@
+.limit {
+    min-width: 100px;
+    min-height: 1.5em;
+
+    max-width: 100px;
+    max-height: 1.5em;
+}
+
+.overflow {
+    /* visible | hidden | scroll | auto */
+    overflow: auto;
+
+    /* affects HTML layout */
+    /* visible | hidden | collapse */
+    visibility: visible;
+}
+
+.z-index {
+    z-index: 1;
+}
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form action="/events/menu.cgi" method="post">
+    <p><label>Name of Event: <input required minlength=5 maxlength=50 name=event></label></p>
+    <p><label>Describe what you would like for breakfast, if anything:
+        <textarea name="breakfast" minlength="10"></textarea></label></p>
+    <p><label>Describe what you would like for lunch, if anything:
+        <textarea name="lunch" minlength="10"></textarea></label></p>
+    <p><label>Describe what you would like for dinner, if anything:
+        <textarea name="dinner" minlength="10"></textarea></label></p>
+    <p><input type=submit value="Submit Request"></p>
+</form>
+</body>
+</html>

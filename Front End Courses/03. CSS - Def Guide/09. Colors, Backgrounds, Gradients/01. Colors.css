@@ -1,0 +1,10 @@
+h1 {
+    color: blue;
+
+    background-color: black;
+
+    /* padding-box || content-box || text */
+    background-clip: border-box;
+
+
+}

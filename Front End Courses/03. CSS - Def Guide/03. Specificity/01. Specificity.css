@@ -1,0 +1,18 @@
+/* LVFHA */
+:link {}
+:visited {}
+:focus {}
+:hover {}
+:active {}
+
+/* 0 0 0 1  -- element, pseudo-element */
+h1 {}
+::first-line {}
+
+/* 0 0 1 0  -- class, attr or pseudo-class*/
+.myClass {}
+[attr="val"] {}
+:focus {}
+
+/* 0 1 0 0  -- id */
+#myId {}

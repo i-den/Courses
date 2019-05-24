@@ -1,0 +1,23 @@
+p {
+    shape-outside: image(black);
+
+    /* basic shapes */
+    --bs-inset: inset();
+    --bs-circle: circle();
+    --bs-ellipse: ellipse();
+    --bs-polygon: polygon(25px 0, 50px 25px, 25px 50px, 0 25px);
+
+    /* shape-box values */
+    --sb-margin-box: margin-box;
+    --sb-border-box: border-box;
+    --sb-padding-box: padding-box;
+    --sb-content-box: content-box;
+
+    shape-image-threshold: 0.0;
+
+    /* length | percentage (of containing ele width) */
+    /* cannot exceed image's box, a square at max or excessive width */
+    shape-margin: 1px;
+
+
+}

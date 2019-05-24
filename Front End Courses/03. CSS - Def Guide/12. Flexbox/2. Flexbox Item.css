@@ -1,0 +1,4 @@
+.align-self {
+    /* overrides align-items */
+    align-self: flex-start;
+}

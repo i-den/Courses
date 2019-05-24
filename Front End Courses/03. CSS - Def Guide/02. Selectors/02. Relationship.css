@@ -1,0 +1,12 @@
+/* descendant selectors */
+h1 em {}
+
+/* children selector */
+h1 > em {}
+
+/* adjacent sibling selector */
+h1 + p {}
+
+/* sibling selector */
+h1 ~ p {}
+

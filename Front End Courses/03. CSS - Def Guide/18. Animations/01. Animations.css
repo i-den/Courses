@@ -1,0 +1,29 @@
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes color-pop {
+    0% {
+        color: black;
+        background-color: white;
+    }
+    33% { /* one-third of the way through the animation */
+        color: gray;
+        background-color: yellow;
+    }
+    100% {
+        color: white;
+        background-color: orange;
+    }
+}
+
+div {
+    animation-name: color-pop;
+    animation-delay: 50ms;
+    animation-timing-function: ease-in;
+}

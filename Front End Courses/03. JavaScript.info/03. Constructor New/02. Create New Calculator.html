@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Calculator() {
+
+        function read() {
+            this.firstNum = +prompt();
+            this.secNum = +prompt();
+        }
+
+        function sum() {
+            return this.firstNum + this.secNum;
+        }
+
+        function mul() {
+            return this.firstNum * this.secNum;
+        }
+
+        return {
+            read,
+            sum,
+            mul
+        }
+    }
+</script>
+</body>
+</html>

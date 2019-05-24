@@ -1,0 +1,41 @@
+:link {}
+:visited {}
+
+:root {}
+
+/* no other elements of the parent */
+:only-child {}
+
+/* no other elements of the same tag for the parent */
+:only-of-type {}
+
+:first-child {}
+:last-child {}
+
+:first-of-type {}
+:last-of-type {}
+
+:nth-child(even) {}
+:nth-child(odd) {}
+
+:focus {}
+:hover {}
+:active {}
+
+/* UI State */
+:enabled {}
+:disabled {}
+:checked {}
+:indeterminate {}
+:default {}
+:valid {}
+:invalid {}
+:in-range {}
+:out-of-range {}
+:required {}
+:optional {}
+:read-write {}
+:read-only {}
+
+/* #target */
+:target {}

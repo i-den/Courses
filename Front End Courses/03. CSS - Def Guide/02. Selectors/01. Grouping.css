@@ -1,0 +1,31 @@
+h1 {}
+
+h1, h2, h3 {}
+
+
+.myClass {}
+
+#myId{}
+
+
+*[attr] {}
+
+*[attr="val"] {}
+
+a[href][alt] {}
+
+
+/* space separated list */
+[attr~="val"] {}
+
+/* substring contained */
+[attr*="val"] {}
+
+/* begins with val */
+[attr^="val"] {}
+
+/* ends with val */
+[attr$="val"] {}
+
+/* starts with en or en- */
+[attr|="en"] {}

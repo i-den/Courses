@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data</title>
+    <style>
+        data:hover::after {
+            content: ' (ID ' attr(value) ')';
+            font-size: .7em;
+        }
+    </style>
+</head>
+<body>
+<p>New Products:</p>
+<ul>
+    <li><data value="398">Mini Ketchup</data></li>
+    <li><data value="399">Jumbo Ketchup</data></li>
+    <li><data value="400">Mega Jumbo Ketchup</data></li>
+</ul>
+</body>
+</html>

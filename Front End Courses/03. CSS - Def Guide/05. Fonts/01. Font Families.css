@@ -1,0 +1,40 @@
+/*
+font families = font face + font face
+times = times regular + times bold + times italic
+
+Serif
+- proportional, have serifs
+- prop = all chars have diff widths
+
+Sans-serif
+- proportional, no serifs
+
+Monospace
+- not proportional
+- code
+
+Cursive
+- handwriting
+
+Fantasy:
+- everything else
+*/
+
+/* basic usage */
+h1 {
+    font-family: monospace;
+}
+
+/* fallback */
+h2 {
+    font-family: Georgia, sans-serif;
+}
+
+h3 {
+    font-family: "Times New Roman", serif;
+}
+
+
+
+
+

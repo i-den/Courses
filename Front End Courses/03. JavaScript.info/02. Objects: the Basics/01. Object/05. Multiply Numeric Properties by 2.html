@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function multiplyNumeric(menu) {
+        Object.keys(menu)
+            .forEach(function multiplyProp(prop) {
+                if (typeof menu[prop] === "number") {
+                    menu[prop] *= 2;
+                }
+            });
+    }
+</script>
+</body>
+</html>

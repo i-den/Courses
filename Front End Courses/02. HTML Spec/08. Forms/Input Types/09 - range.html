@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form action="/">
+    <label>
+        Range <input type="range">
+    </label>
+    <button>Submit</button>
+
+
+<br>
+<br>
+
+<input type="range" min="-100" max="100" value="0" step="10" name="power" list="powers">
+<datalist id="powers">
+    <option value="0">
+    <option value="-30">
+    <option value="30">
+    <option value="++50">
+</datalist>
+
+
+<br>
+<br>
+
+<input name=x type=range min=100 max=700 step=9.09090909 value=509.090909>
+
+<br>
+<br>
+
+<input type="range" name="a" list="a-values">
+<datalist id="a-values">
+    <option value="10" label="Low">
+    <option value="90" label="High">
+</datalist>
+
+</form>
+</body>
+</html>

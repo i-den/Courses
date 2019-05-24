@@ -1,0 +1,40 @@
+.flexbox-container {
+    /* block box */
+    display: flex;
+}
+
+.flexbox-inline-container {
+    /* inline-block box */
+    display: inline-flex;
+}
+
+.flex-direction {
+    /* row, row-reverse, column, column-reverse */
+    flex-direction: row;
+}
+
+.flex-wrap {
+    /* single line or multi line if needed */
+    flex-wrap: wrap;
+}
+
+.flex-flow {
+    /* combined direction + wrap */
+    flex-flow: row nowrap;
+}
+
+.justify-content {
+    /* distribution among the main axis */
+    /* flex-start/end center space-between/around/evenly */
+    justify-content: flex-start;
+}
+
+.align-items {
+    /*vertical alignment */
+    align-items: stretch;
+}
+
+.align-content {
+    align-content: flex-start;
+}
+

@@ -1,0 +1,41 @@
+h1 {
+    /* len - percent of the parent's width */
+    text-indent: 10px;
+
+    text-align: center;
+
+    -ms-text-align-last: center;
+    text-align-last: center;
+
+    line-height: 1.2em;
+
+    /* baseline | sub | super | top | text-top | middle | bottom | text-bottom | <length> | <percentage> */
+    vertical-align: baseline;
+
+    /* <length> - normal */
+    word-spacing: normal;
+    letter-spacing: normal;
+
+    /* uppercase | lowercase | capitalize | none */
+    text-transform: none;
+
+    /* none | [ underline ‖ overline ‖ line-through ‖ blink ] */
+    text-decoration: none;
+
+    /* most used for SVG */
+    text-rendering: auto;
+
+    text-shadow: 15px 15px 3px #000;
+
+    overflow-wrap: normal;
+
+    white-space: normal;
+    tab-size: 8;
+    hyphens: auto;
+    word-break: break-all;
+    line-break: auto;
+    writing-mode: lr;
+    text-orientation: upright;
+    direction: ltr;
+    unicode-bidi: normal;
+}

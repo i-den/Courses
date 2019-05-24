@@ -1,0 +1,16 @@
+body {
+    background: url("./images/wanaporn-yangsiri-86822.jpg") center center fixed;
+    background-size: cover;
+}
+#content {
+    text-align: center;
+    padding-top: 60%;
+}
+
+img {
+    filter:  drop-shadow(5px 5px 5px #222);
+}
+
+h1, h3 {
+    color: white;
+}

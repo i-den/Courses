@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "My-Font-Name";
+    src: url("https://site.com/font")
+}
+
+@font-face {
+    font-family: "Fallback-Font";
+    src:    url("/font-1.eot") format("embedded-opentype"),
+    src:    url("/font-2.otf") format("opentype"),
+    src:    url("/font-3.svg") format("svg"),
+    src:    url("/font-4.ttf") format("truetype"),
+    src:    url("/font-4.true") format("truetype"),
+            url("font-5.woff") format("woff");
+}
+
+
+

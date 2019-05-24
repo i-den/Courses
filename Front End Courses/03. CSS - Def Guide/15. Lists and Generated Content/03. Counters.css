@@ -1,0 +1,9 @@
+.counter {
+    counter-reset: ordered;
+}
+
+.counter::before {
+    counter-increment: ordered;
+    content: counter(ordered)
+}
+

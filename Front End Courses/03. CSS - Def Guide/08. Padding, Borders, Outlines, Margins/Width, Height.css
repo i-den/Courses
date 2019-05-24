@@ -1,0 +1,43 @@
+/* Applies only to block or inline-block displayed elements */
+h1 {
+    width: 10px;
+    height: 10px;
+}
+
+/* Applies to all */
+h2 {
+    padding: 10px 10px 10px 10px
+}
+
+/* Borders */
+h3 {
+    /* 4 sides with single props - border-top-* ... */
+    border-style: solid;
+
+    border-width: 3px;
+
+    border-color: transparent;
+
+    border-radius: 33% 25% 33% 25%;
+}
+
+h4 {
+    border: 25px solid;
+
+    border-image-source: url("../../01. HTML/cat.jpg");
+
+    border-image-slice: 25%;
+
+    border-image-width: 1em;
+
+    border-image-outset: 1em;
+
+    border-image-repeat: repeat;
+}
+
+h5 {
+    outline-style: solid;
+    outline-width: 3px;
+    outline-color: black;
+
+}

@@ -1,0 +1,28 @@
+h1 {
+    /* inline || block || */
+    display: inline;
+
+    /* padding-box || border-box */
+    box-sizing: content-box;
+
+    padding: 0;
+    margin: 0;
+}
+
+/* Important Auto */
+.auto-parent {
+    width: 500px;
+}
+.auto-child {
+    /* With Auto Width - it will fill up to take all the remaining space - 400 px */
+    margin-left: auto;
+    width: auto;
+    margin-right: 100px;
+}
+.three-autos-child {
+    /* With all 3 the Width is taking all the space - 500px */
+    margin-left: auto;
+    width: auto;
+    margin-right: auto;
+}
+

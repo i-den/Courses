@@ -1,0 +1,17 @@
+1. left outer edge of floated element can be as far as the inner left of its containing block
+
+2. right
+
+3. float overlap
+
+4. top, if between two margins act as if block lvl ele
+
+5. top might not be higher than any other preceding floated ele
+
+6. top might not be higher than any other preceding line box
+
+7. multiple floats must fit on the width, if not next line
+
+8. left/right as much as possible
+
+*Note: not taking negative margins into consideration

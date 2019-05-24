@@ -1,0 +1,61 @@
+h1 {
+    /* Keywords */
+    display: none;
+
+    /* Global Keywords */
+    color: inherit;
+    background: unset;
+    font-size: initial;
+
+    /* URLs */
+    --url: "https://url.com";
+
+    /* Numbers & Percentages */
+    --int: 1;
+    --float: 1.5;
+    --neg: -2.5;
+    --percent: 50%;
+
+    /* Absolute Length Units */
+    --inches: 10in;
+    --centimeters: 10cm;
+    --millimeteres: 10mm;
+    --quarter-mm: 10q;
+    --points: 10pt;
+    --picas: 10pc;
+    --pixels: 10px;
+
+    /* Relative Length Units */
+    --parent-font-size: 1em;
+    --html-font-size: 1rem;
+
+    --one-char-unit: 1ch;
+
+    /* Viewport-relative Units */
+    --viewport-width: 100vw;
+    --viewport-heigth: 100vh;
+
+    --min-of-vw-vh: 1vmin;
+    --max-of-vw-vh: 100vmax;
+
+    /* Calc values */
+    --calc: calc(100 - 5);
+    --calc-1: calc(100px - 50vw);
+
+    /* Attribute Values */
+    --attr-val: attr(data-val);
+
+    /* Color */
+    --color-picker: #ff1900;
+
+    /* Angles */
+    --degrees: 90deg;
+    --gradians: 400grad;
+    --radians: 3.14rad;
+    --turn: 1turn;
+
+    /* Time and Frequency */
+    --time: 2.4s;
+    --freq: 350hz;
+
+}
