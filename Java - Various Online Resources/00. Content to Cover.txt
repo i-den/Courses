@@ -1,0 +1,52 @@
+Primitive:
+   - types
+   - boxing & unboxing
+   - def values
+
+Data Structures:
+   - BitSet
+   - Vector
+   - Stack
+   - Dictionary
+   - Hashtable
+   - Properties
+
+Collections:
+   Interfaces:
+      - Collections
+      - Set
+      - List
+      - Map
+      - Iterator
+      - Comparator
+   Classes:
+      - AbstractCollection
+      - AbstractList
+      - AbstractSequentialList
+      - LinkedList
+      - ArrayList
+      - AbstractSet
+      - HashSet
+      - LinkedHashSet
+      - TreeSet
+      - AbstractMap
+      - HashMap
+      - TreeMap
+      - WeakHashMap
+      - LinkedHashMap
+      - IdentityHashMap
+
+Generics
+Serialization
+
+Streams and Files:
+   - FileInputStream
+   - FileOutputStream
+   - FileReader
+   - FileWriter
+   - File
+
+String processing
+RegEx
+
+Stream API

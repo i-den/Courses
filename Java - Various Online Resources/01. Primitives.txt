@@ -1,0 +1,21 @@
+Types:
+   - byte
+   - short
+   - int
+   - long
+   - float
+   - double
+   - boolean
+   - char
+
+Default values:
+   - Default values when fields in a Class;
+   - Numeric - 0
+   - char - whitespace - '\u0000'
+   - String - null
+   - boolean - false
+
+Boxing and Unboxing
+   - Boxing: int -> Integer, uses valueOf
+   - Unboxing: Integer -> int
+   - no typecasting necessary

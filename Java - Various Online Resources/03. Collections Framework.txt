@@ -1,0 +1,33 @@
+Set:
+   - no duplicates
+   - unordered
+   - HashSet, LinkedHashSet, TreeSet, EnumSet
+
+List:
+   - ordered
+   - ArrayList, LinkedList, Stack, Vector
+      - ArrayList:
+         - .get() is faster
+         - better with less addition and removal and .get() uses
+         - better .forEach(), 3:1
+      - LinkedList:
+         - .remove() is faster
+         - better with much addition and removal
+         - Should use Iterator.add() and Iterator.remove()
+Set vs List:
+   - Set - unique elements, List - repeatable
+   - Set - no guaranteed order
+
+Map:
+   - use instead of Dictionary
+   - HashMap, TreeMap, Hashtable, SortedMap
+
+Iterator:
+   - use instead of the Enumeration interface
+   - hasNext, next, remove
+
+Comparator:
+   - compareTo:
+      -1 if a < b
+      0 if a = b
+      1 if a > b

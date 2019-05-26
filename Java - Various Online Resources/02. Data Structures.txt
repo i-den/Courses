@@ -1,0 +1,20 @@
+BitSet:
+   - Vector of bits
+Vector:
+   - Resizable array of objects
+   - legacy, thread-safe, if ts is not necessary use ArrayList, slower than ArrayList
+   - doubles size on expansion
+Stack:
+   - pref Deque
+   - (-) inherits from Vector
+Dictionary
+   - abstract class
+   - legacy, should use Map implementation
+Hashtable
+   - <K, V> pair
+   - thread-safe, HashMap if ts is not necessary, ConcurrentHashMap if it is
+HashMap
+   - permits null keys
+Properties
+   - thread-safe, subset of Hashtable
+   - <K, V> settings class
