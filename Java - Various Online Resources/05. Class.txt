@@ -1,4 +1,13 @@
-Class loader
-Class
-.class
+
+
 Reflection
+
+Class
+   - one Class obj (created and stored in a .class file) for each class in the program
+   - JVM uses class loader to create that obj
+   - Classes are loaded dynamically, upon first use of a static member of that class
+   - Constructors are also static
+   - Class.forName() || .class
+   - primitive.class = Wrapper.TYPE
+   - .class does not initialize the Class object - doesn't load
+   - 
