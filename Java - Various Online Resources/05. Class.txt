@@ -1,7 +1,3 @@
-
-
-Reflection
-
 Class
    - one Class obj (created and stored in a .class file) for each class in the program
    - JVM uses class loader to create that obj
@@ -10,4 +6,6 @@ Class
    - Class.forName() || .class
    - primitive.class = Wrapper.TYPE
    - .class does not initialize the Class object - doesn't load
-   - 
+
+Reflection
+ 
