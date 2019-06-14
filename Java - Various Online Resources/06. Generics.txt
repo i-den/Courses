@@ -1,0 +1,10 @@
+Generics:
+   - erasure - List<Integer> == List<String>, all class specific content is removed
+   - erases to first bound - <T extends Class1> - erases to Class1, same as replacing Class1 in the body
+ 
+
+	class Foo<T> {T var;}
+	Foo<String> s = new Foo<String>;
+
+   - Is actually Object, not String
+   - 496
