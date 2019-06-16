@@ -7,5 +7,5 @@ Class
    - primitive.class = Wrapper.TYPE
    - .class does not initialize the Class object - doesn't load
 
-Reflection
- 
+Class Loaders
+   - System, Bootstrap, Extension
