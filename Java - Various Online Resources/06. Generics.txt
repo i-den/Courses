@@ -1,12 +1,42 @@
 Generics:
-   - erasure - List<Integer> == List<String>, all class specific content is removed
+   - erasure - List<Integer> == List<String>, all class specific content is removed, results in List<Object>
    - erases to first bound - <T extends Class1> - erases to Class1, same as replacing Class1 in the body
- 
-
+	
+```
 	class Foo<T> {T var;}
-	Foo<String> s = new Foo<String>;
+	Foo<String> s = new Foo<String>; //Is actually Object, not String
+```
 
-   - Is actually Object, not String
+
+ ```
+// Type Erasure
+public <T> List<T> genericMethod(List<T> list) {
+    return list.stream().collect(Collectors.toList());
+}
+// With type erasure, the unbounded type T is replaced with Object as follows:
+
+public List<Object> withErasure(List<Object> list) {
+    return list.stream().collect(Collectors.toList());
+}
+ 
+// which in practice results in
+public List withErasure(List list) {
+    return list.stream().collect(Collectors.toList());
+}
+// If the type is bounded, then the type will be replaced by the bound at compile time:
+
+public <T extends Building> void genericMethod(T t) {
+    ...
+}
+would change after compilation:
+
+public void genericMethod(Building t) {
+    ...
+}
+ ```
+ 
+   - does not work with primitives, must be convertible to Object
+
 
 ```
 public class Main {
