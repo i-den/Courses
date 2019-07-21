@@ -62,5 +62,5 @@ class Apple2 extends Apple {}
 
 class Orange extends Fruit {}
 ```
-504
+
 

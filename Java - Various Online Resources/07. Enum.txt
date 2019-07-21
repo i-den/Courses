@@ -1,0 +1,52 @@
+Enum
+   - extends Enum class
+   - can't inherit from. Can be placed in an interface and implement it to be used as.
+   - most basic
+
+enum Name {
+	FIRST_VAL, SEC_VAL, THIRD_VAL;
+}
+
+   - toString() can be overridden
+
+enum Name {
+	FIRST_VAL, SEC_VAL, THIRD_VAL;
+	public String toString() { return name().toLowerCase(); }
+}
+
+   - methods
+
+enum Name {
+	FISRT_VAL("Value here"),
+	SEC_VAL("Value here");
+
+	private String value;
+
+	Name(String value) { this.value = value; }
+
+	public String getValue() { return this.value }
+}
+
+   - can import static
+      without Enum.VAL;
+      with VAL;
+
+   - EnumMap - Command pattern
+   EnumMap<EnumClass, Command> em;
+   em.get.action
+
+Constant Specific Methods
+
+enum Enumz {
+    TEST {
+        String getInfo() {
+            return "Overridden";
+        }
+    };
+    abstract String getInfo() {return "Def behavior";
+}
+
+
+
+
+
