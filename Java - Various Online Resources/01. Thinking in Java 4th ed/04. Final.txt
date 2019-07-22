@@ -1,0 +1,17 @@
+final data
+   - primitives - cannot be changed
+   - Objects - cannot point to other value
+
+final blanks
+   - initialize on definition or in constructor
+
+final parameters
+   - cannot change what the param points to in the mothod body
+
+final methods
+   - cannot @Override
+   - legacy optimization
+   - all private methods are final, can @Override a private method
+
+final class
+   - cannot extends
