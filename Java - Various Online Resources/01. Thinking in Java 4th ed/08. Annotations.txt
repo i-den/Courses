@@ -1,0 +1,10 @@
+Annotations
+
+   - Meta Annotations
+
+   @Target - where the @ can be applied
+   @Retention - how long the @ info is kept
+   @Documented - JavaDoc inclusion
+   @Inherited - allow subclasses to inherit parent @
+
+   

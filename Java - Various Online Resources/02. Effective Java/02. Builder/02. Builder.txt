@@ -1,0 +1,65 @@
+Telescoping Pattern
+   - not optional
+   - doesn't scale
+   - can lead to bugs
+
+class Test {
+	int required;
+	int optional1;
+	int optional2;
+	int optional3;
+
+	Test(int required) {}
+	Test(int required, int optional1) {}
+	Test(int required, int optional1, optional2) {}
+	// constructors to cover all optionals
+}
+
+----------------------------------------------------------------
+JavaBeans Pattern
+   - inconsistent halfway through construction
+   - can't make class immutable
+
+class Test {
+	// required and optional fields
+	Test() {}
+	// Getters & Setters
+}
+
+----------------------------------------------------------------
+Builder Pattern
+   - useful when having multiple constructors
+   - immutable once created
+
+// interface Builder<T> {
+	T build();
+}
+
+class Outer {
+	// All Inner fields are private and final
+	private final int required;
+	private final int optional; 
+
+	// Will act as a setter
+	public static class InnerBuilder {
+		int required;
+		int optional = 0;
+
+		public InnerBuilder(int required) { this.required = required; }
+
+		public InnerBuilder setOptional(int optional) { this.optional = optional; }
+	
+		public Outer build() { return new Outer(this); }
+	}
+
+	// Private constructor, can only be instantiated from InnerBuilder
+	private Outer(InnerBuilder builder) {
+		required = builder.required;
+		optional = builder.optional;
+	}
+}
+
+Outer outer = new Outer.InnerBuilder(1)
+					.optional(2)
+					.build();
+
