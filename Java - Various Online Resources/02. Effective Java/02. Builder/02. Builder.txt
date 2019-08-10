@@ -31,7 +31,7 @@ Builder Pattern
    - useful when having multiple constructors
    - immutable once created
 
-// interface Builder<T> {
+interface Builder<T> {
 	T build();
 }
 

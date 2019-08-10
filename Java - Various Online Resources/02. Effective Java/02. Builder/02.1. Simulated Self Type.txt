@@ -1,0 +1,29 @@
+class FirstClass {
+	int first;
+	int second;
+
+	abstract static class Builder<T extends Builder<T>> {
+		int first;
+		int second;
+
+		Builder(int first) {
+			this.first = first;
+		} 
+
+		T withSecond(int second) {
+			this.second = second;
+			return self();
+		}
+
+		T self();
+
+		abstract 
+	}
+
+	private FirstClass(Builder b) {
+		this.first = b.first;
+	}
+}
+
+Self is used to return this.
+If the Builder was returning this it would not be possible to chain any methods from inheriting classes

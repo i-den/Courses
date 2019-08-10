@@ -1,0 +1,28 @@
+Use Singleton with
+   - private/public Property, Private Constructor
+   - enum
+
+When Serializing with the first type use 
+
+private Object readResolve() {
+	return INSTANCE;
+}
+
+class Singleton {
+	private INSTANCE = new Singleton();
+	private Singleton() {}
+	public getInstance() { return this.INSTANCE; }
+}
+
+public enum Singleton {
+	INSTANCE;
+
+	int val;
+
+	public int getVal() { return value; }
+
+	public void doSomething() {}
+}
+
+In most cases enum should be used. 
+Singleton.INSTANCE.doSomething();
