@@ -1,0 +1,78 @@
+Always Override hashCode when overriding equals!!!
+Should be used for classes that are dependent on their DI
+PhoneNum pN1 = new PhoneNum(1, 2, 3);
+PhoneNum pN2 = new PhoneNum(1, 2, 3);
+
+The equals must implement an equivalence relation:
+
+Reflexive: For any non-null reference value x, x.equals(x) must return true
+x.equals(x) == true
+
+Symmetric: For any non-null reference values x and y, x.equals(y) must return true if and only if y.equals(x) returns true
+x.equals(y) == true &&
+y.equals(x) == true
+
+Transitive: For any non-null reference values x, y, z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) must return true
+x.equals(y) == true
+y.equals(z) == true
+x.equals(z) == true !
+
+Consistent: For any non-null reference values x and y, multiple invocations of x.equals(y) must consistently return true or consistently return false, provided no information used in equals comparisons is modified
+x.equals(y) == true
+x.equals(y) == true
+x.equals(y) == true
+
+For any non-null reference value x, x.equals(null) must return false
+x.equals(null) == false
+
+Typical implementation
+@Override
+public boolean equals(Object o) { // Important signature
+	if o == this 
+		return true;
+	if o instanceof CURRENT_CLASS == false
+		return false;
+	CURRENT_CLASS cc = (CURRENT_CLASS) o;
+	this.primitiveField == o.primitiveField ?
+	this.objRefField.equals(o.objRefField) ?
+	return ...
+}
+
+
+----------------------------------------------
+public class Main {
+
+    public static void main(String[] args) {
+        A a = new A(1, 2, 3);
+        A b = new A(1, 2, 3);
+        System.out.println(a.equals(b)); // without overriding equals it results in false
+    }
+}
+
+class A {
+    int a;
+    int b;
+    int c;
+    A(int a, int b, int c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (!(obj instanceof A)) {
+            return false;
+        }
+
+        A o2 = (A) obj;
+        return this.a == o2.a
+                && this.b == o2.b
+                && this.c == o2.c;
+    }
+}
+----------------------------------------------

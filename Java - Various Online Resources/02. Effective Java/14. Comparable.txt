@@ -1,0 +1,8 @@
+int compareTo(T t) {}
+
+a   b
+a > b  1
+a = b  0
+a < b -1
+
+Using static compare methods when implementing

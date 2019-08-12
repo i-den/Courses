@@ -1,0 +1,17 @@
+hashCode should return the same value, provided no info used in equals() is modified
+
+if o1.equals(o2)
+o1.hashCode() should be equal to o2.hashCode()
+
+o1.equals(o2) == false
+o1.hashCode may be equal to o2.hashCode()
+different hashCode results for unequal objs can improve hash tables
+
+// Typical hashCode method
+@Override public int hashCode() {
+	int result = Short.hashCode(areaCode);
+	result = 31 * result + Short.hashCode(prefix);
+	result = 31 * result + Short.hashCode(lineNum);
+	return result;
+}
+
