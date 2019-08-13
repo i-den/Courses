@@ -1,0 +1,22 @@
+To make a class immutable:
+
+Don’t provide non-private methods that modify the object’s state
+Ensure that the class can’t be extended
+Make all fields final
+Make all fields private
+Ensure exclusive access to any mutable components
+
+Pros:
+Immutable objects are simple
+Immutable objects are inherently thread-safe; they require no synchronization.
+Immutable objects can be shared freely (as being public class members)
+Not only can you share immutable objects, but they can share their internals.
+Immutable objects make great building blocks for other objects
+
+Cons:
+The major disadvantage of immutable classes is that they require a separate object for each distinct value
+
+
+Best implemented with a public static factory, i.e. valueOf()
+
+No clone() or copy() methods on immutable objs

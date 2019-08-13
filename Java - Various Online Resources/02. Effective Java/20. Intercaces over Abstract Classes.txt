@@ -1,0 +1,3 @@
+Pros
+Existing classes can easily be retrofitted to implement a new interface
+Interfaces enable safe, powerful functionality enhancements
