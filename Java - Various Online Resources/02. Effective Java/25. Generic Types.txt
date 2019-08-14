@@ -1,0 +1,31 @@
+Raw type              -      Class
+Generic type          -      Class<E>
+Parameterized type    -      Class<String>
+
+Bounded type          -      <E extends Class>
+Recursive type        -      <E extends Class<E>>
+
+Unbounded WildCard    -      Class<?>
+Bounded WildCard      -      <? extends Class>
+
+Generic method        -      static <E> Class<E> foo(E[] e)
+Type token            -      E.class
+
+
+----------------------------------------------------------------
+Raw - List
+Parameterized - List<E>
+
+Raw types are for compatibility, they should not be used
+----------------------------------------------------------------
+Unbounded WildCard    -     Class<?>
+	Can put only null in it
+	Legit use
+
+	if (o instanceof Set) { // Raw type
+		Set<?> s = (Set<?>) o; // Wildcard type
+		...
+	}
+----------------------------------------------------------------
+
+

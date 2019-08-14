@@ -1,0 +1,62 @@
+Raw types, unchecked warnings
+public static Set union(Set s1, Set s2) {
+	Set result = new HashSet(s1);
+	result.addAll(s2);
+	return result;
+}
+--------------------------------------------------------------
+
+public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
+	Set<E> result = new HashSet<>(s1);
+	result.addAll(s2);
+	return result;
+}
+
+// Simple program to exercise generic method
+public static void main(String[] args) {
+	Set<String> guys = Set.of("Tom", "Dick", "Harry");
+	Set<String> stooges = Set.of("Larry", "Moe", "Curly");
+	Set<String> aflCio = union(guys, stooges);
+	System.out.println(aflCio);
+}
+
+A limitation of the union method is that the types of all three sets (both input
+parameters and the return value) have to be exactly the same. You can make the
+method more flexible by using bounded wildcard types.
+
+
+Should be using Bounded WildCards to cover any subtypes
+
+public class Stack<E> {
+	public Stack();
+	public void push(E e);
+	public E pop();
+	public boolean isEmpty();
+}
+
+// pushAll method without wildcard type - deficient!
+// Pushesh only E elements, not such that extend E
+public void pushAll(Iterable<E> src) {
+	for (E e : src)
+	push(e);
+}
+
+// Wildcard type for a parameter that serves as an E producer
+public void pushAll(Iterable<? extends E> src) {
+	for (E e : src)
+	push(e);
+}
+
+// Wildcard type for parameter that serves as an E consumer
+public void popAll(Collection<? super E> dst) {
+	while (!isEmpty())
+		dst.add(pop());
+}
+
+PECS
+Producer Extends
+Consumer Super
+
+public static <E> Set<E> union(Set<? extends E> s1, Set<? extends E> s2) {
+	// Still returns <E>, not ? extends E
+}

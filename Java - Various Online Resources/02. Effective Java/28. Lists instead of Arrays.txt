@@ -1,0 +1,20 @@
+Arrays are covariant - a sub[] is subset of sup[]
+Arrays are reified - they know their type at runtime
+Lists are invariant - a List<sub> is not 
+Generic types are non-reifiable - they contain more info at compile time
+
+// Fails at runtime!
+Object[] objectArray = new Long[1];
+objectArray[0] = "I don't fit in"; // Throws ArrayStoreException
+
+
+// Won't compile!
+List<Object> ol = new ArrayList<Long>(); // Incompatible types
+ol.add("I don't fit in");
+
+Generic array isn't typesafe. 
+
+
+
+VarArgs create an array, using SaveVarargs annotation for List... params
+
