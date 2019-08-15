@@ -1,0 +1,78 @@
+// Enum type that switches on its own value - questionable
+public enum Operation {
+	PLUS, MINUS, TIMES, DIVIDE;
+	// Do the arithmetic operation represented by this constant
+	public double apply(double x, double y) {
+		switch(this) {
+			case PLUS: return x + y;
+			case MINUS: return x - y;
+			case TIMES: return x * y;
+			case DIVIDE: return x / y;
+		}
+		throw new AssertionError("Unknown op: " + this);
+	}
+}
+
+// Enum type with constant-specific method implementations
+public enum Operation {
+	PLUS {public double apply(double x, double y){return x + y;}},
+	MINUS {public double apply(double x, double y){return x - y;}},
+	TIMES {public double apply(double x, double y){return x * y;}},
+	DIVIDE{public double apply(double x, double y){return x / y;}};
+	public abstract double apply(double x, double y);
+}
+
+------------------------------------------------------------------------
+
+// The strategy enum pattern
+enum PayrollDay {
+	MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY,
+	SATURDAY(PayType.WEEKEND), SUNDAY(PayType.WEEKEND);
+
+	private final PayType payType;
+
+	PayrollDay(PayType payType) { this.payType = payType; }
+
+	PayrollDay() { this(PayType.WEEKDAY); } // Default
+
+	int pay(int minutesWorked, int payRate) {
+		return payType.pay(minutesWorked, payRate);
+	}
+
+	// The strategy enum type
+	private enum PayType {
+		WEEKDAY {
+		int overtimePay(int minsWorked, int payRate) {
+			return minsWorked <= MINS_PER_SHIFT ? 0 :
+			(minsWorked - MINS_PER_SHIFT) * payRate / 2;
+			}
+		},
+		WEEKEND {
+			int overtimePay(int minsWorked, int payRate) {
+				return minsWorked * payRate / 2;
+			}
+		};
+		abstract int overtimePay(int mins, int payRate);
+		private static final int MINS_PER_SHIFT = 8 * 60;
+
+		int pay(int minsWorked, int payRate) {
+			int basePay = minsWorked * payRate;
+			return basePay + overtimePay(minsWorked, payRate);
+		}
+	}
+}
+------------------------------------------------------------------------
+
+Switches on enums are good for augmenting enum types with constant-specific behavior
+
+// Switch on an enum to simulate a missing method
+public static Operation inverse(Operation op) {
+	switch(op) {
+		case PLUS: return Operation.MINUS;
+		case MINUS: return Operation.PLUS;
+		case TIMES: return Operation.DIVIDE;
+		case DIVIDE: return Operation.TIMES;
+		default: throw new AssertionError("Unknown op: " + op);
+	}
+}
+

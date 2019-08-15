@@ -1,0 +1,4 @@
+Raw - List
+Parameterized - List<E>
+
+Raw types are for compatibility, they should not be used

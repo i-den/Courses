@@ -1,0 +1,67 @@
+class Plant {
+	enum LifeCycle { ANNUAL, PERENNIAL, BIENNIAL }
+	final String name;
+	final LifeCycle lifeCycle;
+	Plant(String name, LifeCycle lifeCycle) {
+		this.name = name;
+		this.lifeCycle = lifeCycle;
+	}
+	@Override public String toString() {
+		return name;
+	}
+}
+--------------------------------------------------------------
+
+// Using ordinal() to index into an array - DON'T DO THIS!
+Set<Plant>[] plantsByLifeCycle =
+	(Set<Plant>[]) new Set[Plant.LifeCycle.values().length];
+	for (int i = 0; i < plantsByLifeCycle.length; i++)
+		plantsByLifeCycle[i] = new HashSet<>();
+
+	for (Plant p : garden)
+		plantsByLifeCycle[p.lifeCycle.ordinal()].add(p);
+
+	// Print the results
+	for (int i = 0; i < plantsByLifeCycle.length; i++) {
+		System.out.printf("%s: %s%n", Plant.LifeCycle.values()[i], plantsByLifeCycle[i]);
+}
+--------------------------------------------------------------
+
+// Using an EnumMap to associate data with an enum
+Map<Plant.LifeCycle, Set<Plant>> plantsByLifeCycle = new EnumMap<>(Plant.LifeCycle.class);
+
+for (Plant.LifeCycle lc : Plant.LifeCycle.values())
+	plantsByLifeCycle.put(lc, new HashSet<>());
+
+for (Plant p : garden)
+	plantsByLifeCycle.get(p.lifeCycle).add(p);
+
+System.out.println(plantsByLifeCycle);
+--------------------------------------------------------------
+
+// Using a nested EnumMap to associate data with enum pairs
+public enum Phase {
+	SOLID, LIQUID, GAS;
+	
+	public enum Transition {
+		MELT(SOLID, LIQUID), FREEZE(LIQUID, SOLID),
+		BOIL(LIQUID, GAS), CONDENSE(GAS, LIQUID),
+		SUBLIME(SOLID, GAS), DEPOSIT(GAS, SOLID);
+		private final Phase from;
+		private final Phase to;
+		Transition(Phase from, Phase to) {
+			this.from = from;
+			this.to = to;
+		}
+
+		// Initialize the phase transition map
+		private static final Map<Phase, Map<Phase, Transition>> m = 
+			Stream.of(values()).collect(groupingBy(t -> t.from,
+				() -> new EnumMap<>(Phase.class),
+				toMap(t -> t.to, t -> t,
+				(x, y) -> y, () -> new EnumMap<>(Phase.class))));
+		public static Transition from(Phase from, Phase to) {
+			return m.get(from).get(to);
+		}
+	}
+}
