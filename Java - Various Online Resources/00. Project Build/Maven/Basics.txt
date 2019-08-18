@@ -1,0 +1,22 @@
+Coordinates
+- They identify artifacts
+- Together - location in a Maven repo
+
+groupId
+artifactId
+version
+
+<groupId>com.denchevgod</groupId>
+<artifactId>code</artifactId>
+<version>1.0-SNAPSHOT</version>
+------------------------------------------------------------
+
+Repositories
+
+Local     - local fs ~/.m2
+Central   - public Maven repos
+Remote    - other public/private repos
+
+Dependency Lookups
+Local > Central / Others
+
