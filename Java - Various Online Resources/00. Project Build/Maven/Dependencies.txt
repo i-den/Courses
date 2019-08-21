@@ -1,0 +1,39 @@
+Dependencies
+------------------------------------------------------------
+
+Dependency Mediation
+A -> B
+A -> D 2.0
+B -> D 1.5
+D 2.0 will be used
+
+Can exclude specific definitives
+Can make optional, excluded for anything downstream of your JAR
+------------------------------------------------------------
+
+Dependency Scope
+- Compile 
+   - default, available on all classpaths, propagated to downstream projects
+
+- Provided
+   - like compile, but provided by JDK or container at runtime
+
+- Runtime
+   - Not required for compile, required for runtime
+
+- Test
+   - only on test classpath
+
+- System
+   - similar to provided, JAR is added to the system via file path
+
+Import
+   - import dependency of POM
+
+------------------------------------------------------------
+
+Dependency Plugin
+dependency:tree
+dependency:go-offline
+dependency:purge-local-repository
+dependency:sources
