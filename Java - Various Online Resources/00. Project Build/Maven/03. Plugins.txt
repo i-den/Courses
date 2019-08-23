@@ -1,0 +1,58 @@
+Maven is a Collection of Plugins
+
+<build>
+	<plugins>
+		<artifactId>
+		<version>
+ 
+		<executions>
+			<id>
+			<phase>
+			<goals>
+				<goal>
+			</goals>
+		</executions>
+	</plugins>
+</build>
+-----------------------------------------------------------
+
+Clean plugin - CLEAN lifecycle
+   - removes /target dir and submodules
+-----------------------------------------------------------
+
+Compiler plugin - DEFAULT lifecycle
+   - goals
+      - compiler:compile
+      - compiler:testCompile
+
+   - uses javax.tools.JavaCompiler
+-----------------------------------------------------------
+
+Resources plugin - DEFAULT lifecycle
+copies project resources to output dir (target dir)
+
+   - goals
+      - resources:resources
+      - resources:testResources
+      - resources:copy-resources
+-----------------------------------------------------------
+
+Surefire plugin - DEFAULT lifecycle
+execute unit tests of the project
+   - goals
+      - surefire:test
+-----------------------------------------------------------
+
+JAR plugin - DEFAULT lifecycle
+build jars from compiled artifacts and resources
+   - goals
+      - jar:jar
+      - jar:test-jar
+-----------------------------------------------------------
+
+Deploy plugin - DEFAULT lifecycle
+deploy projects to remote Maven repos
+   - goals
+      - deploy:deploy
+      - deploy:deploy-file
+-----------------------------------------------------------
