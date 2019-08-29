@@ -20,7 +20,7 @@ public int getAddCount() {
 }
 }
 // Reusable forwarding class
-	public class ForwardingSet<E> implements Set<E> {
+public class ForwardingSet<E> implements Set<E> {
 	private final Set<E> s;
 	public ForwardingSet(Set<E> s) { this.s = s; }
 	public void clear() { s.clear(); }
