@@ -1,19 +1,80 @@
 package com.denchevgod.math;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Arithmetic {
-    
+
+    public static void main(String[] args) {
+        System.out.println(Commons.greatestCommonDivisor(48, 180));
+    }
+
+
+
+
+
+
+
+    private static class Commons {
+        static int greatestCommonDivisor(int... nums) {
+            List<List<Integer>> allNumsPrimeFact = Primes.multipleNumsPrimeFactorization(nums);
+            Map<Integer, Integer> a = getIntersectingNumOccurrences(allNumsPrimeFact, true);
+
+
+
+            return 1;
+        }
+
+        static int leastCommonMultiple(int... nums) {
+            List<List<Integer>> allNumsPrimeFact = Primes.multipleNumsPrimeFactorization(nums);
+            return 1;
+        }
+
+        private static Map<Integer, Integer> getIntersectingNumOccurrences(List<List<Integer>> numsPrimeFact, boolean vennDiagram) {
+            List<List<NumToPow>> allNumOccurrences = new ArrayList<>();
+
+            for (List<Integer> integers : numsPrimeFact) {
+                Map<Integer, Integer> numOccurrences = new HashMap<>();
+                for (Integer integer : integers) {
+                    numOccurrences.putIfAbsent(integer, 0);
+                    numOccurrences.put(integer, numOccurrences.get(integer) + 1);
+                }
+                List<NumToPow> currNumToPows = new ArrayList<>();
+                for (Integer currNumKey : numOccurrences.keySet()) {
+                    currNumToPows.add(new NumToPow(currNumKey, numOccurrences.get(currNumKey)));
+                }
+                allNumOccurrences.add(currNumToPows);
+            }
+
+            
+
+            return new HashMap<>();
+        }
+
+        static class NumToPow {
+            int val;
+            int pow;
+            private NumToPow(int val, int pow) {
+                this.val = val;
+                this.pow = pow;
+            }
+            int getVal() {
+                return val;
+            }
+            int getPow() {
+                return pow;
+            }
+        }
+    }
+
     private static class Primes {
 
         /**
          * Finds the Prime Factors of an int
          *
-         * @param   n   num to factorize
-         * @return      a List of integers - the prime factors of the num n
+         * @param n num to factorize
+         * @return a List of integers - the prime factors of the num n
          */
-        private static List<Integer> primeFactorization(int n) {
+        static List<Integer> primeFactorization(int n) {
             if (n < 1) {
                 throw new IllegalArgumentException("1 cannot be Prime Factorized");
             }
@@ -35,10 +96,10 @@ public class Arithmetic {
          * At least one of the factors is smaller or equal than the sqrt(n)
          * If there are no factors that are less than or equal to sqrt(n) - n is a Prime
          *
-         * @param   n   Number to check the smallest Prime Factor for
-         * @return      Smallest Prime Factor
+         * @param n Number to check the smallest Prime Factor for
+         * @return Smallest Prime Factor
          */
-        private static int findLeastPrimeFactor(int n) { //
+        static int findLeastPrimeFactor(int n) { //
             if (n % 2 == 0) { // Even - smallest Prime Factor is 2
                 return 2;
             }
@@ -50,6 +111,14 @@ public class Arithmetic {
                 }
             }
             return n; // n is Prime
+        }
+
+        static List<List<Integer>> multipleNumsPrimeFactorization(int... nums) {
+            List<List<Integer>> primeFactAllNums = new ArrayList<>();
+            for (int num : nums) {
+                primeFactAllNums.add(Primes.primeFactorization(num));
+            }
+            return primeFactAllNums;
         }
     }
 }
