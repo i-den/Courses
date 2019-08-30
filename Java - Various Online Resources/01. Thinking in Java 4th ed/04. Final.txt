@@ -6,7 +6,7 @@ final blanks
    - initialize on definition or in constructor
 
 final parameters
-   - cannot change what the param points to in the mothod body
+   - cannot change what the param points to in the method body
 
 final methods
    - cannot @Override

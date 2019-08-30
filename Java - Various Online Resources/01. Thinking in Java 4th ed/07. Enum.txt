@@ -45,8 +45,3 @@ enum Enumz {
     };
     abstract String getInfo() {return "Def behavior";
 }
-
-
-
-
-
