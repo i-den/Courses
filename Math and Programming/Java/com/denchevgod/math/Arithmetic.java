@@ -11,18 +11,28 @@ public class Arithmetic {
 
 
     private static class Commons {
+
+        private enum UsingVennDiagToCalc {
+            GCD(true), LCM(false);
+
+            boolean val;
+
+            UsingVennDiagToCalc(boolean val) {
+                this.val = val;
+            }
+        }
+
         static int greatestCommonDivisor(int... nums) {
-            List<List<Integer>> allNumsPrimeFact = Primes.multipleNumsPrimeFactorization(nums);
-            Map<Integer, Integer> primeNumsToPow = getIntersectingNumOccurrences(allNumsPrimeFact, true);
-            return primeNumsToPow.keySet().stream()
-                    .mapToInt(a -> (int) Math.pow(a, primeNumsToPow.get(a)))
-                    .reduce((a, b) -> a * b)
-                    .orElse(1);
+            return calcCommonDivisorOrMultiple(UsingVennDiagToCalc.GCD, nums);
         }
 
         static int leastCommonMultiple(int... nums) {
+            return calcCommonDivisorOrMultiple(UsingVennDiagToCalc.LCM, nums);
+        }
+
+        static int calcCommonDivisorOrMultiple(UsingVennDiagToCalc vennDiagToCalc, int... nums) {
             List<List<Integer>> allNumsPrimeFact = Primes.multipleNumsPrimeFactorization(nums);
-            Map<Integer, Integer> primeNumsToPow = getIntersectingNumOccurrences(allNumsPrimeFact, false);
+            Map<Integer, Integer> primeNumsToPow = getIntersectingNumOccurrences(allNumsPrimeFact, vennDiagToCalc.val);
             return primeNumsToPow.keySet().stream()
                     .mapToInt(a -> (int) Math.pow(a, primeNumsToPow.get(a)))
                     .reduce((a, b) -> a * b)
@@ -40,38 +50,31 @@ public class Arithmetic {
                 }
                 allNumOccurrences.add(numOccurrences);
             }
-
-            if (vennDiagram) { // GCD
-                Set<Integer> intersectingNums = allNumOccurrences.stream()
-                        .reduce((a, b) -> {a.keySet().retainAll(b.keySet()); return a;})
-                        .map(Map::keySet)
-                        .orElse(allNumOccurrences.get(0).keySet());
-
-                Map<Integer, Integer> intersectingNumsToPow = new HashMap<>();
-                for (Map<Integer, Integer> currMapNumOccurrences : allNumOccurrences) {
-                    for (Map.Entry<Integer, Integer> currNumOccurrences : currMapNumOccurrences.entrySet()) {
-                        int currNumKey = currNumOccurrences.getKey();
-                        if (intersectingNums.contains(currNumKey)) {
-                            intersectingNumsToPow.putIfAbsent(currNumKey, Integer.MAX_VALUE);
-                            intersectingNumsToPow.put(
-                                    currNumKey,
-                                    Math.min(intersectingNumsToPow.get(currNumKey), currMapNumOccurrences.get(currNumKey))
-                            );
-                        }
-                    }
-                }
-                return intersectingNumsToPow;
-            }
+            Set<Integer> intersectingNums = allNumOccurrences.stream()
+                    .reduce((a, b) -> {
+                        a.keySet().retainAll(b.keySet());
+                        return a;
+                    })
+                    .map(Map::keySet)
+                    .orElse(allNumOccurrences.get(0).keySet());
 
             Map<Integer, Integer> intersectingNumsToPow = new HashMap<>();
-            for (Map<Integer, Integer> currMapNumOccurrences : allNumOccurrences) {
-                for (Map.Entry<Integer, Integer> currNumOccurrences : currMapNumOccurrences.entrySet()) {
-                    int currNumKey = currNumOccurrences.getKey();
-                    intersectingNumsToPow.putIfAbsent(currNumKey, Integer.MIN_VALUE);
-                    intersectingNumsToPow.put(
-                            currNumKey,
-                            Math.max(intersectingNumsToPow.get(currNumKey), currMapNumOccurrences.get(currNumKey))
-                    );
+            for (Map<Integer, Integer> numOccurMap : allNumOccurrences) {
+                for (Map.Entry<Integer, Integer> numOccur : numOccurMap.entrySet()) {
+                    int numKey = numOccur.getKey();
+                    if (vennDiagram && intersectingNums.contains(numKey)) { // GCD
+                        intersectingNumsToPow.putIfAbsent(numKey, Integer.MAX_VALUE);
+                        intersectingNumsToPow.put(
+                                numKey,
+                                Math.min(intersectingNumsToPow.get(numKey), numOccurMap.get(numKey))
+                        );
+                    } else { // LCM
+                        intersectingNumsToPow.putIfAbsent(numKey, Integer.MIN_VALUE);
+                        intersectingNumsToPow.put(
+                                numKey,
+                                Math.max(intersectingNumsToPow.get(numKey), numOccurMap.get(numKey))
+                        );
+                    }
                 }
             }
             return intersectingNumsToPow;
