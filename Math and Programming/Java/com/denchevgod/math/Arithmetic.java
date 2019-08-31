@@ -5,8 +5,7 @@ import java.util.*;
 public class Arithmetic {
 
     public static void main(String[] args) {
-        System.out.println(Commons.greatestCommonDivisor(135, 45));
-        System.out.println(Commons.leastCommonMultiple(12, 80));
+        System.out.println(Commons.greatestCommonDivisor(3, 7));
     }
 
 
@@ -26,8 +25,8 @@ public class Arithmetic {
          * Calculates the Greatest Common Divisor of multiple numbers
          * using Prime Factorization and multiplying their intersecting Primes
          *
-         * @param   nums    the numbers to calc GCD for
-         * @return          the Greatest Common Divisor of nums
+         * @param nums the numbers to calc GCD for
+         * @return the Greatest Common Divisor of nums
          */
         static int greatestCommonDivisor(int... nums) {
             return calcCommonDivisorOrMultiple(UsingVennDiagToCalc.GCD, nums);
@@ -38,14 +37,17 @@ public class Arithmetic {
          * using Prime Factorization and multiplying the all of their Primes
          * to the power of least occurrence
          *
-         * @param   nums    the numbers to calc LCM for
-         * @return          the Least Common Multiple of nums
+         * @param nums the numbers to calc LCM for
+         * @return the Least Common Multiple of nums
          */
         static int leastCommonMultiple(int... nums) {
             return calcCommonDivisorOrMultiple(UsingVennDiagToCalc.LCM, nums);
         }
 
         static int calcCommonDivisorOrMultiple(UsingVennDiagToCalc vennDiagToCalc, int... nums) {
+            if (Primes.allPrimes(nums)) {
+                return 1;
+            }
             List<List<Integer>> allNumsPrimeFact = Primes.multipleNumsPrimeFactorization(nums);
             Map<Integer, Integer> primeNumsToPow = getIntersectingNumOccurrences(vennDiagToCalc.val, allNumsPrimeFact);
             return primeNumsToPow.keySet().stream()
@@ -59,31 +61,30 @@ public class Arithmetic {
          * Returns a Map<Integer, Integer> representing Prime Numbers
          * used to calc LCM or GCD and the number of their Occurrences (power)
          * taken from their Prime Factorization
-         *
+         * <p>
          * GCD uses the Common Intersection Primes from the Prime Factorization of all numbers
          * (https://en.wikipedia.org/wiki/Greatest_common_divisor)
-         *
+         * <p>
          * LCM uses all Primes in the Prime Factorization to the power of least occurrences
          * (https://en.wikipedia.org/wiki/Least_common_multiple)
-         *
+         * <p>
          * Examples:
          * Greatest Common Divisor, vennDiagram == true
          * getIntersectingNumOccurrences(true, {
-         *   { 2:1, 3:3, 5:4 },
-         *   { 2:2, 5:2, 7:3 }
+         * { 2:1, 3:3, 5:4 },
+         * { 2:2, 5:2, 7:3 }
          * })                     // { 2:1, 5:2 }
-         *
-         *
+         * <p>
+         * <p>
          * Least Common Multiple, vennDiagram == false
          * getIntersectingNumOccurrences(true, {
-         *   { 2:1, 3:3, 5:4 },
-         *   { 2:2, 5:2, 7:3 }
+         * { 2:1, 3:3, 5:4 },
+         * { 2:2, 5:2, 7:3 }
          * })                     // { 2:1, 3:3, 5:4, 7:3 }
          *
-         *
-         * @param   vennDiagram     Whether the intersection of the Prime Factorization should be used or all Primes
-         * @param   numsPrimeFact   A list containing the Prime Factorization for each number that GCD or LCM is calculated for
-         * @return                  A map of all Primes and their Power that should be used to calculate GCD or LCM
+         * @param vennDiagram   Whether the intersection of the Prime Factorization should be used or all Primes
+         * @param numsPrimeFact A list containing the Prime Factorization for each number that GCD or LCM is calculated for
+         * @return A map of all Primes and their Power that should be used to calculate GCD or LCM
          */
         private static Map<Integer, Integer> getIntersectingNumOccurrences(boolean vennDiagram, List<List<Integer>> numsPrimeFact) {
             List<Map<Integer, Integer>> allNumOccurrences = new ArrayList<>(); // All Primes in their factorization and their number of occurrences (power)
@@ -163,7 +164,7 @@ public class Arithmetic {
          * @param n Number to check the smallest Prime Factor for
          * @return Smallest Prime Factor
          */
-        static int findLeastPrimeFactor(int n) { //
+        static int findLeastPrimeFactor(int n) {
             if (n % 2 == 0) { // Even - smallest Prime Factor is 2
                 return 2;
             }
@@ -183,6 +184,33 @@ public class Arithmetic {
                 primeFactAllNums.add(Primes.primeFactorization(num));
             }
             return primeFactAllNums;
+        }
+
+        static boolean isPrime(int num) {
+            if (num <= 1) {
+                return false;
+            }
+            if (num <= 3) {
+                return true;
+            }
+            if (num % 2 == 0 || num % 3 == 0) {
+                return false;
+            }
+            for (int i = 5; i * i <= num; i = i + 6) {
+                if (num % i == 0 || num % (i + 2) == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        static boolean allPrimes(int... nums) {
+            for (int num : nums) {
+                if (!isPrime(num)) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
