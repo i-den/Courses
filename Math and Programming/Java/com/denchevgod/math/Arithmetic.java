@@ -88,7 +88,7 @@ public class Arithmetic {
          */
         private static Map<Integer, Integer> getIntersectingNumOccurrences(boolean vennDiagram, List<List<Integer>> numsPrimeFact) {
             List<Map<Integer, Integer>> allNumOccurrences = new ArrayList<>(); // All Primes in their factorization and their number of occurrences (power)
-            List<Map<Integer, Integer>> allNumOccurrencesIntersect = new ArrayList<>();
+            List<Map<Integer, Integer>> allNumOccurrencesIntersect = new ArrayList<>(); // Using two Lists, simplest way to go :(
 
             for (List<Integer> integers : numsPrimeFact) {
                 Map<Integer, Integer> numOccurrences = new HashMap<>();
