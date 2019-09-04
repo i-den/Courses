@@ -5,7 +5,7 @@ import java.util.*;
 public class Arithmetic {
 
     public static void main(String[] args) {
-        System.out.println(Commons.greatestCommonDivisor(3, 7));
+        System.out.println(Commons.leastCommonMultiple(13, 14));
     }
 
 
@@ -88,18 +88,23 @@ public class Arithmetic {
          */
         private static Map<Integer, Integer> getIntersectingNumOccurrences(boolean vennDiagram, List<List<Integer>> numsPrimeFact) {
             List<Map<Integer, Integer>> allNumOccurrences = new ArrayList<>(); // All Primes in their factorization and their number of occurrences (power)
+            List<Map<Integer, Integer>> allNumOccurrencesIntersect = new ArrayList<>();
 
             for (List<Integer> integers : numsPrimeFact) {
                 Map<Integer, Integer> numOccurrences = new HashMap<>();
+                Map<Integer, Integer> numOccurrencesIntersect = new HashMap<>();
                 for (Integer integer : integers) {
                     numOccurrences.putIfAbsent(integer, 0);
+                    numOccurrencesIntersect.putIfAbsent(integer, 0);
                     numOccurrences.put(integer, numOccurrences.get(integer) + 1);
+                    numOccurrencesIntersect.put(integer, numOccurrences.get(integer) + 1);
                 }
                 allNumOccurrences.add(numOccurrences);
+                allNumOccurrencesIntersect.add(numOccurrencesIntersect);
             }
 
             // Used for GCD, gets all Primes that are present in EVERY number's Prime Factorization
-            Set<Integer> primesInAllPrimeFacts = allNumOccurrences.stream()
+            Set<Integer> primesInAllPrimeFacts = allNumOccurrencesIntersect.stream()
                     .reduce((a, b) -> {
                         a.keySet().retainAll(b.keySet());
                         return a;
@@ -107,26 +112,26 @@ public class Arithmetic {
                     .map(Map::keySet)
                     .orElse(allNumOccurrences.get(0).keySet());
 
-            Map<Integer, Integer> intersectingNumsToPow = new HashMap<>();
+            Map<Integer, Integer> intersectingPrimesToPow = new HashMap<>();
             for (Map<Integer, Integer> primPowMap : allNumOccurrences) { // Each Prime Factorization's Prime Power
                 for (Map.Entry<Integer, Integer> primPow : primPowMap.entrySet()) { // Each Prime to its Power
                     int prime = primPow.getKey();
                     if (vennDiagram && primesInAllPrimeFacts.contains(prime)) { // GCD
-                        intersectingNumsToPow.putIfAbsent(prime, Integer.MAX_VALUE);
-                        intersectingNumsToPow.put(
+                        intersectingPrimesToPow.putIfAbsent(prime, Integer.MAX_VALUE);
+                        intersectingPrimesToPow.put(
                                 prime,
-                                Math.min(intersectingNumsToPow.get(prime), primPowMap.get(prime))
+                                Math.min(intersectingPrimesToPow.get(prime), primPowMap.get(prime))
                         );
                     } else { // LCM
-                        intersectingNumsToPow.putIfAbsent(prime, Integer.MIN_VALUE);
-                        intersectingNumsToPow.put(
+                        intersectingPrimesToPow.putIfAbsent(prime, Integer.MIN_VALUE);
+                        intersectingPrimesToPow.put(
                                 prime,
-                                Math.max(intersectingNumsToPow.get(prime), primPowMap.get(prime))
+                                Math.max(intersectingPrimesToPow.get(prime), primPowMap.get(prime))
                         );
                     }
                 }
             }
-            return intersectingNumsToPow;
+            return intersectingPrimesToPow;
         }
 
     }
