@@ -5,7 +5,7 @@ import java.util.*;
 public class Arithmetic {
 
     public static void main(String[] args) {
-        System.out.println(Commons.leastCommonMultiple(13, 14));
+        System.out.println(Commons.greatestCommonDivisor(231, 110));
     }
 
 
@@ -122,7 +122,7 @@ public class Arithmetic {
                                 prime,
                                 Math.min(intersectingPrimesToPow.get(prime), primPowMap.get(prime))
                         );
-                    } else { // LCM
+                    } else if (!vennDiagram){ // LCM
                         intersectingPrimesToPow.putIfAbsent(prime, Integer.MIN_VALUE);
                         intersectingPrimesToPow.put(
                                 prime,
