@@ -41,7 +41,13 @@ public class TreeNode<T> {
     }
 
     public void printBreadthFirst() {
-        // TODO
+        System.out.println(value);
+        ArrayDeque<TreeNode<T>> queue = new ArrayDeque<>(children);
+        while (!queue.isEmpty()) {
+            TreeNode<T> node = queue.getFirst();
+            System.out.println(node.value);
+            queue.addAll(node.children);
+        }
     }
 
     private void setParent(TreeNode<T> parent) {
