@@ -1,4 +1,4 @@
-package com.denchevgod;
+package com.denchevgod.ds.trees;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
