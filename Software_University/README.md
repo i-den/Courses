@@ -2,7 +2,7 @@
 
 <br />
 
-## *Courses taken while studying in SoftUni Bulgaria*
+## *SoftUni Courses - 2017 - 2019*
 
 ### 01. *Programming Basics*
 > *Language: c#*
