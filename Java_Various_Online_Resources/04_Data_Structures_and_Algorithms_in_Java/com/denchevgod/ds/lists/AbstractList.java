@@ -1,15 +1,23 @@
 package com.denchevgod.ds.lists;
 
-abstract class AbstractList<T> {
+abstract class AbstractList<T> implements List<T> {
     int size = 0;
 
-    int size() {
+    public int size() {
         return size;
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return size == 0;
     }
 
-    
+    static class Node<T> {
+        T val;
+        Node<T> next;
+
+        Node(T val, Node<T> next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
 }

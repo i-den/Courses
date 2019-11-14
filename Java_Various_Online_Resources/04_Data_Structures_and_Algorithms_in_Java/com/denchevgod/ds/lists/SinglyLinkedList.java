@@ -1,71 +1,58 @@
 package com.denchevgod.ds.lists;
 
-import java.util.NoSuchElementException;
-
 public class SinglyLinkedList<T> extends AbstractList<T> {
 
-    private Node<T> head = null;
+    private Node<T> head;
 
-    private Node<T> tail = null;
+    private Node<T> tail;
 
     public SinglyLinkedList() {}
 
-    public void addFirst(T ele) {
-        Node<T> tmp = new Node<>(ele);
-        tmp.next = head;
-        head = tmp;
+    @Override
+    public T peekFirst() {
+        if (isEmpty())
+            return null;
+        return head.val;
+    }
+
+    @Override
+    public T peekLast() {
+        if (isEmpty())
+            return null;
+        return tail.val;
+    }
+
+    @Override
+    public void addFirst(T val) {
+        head = new Node<>(val, head);
         if (isEmpty()) {
-            head = tail;
+            tail = head;
         }
         size++;
     }
 
-    public void addLast(T ele) {
-        Node<T> tmp = new Node<>(ele);
+    @Override
+    public void addLast(T val) {
+        Node<T> tmp = new Node<>(val, null);
         if (isEmpty()) {
             head = tmp;
+            tail = head;
         } else {
             tail.next = tmp;
         }
-        tail = tmp;
         size++;
     }
 
-    public T getFirst() {
+    @Override
+    public T removeFirst() {
         if (isEmpty())
-            throw new NoSuchElementException("List is empty");
-        Node<T> tmp = head;
-        head = tmp.next;
+            return null;
+        T val = head.val;
+        head = head.next;
         size--;
-        return tmp.ele;
-    }
-
-    public T getLast() {
-        if (isEmpty())
-            throw new NoSuchElementException("List is empty");
-        Node<T> tmp = tail;
-        Node<T> pen = penultimateNode();
-        pen.next = null;
-        tail = pen;
-        size--;
-        return tmp.ele;
-    }
-
-    private Node<T> penultimateNode() {
-        if (size == 1)
-            return head;
-        Node<T> tmp = head;
-        while (tmp.next != null) {
-            tmp = tmp.next;
+        if (isEmpty()) {
+            tail = null;
         }
-        return tmp;
-    }
-
-    private static class Node<T> {
-        T ele;
-        Node<T> next;
-        Node(T ele) {
-            this.ele = ele;
-        }
+        return val;
     }
 }
