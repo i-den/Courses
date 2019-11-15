@@ -12,26 +12,34 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         head.next = tail;
     }
 
-    public T getFirst() {
-        if (isEmpty())
-            return null;
+    @Override
+    public T peekFirst() {
         return head.next.val;
     }
 
-    public T getLast() {
-        if (isEmpty())
-            return null;
+    @Override
+    public T peekLast() {
         return tail.prev.val;
     }
 
+    @Override
     public void addFirst(T val) {
         addBetween(val, head, head.next);
     }
 
+    @Override
     public void addLast(T val) {
         addBetween(val, tail.prev, tail);
     }
 
+    private void addBetween(T val, Node<T> before, Node<T> after) {
+        Node<T> tmp = new Node<>(val, before, after);
+        before.next = tmp;
+        after.prev = tmp;
+        size++;
+    }
+
+    @Override
     public T removeFirst() {
         if (isEmpty())
             return null;
@@ -44,13 +52,6 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
         return remove(tail.prev);
     }
 
-    private void addBetween(T val, Node<T> pred, Node<T> suc) {
-        Node<T> tmp = new Node<>(val, pred, suc);
-        pred.next = tmp;
-        suc.prev = tmp;
-        size++;
-    }
-
     private T remove(Node<T> tmp) {
         tmp.prev.next = tmp.next;
         tmp.next.prev = tmp.prev;
@@ -60,8 +61,8 @@ public class DoublyLinkedList<T> extends AbstractList<T> {
 
     private static class Node<T> {
         private T val;
-        private Node<T> next;
         private Node<T> prev;
+        private Node<T> next;
 
         private Node(T val, Node<T> prev, Node<T> next) {
             this.val = val;
