@@ -1,201 +1,95 @@
 package com.denchevgod.ds.trees;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 public class LinkedBinaryTree<T> extends AbstractBinaryTree<T> {
 
-    protected TreeNode<T> root = null;
+    private Node<T> root;
 
     private int size = 0;
 
-    public LinkedBinaryTree() {
-    }
+    public LinkedBinaryTree() {}
 
-    protected TreeNode<T> validate(TreeNode<T> node) throws IllegalArgumentException {
-        if (node.parent == node)
-            throw new IllegalArgumentException("Node is no longer in the tree");
-        return node;
-    }
-
+    @Override
     public TreeNode<T> root() {
         return root;
     }
 
+    @Override
+    public TreeNode<T> left(TreeNode<T> treeNode) {
+        return ((Node<T>) treeNode).left;
+    }
+
+    @Override
+    public TreeNode<T> right(TreeNode<T> treeNode) {
+        return ((Node<T>) treeNode).right;
+    }
+
+    @Override
+    public TreeNode<T> parent(TreeNode<T> treeNode) {
+        return ((Node<T>) treeNode).parent;
+    }
+
+    @Override
     public int size() {
         return size;
     }
 
     @Override
-    public TreeNode<T> parent(TreeNode<T> node) {
-        node = validate(node);
-        return node.parent;
+    public Iterable<TreeNode<T>> nodes() {
+        return null;
     }
 
-    @Override
-    public TreeNode<T> left(TreeNode<T> node) {
-        node = validate(node);
-        return node.left;
-    }
-
-    @Override
-    public TreeNode<T> right(TreeNode<T> node) {
-        node = validate(node);
-        return node.right;
-    }
-
-    public TreeNode<T> addRoot(T ele) throws IllegalStateException {
-        if (!isEmpty())
+    public Node<T> addRoot(T val) throws IllegalStateException {
+        if (isEmpty())
             throw new IllegalStateException("Tree is not empty");
-        root = new TreeNode<>(ele, null, null, null);
+        root = new Node<>(val, null, null, null);
         size = 1;
         return root;
     }
 
-    public TreeNode<T> addLeft(TreeNode<T> node, T ele) {
-        TreeNode<T> parent = parent(node);
-        if (parent.left != null) {
-            throw new IllegalArgumentException("Node already has left child");
-        }
-        TreeNode<T> child = new TreeNode<>(ele, parent, null, null);
-        parent.left = child;
+    public Node<T> addLeft(Node<T> node, T val) {
+        if (node.left != null)
+            throw new IllegalArgumentException("The node already has a left child");
+        node.left = new Node<>(val, node, null, null);
         size++;
-        return child;
+        return node.left;
     }
 
-    public TreeNode<T> addRight(TreeNode<T> node, T ele) {
-        TreeNode<T> parent = parent(node);
-        if (parent.right != null) {
-            throw new IllegalArgumentException("Node already has right child");
-        }
-        TreeNode<T> child = new TreeNode<>(ele, parent, null, null);
-        parent.right = child;
+    public Node<T> addRight(Node<T> node, T val) {
+        if (node.right != null)
+            throw new IllegalArgumentException("The node already has a left child");
+        node.right = new Node<>(val, node, null, null);
         size++;
-        return child;
+        return node.right;
     }
 
-    public T set(TreeNode<T> node, T ele) throws IllegalArgumentException {
-        node = validate(node);
-        T temp = node.ele;
-        node.ele = ele;
-        return temp;
-    }
-
-    public void attach(TreeNode<T> node, LinkedBinaryTree<T> firstTree, LinkedBinaryTree<T> secTree) throws IllegalArgumentException {
-        node = validate(node);
-        if (isInternal(node))
-            throw new IllegalArgumentException("The node must be a leaf");
-        size += firstTree.size + secTree.size;
-        if (!firstTree.isEmpty()) {
-            firstTree.root.parent = node;
-            node.left = firstTree.root;
-            firstTree.root = null;
-            firstTree.size = 0;
-        }
-        if (!secTree.isEmpty()) {
-            secTree.root.parent = node;
-            node.right = secTree.root;
-            secTree.root = null;
-            secTree.size = 0;
-        }
-    }
-
-    public T remove(TreeNode<T> node) throws IllegalArgumentException {
-        node = validate(node);
+    public T remove(Node<T> node) throws IllegalArgumentException {
         if (childCnt(node) == 2)
-            throw new IllegalArgumentException("Node has two children");
-        TreeNode<T> child = (node.left != null ? node.left : node.right);
-        if (child != null)
-            child.parent = node.parent;
+            throw new IllegalArgumentException("The node has 2 children");
+        Node<T> child = node.left == null ? node.right : node.left;
         if (node == root) {
             root = child;
         } else {
-            if (node == node.parent.left)
+            if (node == node.parent.left) {
                 node.parent.left = child;
-            else
+            } else {
                 node.parent.right = child;
-        }
-        size--;
-        T temp = node.ele;
-        node.ele = null;
-        node.left = null;
-        node.right = null;
-        node.parent = node;
-        return temp;
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        throw new NotImplementedException(); // TODO
-    }
-
-    @Override
-    public Iterable<TreeNode<T>> positions() {
-        throw new NotImplementedException(); // TODO
-    }
-
-    public Iterable<TreeNode<T>> preOrder() {
-        List<TreeNode<T>> snapshot = new ArrayList<>();
-        if (!isEmpty())
-            preOrderSubtree(root, snapshot);
-        return snapshot;
-    }
-
-    private void preOrderSubtree(TreeNode<T> node, List<TreeNode<T>> snapshot) {
-        snapshot.add(node);
-        for (TreeNode<T> child : children(node)) {
-            preOrderSubtree(child, snapshot);
-        }
-    }
-
-    public Iterable<TreeNode<T>> inOrder() {
-        List<TreeNode<T>> snapshot = new ArrayList<>();
-        if (!isEmpty())
-            inOrderSubtree(root, snapshot);
-        return snapshot;
-    }
-
-    private void inOrderSubtree(TreeNode<T> node, List<TreeNode<T>> snapshot) {
-        if (left(node) != null)
-            inOrderSubtree(left(node), snapshot);
-        snapshot.add(node);
-        if (right(node) != null)
-            inOrderSubtree(right(node), snapshot);
-    }
-
-    public Iterable<TreeNode<T>> postOrder() {
-        List<TreeNode<T>> snapshot = new ArrayList<>();
-        if (!isEmpty())
-            postOrderSubtree(root, snapshot);
-        return snapshot;
-    }
-
-    private void postOrderSubtree(TreeNode<T> node, List<TreeNode<T>> snapshot) {
-        for (TreeNode<T> child : children(node)) {
-            postOrderSubtree(child, snapshot);
-        }
-        snapshot.add(node);
-    }
-
-    public Iterable<TreeNode<T>> breadthFirst() {
-        List<TreeNode<T>> snapshot = new ArrayList<>();
-        if (!isEmpty()) {
-            ArrayDeque<TreeNode<T>> queue = new ArrayDeque<>();
-            queue.addLast(root);
-            while (!queue.isEmpty()) {
-                TreeNode<T> node = queue.pollFirst();
-                snapshot.add(node);
-                for (TreeNode<T> child : children(node)) {
-                    queue.addLast(child);
-                }
             }
         }
-        return snapshot;
+        size--;
+        return node.val;
     }
 
+    static class Node<T> implements TreeNode<T> {
+        private T val;
+        private Node<T> parent;
+        private Node<T> left;
+        private Node<T> right;
 
+        Node(T val, Node<T> parent, Node<T> left, Node<T> right) {
+            this.val = val;
+            this.parent = parent;
+            this.left = left;
+            this.right = right;
+        }
+    }
 }

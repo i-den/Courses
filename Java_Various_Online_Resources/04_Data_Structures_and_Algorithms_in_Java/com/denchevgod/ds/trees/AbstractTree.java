@@ -1,48 +1,44 @@
 package com.denchevgod.ds.trees;
 
-abstract class AbstractTree<T> implements Tree<T> {
+import java.util.Iterator;
 
-    public boolean isInternal(TreeNode<T> node) {
-        return childCnt(node) > 0;
+public abstract class AbstractTree<T> implements Tree<T> {
+
+    public boolean isInternal(TreeNode<T> treeNode) {
+        return childCnt(treeNode) > 0;
     }
 
-    public boolean isExternal(TreeNode<T> node) {
-        return childCnt(node) == 0;
+    @Override
+    public boolean isExternal(TreeNode<T> treeNode) {
+        return childCnt(treeNode) == 0;
     }
 
-    public boolean isRoot(TreeNode<T> node) {
-        return root() == node;
+    @Override
+    public boolean isRoot(TreeNode<T> treeNode) {
+        return treeNode == root();
     }
 
+    @Override
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    public int depth(TreeNode<T> node) {
-        if (isRoot(node))
+    public int depth(TreeNode<T> treeNode) {
+        if (isRoot(treeNode))
             return 0;
-        return 1 + depth(node.parent);
+        return 1 + depth(parent(treeNode));
     }
 
-    public int height(TreeNode<T> node) {
+    public int height(TreeNode<T> treeNode) {
         int h = 0;
-        for (TreeNode<T> child : children(node)) {
-            h = Math.max(h, 1 + height(node));
+        for (TreeNode<T> child : children(treeNode)) {
+            h = Math.max(h, 1 + height(child));
         }
         return h;
     }
 
-    static class TreeNode<T> {
-        T ele;
-        TreeNode<T> parent;
-        TreeNode<T> left;
-        TreeNode<T> right;
-
-        TreeNode(T ele, TreeNode<T> parent, TreeNode<T> left, TreeNode<T> right) {
-            this.ele = ele;
-            this.parent = parent;
-            this.left = left;
-            this.right = right;
-        }
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 }
