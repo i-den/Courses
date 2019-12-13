@@ -1,4 +1,4 @@
-# CREATE
+##################### CREATE
 INSERT INTO 
 	`table` (col1, col2)
 VALUES 
@@ -6,18 +6,23 @@ VALUES
 	(v3, v4)
 	(v5, DEFAULT);
 
-# READ
-SELECT
+##################### READ
+SELECT DISTINCT
 	(col1, col2)
 FROM
 	`table`
 INNER JOIN
 	`table2`
 WHERE
-	clause
+	clause LIKE 'str%'
+AND
+	col LIKE '___' # len
+ORDER BY
+	cmp_col DESC, cmp_col_2
 LIMIT 0,1;
 
-# UPDATE
+
+##################### UPDATE
 UPDATE 
 	`table`
 SET
@@ -25,6 +30,6 @@ SET
 WHERE
 	clause;
 
-# DELET this
+##################### DELET this
 DELETE FROM `table`
 WHERE clause;
