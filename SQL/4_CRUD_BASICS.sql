@@ -9,6 +9,10 @@ VALUES
 ##################### READ
 SELECT DISTINCT
 	(col1, col2)
+CASE
+	WHEN col0 BETWEEN 0 AND 1 THEN 'STRING1'
+	WHEN col1 = 2 			  THEN 'STRING2'
+							  ELSE 'STRING3'
 FROM
 	`table`
 INNER JOIN
@@ -17,6 +21,8 @@ WHERE
 	clause LIKE 'str%'
 AND
 	col LIKE '___' # len
+OR
+	col3 in ('1', '2', '3')
 ORDER BY
 	cmp_col DESC, cmp_col_2
 LIMIT 0,1;

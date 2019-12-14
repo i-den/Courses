@@ -1,0 +1,8 @@
+COUNT(*)
+
+MIN()
+MAX()
+SUM()
+
+GROUP_CONCAT()
+GROUP BY
