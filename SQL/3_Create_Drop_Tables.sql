@@ -5,6 +5,7 @@ CREATE TABLE [IF NOT EXISTS] `table_name` (
     last_name       VARCHAR(255)    NOT NULL DEFAULT 'unnamed',
     created         TIMESTAMP       DEFAULT CURRENT_TIMESTAMP,
     updated         TIMESTAMP       DEFAULT CURRENT_TIMESTAMP   ON UPDATE CURRENT_TIMESTAMP
+    FOREIGN KEY(id) REFERENCES external_table(column)
 ) ENGINE=INNODB;
 
 # Dropping Table

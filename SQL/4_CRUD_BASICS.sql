@@ -17,6 +17,7 @@ FROM
 	`table`
 INNER JOIN
 	`table2`
+	ON tabl1.id = table2.t1_id
 WHERE
 	clause LIKE 'str%'
 AND
