@@ -26,7 +26,6 @@ public class RecipeCommandToRecipe implements Converter<RecipeCommand, Recipe> {
         this.notesConverter = notesConverter;
     }
 
-
     @Synchronized
     @Nullable
     @Override
