@@ -6,7 +6,12 @@
 *.user
 *.userosscache
 *.sln.docstates
-
+25
+26
+30
+31
+1
+10-19
 #Making it Simplistic
 *.csproj
 *.config

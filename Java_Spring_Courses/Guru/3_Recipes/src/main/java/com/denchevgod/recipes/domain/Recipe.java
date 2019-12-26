@@ -19,7 +19,7 @@ public class Recipe {
 
     private Integer servings;
 
-    private Integer source;
+    private String source;
 
     private String url;
 
@@ -86,11 +86,11 @@ public class Recipe {
         this.servings = servings;
     }
 
-    public Integer getSource() {
+    public String getSource() {
         return source;
     }
 
-    public void setSource(Integer source) {
+    public void setSource(String source) {
         this.source = source;
     }
 
