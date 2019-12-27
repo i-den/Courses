@@ -7,6 +7,7 @@ import com.denchevgod.recipes.domain.Recipe;
 import com.denchevgod.recipes.repository.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -41,11 +42,24 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
+    @Transactional
+    public RecipeCommand findCommandByID(Long id) {
+        return recipeToRecipeCommand.convert(findByID(id));
+    }
+
+    @Override
+    public void deleteByID(Long id) {
+        recipeRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
     public RecipeCommand saveRecipeCommand(RecipeCommand command) {
         Recipe detachedRecipe = recipeCommandToRecipe.convert(command);
         Recipe savedRecipe = recipeRepository.save(detachedRecipe);
         log.debug("Saved Recipe with ID: " + savedRecipe.getId());
         return recipeToRecipeCommand.convert(savedRecipe);
     }
+
 
 }

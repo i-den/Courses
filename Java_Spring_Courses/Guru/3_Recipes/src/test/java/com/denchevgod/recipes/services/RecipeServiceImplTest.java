@@ -1,5 +1,7 @@
 package com.denchevgod.recipes.services;
 
+import com.denchevgod.recipes.converters.RecipeCommandToRecipe;
+import com.denchevgod.recipes.converters.RecipeToRecipeCommand;
 import com.denchevgod.recipes.domain.Recipe;
 import com.denchevgod.recipes.repository.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class RecipeServiceImplTest {
 
     RecipeServiceImpl recipeService;
+    RecipeCommandToRecipe recipeCommandToRecipe;
+    RecipeToRecipeCommand recipeToRecipeCommand;
 
     @Mock
     RecipeRepository recipeRepository;

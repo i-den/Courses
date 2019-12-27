@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--/*@thymesVar id="recipe" type="com.denchevgod.recipes.domain.Recipe"*/-->
+<form th:object="${recipe}" th:action="@{/recipe/}">
+    <input type="hidden" th:field="*{id}">
+
+    <label>Recipe Description:
+        <input type="text" th:field="*{description}">
+    </label>
+    <br>
+
+    <label>Preparation Time:
+        <input type="text" th:field="*{preparationTime}">
+    </label>
+    <br>
+
+    <label>Cooking Time:
+        <input type="text" th:field="*{cookingTime}">
+    </label>
+    <br>
+
+    <label>Servings:
+        <input type="text" th:field="*{servings}">
+    </label>
+    <br>
+
+    <label>Source:
+        <input type="text" th:field="*{source}">
+    </label>
+    <br>
+
+    <label>URL:
+        <input type="text" th:field="*{url}">
+    </label>
+    <br>
+
+    <h3>Ingredients</h3>
+    <a href="#" role="button">Edit</a>
+
+    <ul>
+        <li th:remove="all">1 Cup of milk</li>
+        <li th:remove="all">1 Teaspoon of chocolate</li>
+        <li th:each="ingredient : ${recipe.ingredients}"
+            th:text="${(ingredient.getAmount() +
+                        ' ' + ingredient.uom.description +
+                        ' - ' + ingredient.description)}">1 Teaspoon of Sugar
+        </li>
+    </ul>
+    <br>
+
+    <label> Directions:
+        <textarea rows="3" th:field="*{directions}"></textarea>
+    </label>
+    <br>
+
+    <label> Notes:
+        <textarea rows="3" th:field="*{notes.recipeNotes}"></textarea>
+    </label>
+    <br>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
