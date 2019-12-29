@@ -4,12 +4,14 @@ import com.denchevgod.recipes.commands.RecipeCommand;
 import com.denchevgod.recipes.converters.RecipeCommandToRecipe;
 import com.denchevgod.recipes.converters.RecipeToRecipeCommand;
 import com.denchevgod.recipes.domain.Recipe;
+import com.denchevgod.recipes.exceptions.NotFoundException;
 import com.denchevgod.recipes.repository.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Slf4j
@@ -38,7 +40,12 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public Recipe findByID(Long id) {
-        return recipeRepository.findById(id).orElse(null);
+        Optional<Recipe> recipeOptional = recipeRepository.findById(id);
+        if (!recipeOptional.isPresent()) {
+           throw new NotFoundException("Recipe with ID " + id + " not found!");
+            //throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Str");
+        }
+        return recipeOptional.get();
     }
 
     @Override
