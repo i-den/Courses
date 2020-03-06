@@ -28,6 +28,12 @@ class OwnerSDJPAServiceTest {
     @Mock
     OwnerRepository ownerRepository;
 
+    @Mock
+    PetRepository petRepository;
+
+    @Mock
+    PetTypeRepository petTypeRepository;
+
     @InjectMocks
     OwnerSDJPAService ownerService;
 
