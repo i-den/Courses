@@ -1,0 +1,30 @@
+Abstraction
+ - hiding implementation
+ - don't care, just use
+
+Polymorphism
+ - overriding		 Ad Hoc
+ - generics 		 Param Poly
+ - subtyping		 Late Binding
+
+Inheritance
+
+Encapsulation
+
+SOLID
+ - Single Responsibility
+ - Open/Closed
+ - Liskov
+ - Interface Segregation
+ - Dependency Inversion
+
+Design Smells
+ - rigidity
+ - fragility
+ - immobility
+ - opaque
+
+Additional
+ - command query sep
+ - tell, don't ask
+ - use cases
