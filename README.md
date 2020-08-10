@@ -2,7 +2,7 @@
 
 This includes a list of concepts that I've been studying over the past years.
 
- - #### Software University
+ - #### [Software University](https://github.com/i-den/Courses/tree/master/Software_University)
    - Basic Programming
    - C#, PHP, JavaScript, HTML, CSS ***(2017-2019)***
    - Java ***(2019)***
@@ -19,5 +19,5 @@ This includes a list of concepts that I've been studying over the past years.
  - #### Other Concepts
    - [git](https://github.com/i-den/Courses/tree/master/Git)
    - [SQL](https://github.com/i-den/Courses/tree/master/SQL)
-   - notes on OOP, SOLID
-   - HTML Spec (whatwg), CSS (Def Guide, Frontend Masters)
+   - [notes](https://github.com/i-den/Courses/tree/master/Java/00_OOP_SOLID) on OOP, SOLID
+   - [HTML Spec](https://github.com/i-den/Courses/tree/master/Frontend/02_HTML_spec) (whatwg), CSS ([Def Guide](https://github.com/i-den/Courses/tree/master/Frontend/03_CSS_Def_Guide), Frontend Masters)
