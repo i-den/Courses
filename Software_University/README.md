@@ -5,21 +5,21 @@
 ## *SoftUni Courses - 2017 - 2019*
 
 ### 01. *Programming Basics*
-> *Language: c#*
+> *Language: C#*
 >
 > *Period: January - March, 2017*
 
 <hr />
 
 ### 02. *Programming Fundamentals*
-> *Language: c#*
+> *Language: C#*
 >
 > *Period: May - July, 2017*
 
 <hr />
 
 ### 03. *Software Technologies*
-> *Languages: PHP, JavaScript, Java, c#*
+> *Languages: PHP, JavaScript, Java, C#*
 >
 > *+ HTML, CSS*
 >
