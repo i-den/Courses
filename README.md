@@ -17,7 +17,7 @@ This includes a list of concepts that I've been studying over the past years.
    > What I've been doing since Jan, 2019
 
  - #### Other Concepts
-   - [git](https://github.com/i-den/Courses/tree/master/Git)
+   - [git](https://github.com/i-den/git)
    - [SQL](https://github.com/i-den/Courses/tree/master/SQL)
    - [notes](https://github.com/i-den/Courses/tree/master/Java/00_OOP_SOLID) on OOP, SOLID
    - [HTML Spec](https://github.com/i-den/Courses/tree/master/Frontend/02_HTML_spec) (whatwg), CSS ([Def Guide](https://github.com/i-den/Courses/tree/master/Frontend/03_CSS_Def_Guide), Frontend Masters)
