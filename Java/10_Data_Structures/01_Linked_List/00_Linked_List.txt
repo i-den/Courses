@@ -1,0 +1,19 @@
+Singly Linked List
+
+HEAD -> [Data|PTR] -> [Data|PTR] -> [Data|PTR] -> [Data|null] -|
+
+
+Doubly Linked List
+
+HEAD -> [null|Data|PTR] -> [PTR|Data|PTR] -> [PTR|Data|null] -|
+
+
+
+Circular Linked List
+
+HEAD -> [Data|PTR] -> [Data|PTR] -> [Data|PTR] -> [Data|HEAD] -|
+
+
+Doubly Linked List
+
+HEAD -> [PTR|Data|PTR] -> [PTR|Data|PTR] -> [PTR|Data|HEAD] -|
