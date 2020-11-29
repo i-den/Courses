@@ -5,6 +5,11 @@ import java.util.Set;
 
 public class P03_Longest_Distinct_Char_Substring {
 
+    public static void main(String[] args) {
+        P03_Longest_Distinct_Char_Substring solution = new P03_Longest_Distinct_Char_Substring();
+        System.out.println(solution.lengthOfLongestSubstring2("abcdcaaz"));
+    }
+
     public int lengthOfLongestSubstring(String str) {
         if (str.length() == 0) {
             return 0;
